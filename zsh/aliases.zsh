@@ -12,7 +12,6 @@ alias dcu='docker-compose up'
 alias drab='docker-compose run --rm app bundle'
 alias extstat="find . -type f -not -iwholename '*.svn*' -not -iwholename '*.git*' | sed 's/.*\.//' | sort | uniq -c | sort -r"
 alias j2y='ruby -ryaml -rjson -e "puts YAML.dump(JSON.parse(STDIN.read))"'
-alias jo='joplin'
 alias kc='kubectl'
 alias ll='exa -la'
 alias myip='curl -s https://api.ipify.org'
