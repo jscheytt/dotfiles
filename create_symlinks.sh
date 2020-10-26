@@ -8,6 +8,8 @@ cd ~
 ln -s $install_path/zsh/zshrc.txt .zshrc
 ln -s $install_path/zsh/p10k.zsh .p10k.zsh
 
+git config --global core.attributesfile $install_path/.gitattributes
+
 cd ~/.oh-my-zsh/custom
 ln -s ../../$install_path/zsh/aliases.zsh aliases.zsh
 
