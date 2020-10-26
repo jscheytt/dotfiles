@@ -129,3 +129,5 @@ map <Leader>dt :diffthis<CR>
 map <Leader>df :diffoff!<CR>
 " Git
 map <Leader>gp :Gpush<CR>
+" ALEFix
+map <Leader>af :ALEFix<CR>
