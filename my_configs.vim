@@ -39,17 +39,19 @@ set expandtab
 " let g:ale_fix_on_save = 1
 let g:ale_linters = {
 \  'dockerfile': ['hadolint'],
+\  'html': ['prettier'],
 \  'javascript': ['eslint'],
 \  'python': ['flake8'],
 \  'xml' : ['xmllint'],
 \  'yaml': ['prettier'],
 \}
 let g:ale_fixers = {
-\  'javascript': ['eslint'],
+\  'html': ['prettier'],
+\  'javascript': ['prettier'],
 \  'json': ['jq'],
 \  'python': ['autopep8'],
-\  'rust': ['rustfmt'],
 \  'ruby': ['rubocop'],
+\  'rust': ['rustfmt'],
 \  'sh': ['shfmt'],
 \  'xml' : ['xmllint'],
 \  'yaml': ['prettier'],
