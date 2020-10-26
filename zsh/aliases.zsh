@@ -111,10 +111,10 @@ function upgrade() {
   echo -e "\n\n## vim"
   upgrade_vim
   echo -e "\n\n## oh_my_zsh"
-  upgrade_oh_my_zsh
+  omz update
   echo -e "\n\n## brew"
   brew upgrade
-  brew cask upgrade
+  brew upgrade --cask
 }
 function upgrade_vim() {
   OLD_PWD=$PWD
