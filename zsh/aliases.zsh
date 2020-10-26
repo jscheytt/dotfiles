@@ -2,7 +2,7 @@ alias aliases='${=EDITOR} $ZSH_CUSTOM/aliases.zsh'
 alias bcop='bundle exec rubocop -a'
 alias bfg='java -jar ~/Applications/bfg-1.13.0.jar'
 alias bppg="docker run --rm --name tf-postgres -e POSTGRES_DB='pipelines' -e POSTGRES_USER='test_user' -e POSTGRES_PASSWORD='test_user_password' -p 5432:5432 postgres:11"
-alias bspec='bundle exec rspec --fail-fast'
+alias bspec='bundle exec rescue rspec'
 alias cz='git cz'
 alias dc='docker-compose'
 alias dcb='docker-compose build'
