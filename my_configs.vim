@@ -68,6 +68,9 @@ let g:ale_fixers = {
 " Apache
 au! BufNewFile,BufReadPost *.conf set filetype=apache foldmethod=syntax
 
+" Dockerfile
+au! BufNewFile,BufReadPost *.{Dockerfile} set filetype=Dockerfile
+
 " Go
 map <Leader>xg :GoRun<CR>
 
