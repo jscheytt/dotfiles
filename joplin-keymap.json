@@ -10,5 +10,6 @@
   { "keys": ["tr"], "type": "prompt", "command": "tag remove \"\" $n", "cursorPosition": -5 },
   { "keys": ["ta"], "type": "prompt", "command": "tag add \"\" $n", "cursorPosition": -5 },
   { "keys": ["tl"], "type": "exec", "command": "tag notetags $n" },
-  { "keys": ["da"], "type": "exec", "command": "mv $n Archiv" }
+  { "keys": ["da"], "type": "exec", "command": "mv $n Archiv" },
+  { "keys": ["sz"], "type": "exec", "command": "sync" }
 ]
