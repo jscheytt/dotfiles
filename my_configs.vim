@@ -27,12 +27,6 @@ autocmd VimEnter * NERDTreeToggle
 autocmd BufWinEnter * silent! :%foldopen!
 " Sync system clipboard
 set clipboard=unnamed
-" Nerdtree fixes
-augroup nerdtree
-    autocmd!
-    autocmd FileType nerdtree syntax clear NERDTreeFlags
-    " other nerdtree related aucomds
-augroup END
 " after a re-source, fix syntax matching issues (concealing brackets):
 if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
