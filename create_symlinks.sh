@@ -21,3 +21,6 @@ ln -s ../$install_path/my_configs.vim my_configs.vim
 
 cd ~/.aws
 ln -s ../$install_path/aws_config.ini config
+
+cd ~/.config/joplin
+ln -s ../../$install_path/joplin_keymap.json keymap.json
