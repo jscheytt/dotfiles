@@ -9,7 +9,16 @@ colorscheme solarized
 set background=light
 " highlight Normal ctermbg=NONE
 " Status line color scheme
-let g:lightline = { 'colorscheme': 'solarized' }
+let g:lightline = {
+  \ 'colorscheme': 'solarized',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'FugitiveHead'
+  \ },
+  \ }
 " Position NerdTree left
 let g:NERDTreeWinPos = "left"
 " Open NerdTree sidebar on startup
