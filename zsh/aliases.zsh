@@ -87,7 +87,11 @@ function rdbs() {
   bundle exec rails db:seed
 }
 function upgrade() {
-  echo -e "## git"
+  echo -e "\n\n## brew"
+  brew upgrade
+  brew upgrade --cask
+  brew bundle dump -f --file ~/Documents/ecosystem/dotfiles/Brewfile
+  echo -e "\n\n## git"
   cd ~/Documents
   mu up --all
   mu pull origin master --no-edit -q
@@ -96,11 +100,13 @@ function upgrade() {
   AWS_PROFILE=prod helm repo update
   echo -e "\n\n## vim"
   upgrade_vim
+  echo -e "\n\n## npm"
+  npm outdated -g --depth=0
+  npm update -g
+  echo -e "\n\n## joplin"
+  joplin sync
   echo -e "\n\n## oh_my_zsh"
   omz update
-  echo -e "\n\n## brew"
-  brew upgrade
-  brew upgrade --cask
 }
 function upgrade_vim() {
   OLD_PWD=$PWD
