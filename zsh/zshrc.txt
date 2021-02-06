@@ -138,6 +138,17 @@ export KUBECONFIG=${KUBECONFIG_PATH}/config-dev:${KUBECONFIG_PATH}/config-prod:$
 # Bat configuration
 export BAT_THEME="OneHalfLight"
 
+# nvm configuration
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm use node --silent
+
+# TBlue
+export PROCESS_ENGINE_URL=http://localhost:8888
+export PROCESS_ENGINE_AMQP_URL=amqp://guest:guest@localhost:5672
+export PROCESS_ENGINE_QUEUE=backend-dev-qe
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
