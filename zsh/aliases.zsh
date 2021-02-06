@@ -2,20 +2,20 @@ alias aliases='${=EDITOR} $ZSH_CUSTOM/aliases.zsh'
 alias bcop='bundle exec rubocop -a'
 alias bfg='java -jar ~/Applications/bfg-1.13.0.jar'
 alias bppg="docker run --rm --name tf-postgres -e POSTGRES_DB='pipelines' -e POSTGRES_USER='test_user' -e POSTGRES_PASSWORD='test_user_password' -p 5432:5432 postgres:11"
-alias bspec='bundle exec rescue rspec'
+alias bym='bundle install && yarn install && rails db:migrate && rails data:migrate'
 alias cz='git cz'
-alias extstat="find . -type f -not -iwholename '*.svn*' -not -iwholename '*.git*' | sed 's/.*\.//' | sort | uniq -c | sort -r"
+alias ecr-login='aws --profile prod ecr get-login-password | docker login --username AWS --password-stdin ***REMOVED***.dkr.ecr.eu-central-1.amazonaws.com'
+alias extstat="find . -type f -name '*.*' -not -iwholename '*.svn*' -not -iwholename '*.git*' -print | sed 's/.*\.//' | sort | uniq -c | sort -r"
 alias j2y='ruby -ryaml -rjson -e "puts YAML.dump(JSON.parse(STDIN.read))"'
-alias kc='kubectl'
 alias ll='exa -la'
 alias myip='curl -s https://api.ipify.org'
+alias php53='docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp php:5.3.29-cli'
+alias rdam='rails data:migrate'
 alias ssh-config='${=EDITOR} ~/.ssh/config'
-alias suite_container='docker ps -lqf name=app_suitecrm'
-alias suite_db_local='docker exec -it $(docker ps -qf name=mariadb_1) mysql -u bn_suitecrm bitnami_suitecrm'
-alias suite_ssh='docker exec -it $(suite_container) env TERM=xterm-256color /bin/bash'
+alias suite-container='docker ps -lqf name=app_suitecrm'
+alias suite-db-local='docker exec -it $(docker ps -qf name=mariadb_1) mysql -u bn_suitecrm bitnami_suitecrm'
+alias suite-ssh='docker exec -it $(suite_container) env TERM=xterm-256color /bin/bash'
 alias t3log='$EDITOR /Volumes/Transline/Transact/3.7.0/customers/transline/dirs/log/$(date +%Y-%m-%e)/transact.log'
-alias tbdev="docker-compose run --rm -p 3000:3000 -e RAILS_ENV=development app bundle exec rails s -p 3000 -b '0.0.0.0'"
-alias tf='terraform'
 alias tfgraph='terraform graph -draw-cycles | dot -Tsvg > graph.svg'
 alias tfmt='tf fmt'
 alias vim='nvim'
@@ -70,8 +70,10 @@ function kpf() {
 }
 function kex() {
   local selector="$1"
-  local entrypoint="${2:-/bin/bash}"
-  kubectl exec -it $(kubectl get po -l "$selector" -o jsonpath="{.items[0].metadata.name}") -- "$entrypoint"
+  shift
+  local entrypoint=${@:-/bin/bash}
+  kubectl exec -it $(kubectl get po -l "$selector" -o jsonpath="{.items[0].metadata.name}") -- $entrypoint
+}
 }
 function pathogen() {
   cd ~/.vim_runtime/my_plugins
