@@ -4,12 +4,6 @@ alias bfg='java -jar ~/Applications/bfg-1.13.0.jar'
 alias bppg="docker run --rm --name tf-postgres -e POSTGRES_DB='pipelines' -e POSTGRES_USER='test_user' -e POSTGRES_PASSWORD='test_user_password' -p 5432:5432 postgres:11"
 alias bspec='bundle exec rescue rspec'
 alias cz='git cz'
-alias dc='docker-compose'
-alias dcb='docker-compose build'
-alias dcd='docker-compose down'
-alias dcr='docker-compose run --rm'
-alias dcu='docker-compose up'
-alias drab='docker-compose run --rm app bundle'
 alias extstat="find . -type f -not -iwholename '*.svn*' -not -iwholename '*.git*' | sed 's/.*\.//' | sort | uniq -c | sort -r"
 alias j2y='ruby -ryaml -rjson -e "puts YAML.dump(JSON.parse(STDIN.read))"'
 alias kc='kubectl'
@@ -87,18 +81,6 @@ function pathogen() {
 function rdbs() {
   bundle exec rails db:migrate:reset
   bundle exec rails db:seed
-}
-function tbs() {
-  # Takes about 11 min
-  docker-compose run --rm app curl elasticsearch:9200 # wait for OK status
-  docker-compose run --rm app bundle install
-  docker-compose run --rm app yarn install
-  docker-compose run --rm app bundle exec rake db:setup
-  docker-compose run --rm app bundle exec rake db:schema:load
-  docker-compose run --rm app bundle exec rake db:seed
-  docker-compose run --rm app bundle exec rake demo_data:generate
-  docker-compose run --rm app bundle exec rake tasks_samples:generate
-  docker-compose run --rm app bundle exec rake db:reindex_elasticsearch
 }
 function upgrade() {
   echo -e "## git"
