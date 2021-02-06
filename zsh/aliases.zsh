@@ -74,6 +74,8 @@ function kex() {
   local entrypoint=${@:-/bin/bash}
   kubectl exec -it $(kubectl get po -l "$selector" -o jsonpath="{.items[0].metadata.name}") -- $entrypoint
 }
+function parseYaml() {
+  yq e . "$1" -j | jq -C . | less -R
 }
 function pathogen() {
   cd ~/.vim_runtime/my_plugins
