@@ -40,21 +40,26 @@ set expandtab
 
 " Linting
 " let g:ale_fix_on_save = 1
+autocmd BufWritePost *.css,*.scss,*.js,*.jsx,*.html,*.htm ALEFix
 let g:ale_linters = {
+\  'css': ['prettier'],
 \  'dockerfile': ['hadolint'],
 \  'html': ['prettier'],
 \  'javascript': ['eslint'],
 \  'python': ['flake8'],
+\  'scss' : ['prettier'],
 \  'xml' : ['xmllint'],
-\  'yaml': ['prettier'],
+\  'yaml': ['yamllint'],
 \}
 let g:ale_fixers = {
+\  'css': ['prettier'],
 \  'html': ['prettier'],
 \  'javascript': ['prettier'],
 \  'json': ['jq'],
 \  'python': ['autopep8'],
 \  'ruby': ['rubocop'],
 \  'rust': ['rustfmt'],
+\  'scss' : ['prettier'],
 \  'sh': ['shfmt'],
 \  'xml' : ['xmllint'],
 \  'yaml': ['prettier'],
