@@ -97,7 +97,7 @@ function upgrade() {
   mu pull origin master --no-edit -q
   cd -
   echo -e "\n\n## helm"
-  AWS_PROFILE=prod helm repo update
+  helm repo update
   echo -e "\n\n## vim"
   upgrade_vim
   echo -e "\n\n## npm"

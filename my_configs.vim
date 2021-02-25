@@ -90,7 +90,7 @@ autocmd FileType markdown setlocal ts=4 sts=4 sw=4 expandtab spell!
 " au! BufNewFile,BufReadPost *.conf set filetype=nginx foldmethod=syntax
 
 " Pandoc LaTeX
-let g:pandoc#command#latex_engine = "pdflatex"
+" let g:pandoc#command#latex_engine = "pdflatex"
 
 " PHP
 let g:php_folding=2
