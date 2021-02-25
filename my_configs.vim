@@ -144,3 +144,6 @@ map <Leader>gp :Git push<CR>
 map <Leader>gl :Git pull<CR>
 " ALEFix
 map <Leader>af :ALEFix<CR>
+" Shell
+map <Leader>xs :!sh % > out.log<CR>
+map <Leader>xb :!bash % > out.log<CR>
