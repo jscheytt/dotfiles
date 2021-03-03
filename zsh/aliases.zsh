@@ -90,7 +90,8 @@ function upgrade() {
   echo -e "\n\n## brew"
   brew upgrade
   brew upgrade --cask
-  brew bundle dump -f --file ~/Documents/ecosystem/dotfiles/Brewfile
+  mas upgrade
+  brew bundle dump -f --mas --file ~/Documents/ecosystem/dotfiles/Brewfile
   echo -e "\n\n## git"
   cd ~/Documents
   mu up --all
