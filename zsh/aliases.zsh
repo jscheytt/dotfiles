@@ -104,6 +104,8 @@ function upgrade() {
   echo -e "\n\n## npm"
   npm outdated -g --depth=0
   npm update -g
+  echo -e "\n\n## rubygems"
+  gem update
   echo -e "\n\n## joplin"
   joplin sync
   echo -e "\n\n## oh_my_zsh"
