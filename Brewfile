@@ -97,7 +97,6 @@ cask "michaelvillar-timer"
 cask "ngrok"
 cask "postman"
 cask "telegram"
-cask "tla-plus-toolbox"
 mas "LastPass", id: 926036361
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "Microsoft To Do", id: 1274495053
