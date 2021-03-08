@@ -1,8 +1,8 @@
 #!/bin/sh
 set -x
 
-# Tell me where you cloned this repo to
-install_path="${1:-~/Documents/ecosystem/dotfiles}"
+# Tell me where you cloned this repo to (relative to ~)
+install_path="${1:-Documents/ecosystem/dotfiles}"
 
 cd ~
 ln -s $install_path/zsh/zshrc.txt .zshrc
@@ -24,3 +24,7 @@ ln -s ../$install_path/aws_config.ini config
 
 cd ~/.config/joplin
 ln -s ../../$install_path/joplin_keymap.json keymap.json
+
+mkdir -p ~/.teamocil
+cd ~/.teamocil
+ln -s ../$install_path/teamocil/upgrade.yml upgrade.yml

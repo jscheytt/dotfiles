@@ -18,6 +18,7 @@ alias suite-ssh='docker exec -it $(suite_container) env TERM=xterm-256color /bin
 alias t3log='$EDITOR /Volumes/Transline/Transact/3.7.0/customers/transline/dirs/log/$(date +%Y-%m-%e)/transact.log'
 alias tfgraph='terraform graph -draw-cycles | dot -Tsvg > graph.svg'
 alias tfmt='tf fmt'
+alias upgrade='itermocil upgrade'
 alias vim='nvim'
 alias vimdiff='nvim -d'
 alias y2j='ruby -ryaml -rjson -e "puts JSON.pretty_generate(YAML.load(STDIN.read))"'
@@ -85,31 +86,6 @@ function pathogen() {
 function rdbs() {
   bundle exec rails db:migrate:reset
   bundle exec rails db:seed
-}
-function upgrade() {
-  echo -e "\n\n## brew"
-  brew upgrade
-  brew upgrade --cask
-  mas upgrade
-  brew bundle dump -f --mas --file ~/Documents/ecosystem/dotfiles/Brewfile
-  echo -e "\n\n## git"
-  cd ~/Documents
-  mu up --all
-  mu pull origin master --no-edit -q
-  cd -
-  echo -e "\n\n## helm"
-  helm repo update
-  echo -e "\n\n## vim"
-  upgrade_vim
-  echo -e "\n\n## npm"
-  npm outdated -g --depth=0
-  npm update -g
-  echo -e "\n\n## rubygems"
-  gem update
-  echo -e "\n\n## joplin"
-  joplin sync
-  echo -e "\n\n## oh_my_zsh"
-  omz update
 }
 function upgrade_vim() {
   OLD_PWD=$PWD

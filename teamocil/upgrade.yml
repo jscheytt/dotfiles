@@ -1,0 +1,21 @@
+windows:
+  - name: upgrade
+    root: ~/Documents
+    layout: tiled
+    panes:
+      - commands:
+          - brew upgrade
+          - brew upgrade --cask
+          - mas upgrade
+          - brew bundle dump -f --mas --file ~/Documents/ecosystem/dotfiles/Brewfile
+        name: homebrew
+      - commands:
+          - mu up --all
+          - mu pull origin master --no-edit -q
+        name: git
+      - gem update
+      - joplin sync
+      - npm update -g
+      - omz update
+      - pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
+      - upgrade_vim
