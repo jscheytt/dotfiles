@@ -3,7 +3,6 @@ set splitright
 " Show line numbers
 set number
 " Set color scheme
-" colorscheme kuroi
 colorscheme solarized
 " let g:solarized_termcolors=256
 set background=light
@@ -27,7 +26,7 @@ autocmd VimEnter * NERDTreeToggle
 autocmd BufWinEnter * silent! :%foldopen!
 " Sync system clipboard
 set clipboard=unnamed
-" after a re-source, fix syntax matching issues (concealing brackets):
+" After a re-source, fix syntax matching issues (concealing brackets):
 if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
 endif
@@ -65,6 +64,9 @@ let g:ale_fixers = {
 \  'yaml': ['prettier'],
 \}
 
+" Vim Plugins
+let g:snipMate = { 'snippet_version' : 1 }
+
 " Apache
 au! BufNewFile,BufReadPost *.conf set filetype=apache foldmethod=syntax
 
@@ -72,7 +74,7 @@ au! BufNewFile,BufReadPost *.conf set filetype=apache foldmethod=syntax
 au! BufNewFile,BufReadPost *.{Dockerfile} set filetype=Dockerfile
 
 " Go
-map <Leader>xg :GoRun<CR>
+" map <Leader>xg :GoRun<CR>
 
 " JSON
 au FileType json setlocal foldmethod=syntax
