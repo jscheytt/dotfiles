@@ -77,9 +77,6 @@ function kex() {
   local entrypoint=${@:-/bin/bash}
   kubectl exec -it $(kubectl get po -l "$selector" -o jsonpath="{.items[0].metadata.name}") -- $entrypoint
 }
-function parseYaml() {
-  yq e . "$1" -j | jq -C . | less -R
-}
 function pathogen() {
   cd ~/.vim_runtime/my_plugins
   git clone --recurse-submodules "$1"
@@ -99,4 +96,7 @@ function upgrade_vim() {
   cd my_plugins
   find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;
   cd $OLD_PWD
+}
+function yp() {
+  yq e . "$1" -j | jq -C . | less -R
 }
