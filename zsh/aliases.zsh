@@ -90,7 +90,7 @@ function upgrade_vim() {
   OLD_PWD=$PWD
   cd ~/.vim_runtime
   git restore .
-  git clean -f
+  git clean -fd
   git pull --rebase
   python update_plugins.py
   cd my_plugins
