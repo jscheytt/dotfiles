@@ -7,6 +7,7 @@ alias cz='git cz'
 alias ecr-login='aws --profile prod ecr get-login-password | docker login --username AWS --password-stdin ***REMOVED***.dkr.ecr.eu-central-1.amazonaws.com'
 alias extstat="find . -type f -name '*.*' -not -iwholename '*.svn*' -not -iwholename '*.git*' -print | sed 's/.*\.//' | sort | uniq -c | sort -r"
 alias j2y='ruby -ryaml -rjson -e "puts YAML.dump(JSON.parse(STDIN.read))"'
+alias k9l="k9s info | grep Logs | awk '{ print \$2 }' | sed -e $'s#\033\[[;0-9]*m##g' | xargs vim"
 alias ll='exa -la'
 alias myip='curl -s https://api.ipify.org'
 alias php53='docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp php:5.3.29-cli'
