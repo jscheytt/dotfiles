@@ -12,17 +12,12 @@ upgrade_oh_my_zsh
 # Powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 echo "ZSH_THEME=powerlevel10k/powerlevel10k" >> ~/.zshrc
-# p10k configure
 
-# Configure AWS CLI
-# aws configure
-# Configure Git
-# git config --global user.name "Dein Name"
-# git config --global user.email "du@company.de"
-# You are now set to clone repositories
+# Install gems
+bundle install --system
 
-# Ruby
-rbenv install 2.6.5
-rbenv install 2.7.1
-rbenv global 2.7.1
-rbenv rehash
+# Install pip packages
+pip install -r requirements.txt
+
+# Create symlinks
+./create_symlinks.sh
