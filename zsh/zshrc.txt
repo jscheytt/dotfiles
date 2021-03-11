@@ -149,6 +149,9 @@ export PROCESS_ENGINE_URL=http://localhost:8888
 export PROCESS_ENGINE_AMQP_URL=amqp://guest:guest@localhost:5672
 export PROCESS_ENGINE_QUEUE=backend-dev-qe
 
+# SSH Keys
+ssh-add -q ~/.ssh/github_id.ed25519
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
