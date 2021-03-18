@@ -4,7 +4,7 @@ alias bfg='java -jar ~/Applications/bfg-1.13.0.jar'
 alias bppg="docker run --rm --name tf-postgres -e POSTGRES_DB='pipelines' -e POSTGRES_USER='test_user' -e POSTGRES_PASSWORD='test_user_password' -p 5432:5432 postgres:11"
 alias bym='bundle install && yarn install && rails db:migrate && rails data:migrate'
 alias cz='git cz'
-alias ecr-login='aws --profile prod ecr get-login-password | docker login --username AWS --password-stdin ***REMOVED***.dkr.ecr.eu-central-1.amazonaws.com'
+alias ecr-login='aws --profile prod ecr get-login-password | docker login --username AWS --password-stdin 432815428702.dkr.ecr.eu-central-1.amazonaws.com'
 alias extstat="find . -type f -name '*.*' -not -iwholename '*.svn*' -not -iwholename '*.git*' -print | sed 's/.*\.//' | sort | uniq -c | sort -r"
 alias j2y='ruby -ryaml -rjson -e "puts YAML.dump(JSON.parse(STDIN.read))"'
 alias k9l="k9s info | grep Logs | awk '{ print \$2 }' | sed -e $'s#\033\[[;0-9]*m##g' | xargs vim"
@@ -27,8 +27,8 @@ alias y2j='ruby -ryaml -rjson -e "puts JSON.pretty_generate(YAML.load(STDIN.read
 
 function aws-assume-role() {
   profile="$1"
-  if [ "$profile" = "dev" ]; then local account_id="***REMOVED***"; fi
-  if [ "$profile" = "prod" ]; then local account_id="***REMOVED***"; fi
+  if [ "$profile" = "dev" ]; then local account_id="765196992255"; fi
+  if [ "$profile" = "prod" ]; then local account_id="432815428702"; fi
   temp_role=$(aws sts assume-role --role-arn "arn:aws:iam::${account_id}:role/development-admin" --role-session-name "jsc")
   export AWS_ACCESS_KEY_ID=$(echo $temp_role | jq .Credentials.AccessKeyId | xargs)
   export AWS_SECRET_ACCESS_KEY=$(echo $temp_role | jq .Credentials.SecretAccessKey | xargs)
