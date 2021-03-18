@@ -12,10 +12,10 @@ windows:
       - commands:
           - mu up --all
           - mu pull origin master --no-edit -q
-        name: git
+          - upgrade_pip
+      - commands:
+          - joplin sync
+          - npm update -g
       - gem update
-      - joplin sync
-      - npm update -g
       - omz update
-      - upgrade_pip
       - upgrade_vim
