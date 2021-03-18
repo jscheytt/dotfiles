@@ -96,6 +96,7 @@ cask "font-roboto-slab"
 cask "iterm2"
 cask "michaelvillar-timer"
 cask "ngrok"
+cask "pomodone"
 cask "postman"
 cask "telegram"
 mas "LastPass", id: 926036361
