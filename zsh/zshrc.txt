@@ -133,7 +133,7 @@ export SOPS_KMS_ARN="arn:aws:kms:eu-west-2:518307210247:key/01eba850-30aa-4602-9
 
 # Kubernetes configuration
 KUBECONFIG_PATH=~/.kube
-export KUBECONFIG=${KUBECONFIG_PATH}/config-dev:${KUBECONFIG_PATH}/config-prod:${KUBECONFIG_PATH}/config-tf-prod:${KUBECONFIG_PATH}/config-desktop:${KUBECONFIG_PATH}/config
+export KUBECONFIG=${KUBECONFIG_PATH}/configs/dev.yml:${KUBECONFIG_PATH}/configs/integration.yml:${KUBECONFIG_PATH}/configs/prod.yml:${KUBECONFIG_PATH}/config
 
 # Bat configuration
 export BAT_THEME="OneHalfLight"
