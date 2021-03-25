@@ -1,3 +1,7 @@
+#!/bin/sh
+set -euo pipefail
+set -x
+
 # Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
@@ -7,10 +11,10 @@ brew bundle install
 
 # Set up ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-upgrade_oh_my_zsh
+omz update
 # RECOMMENDED: Read the oh_my_zsh documentation and activate plugins that are relevant for you: https://github.com/ohmyzsh/ohmyzsh
 # Powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 echo "ZSH_THEME=powerlevel10k/powerlevel10k" >> ~/.zshrc
 
 # Install gems
