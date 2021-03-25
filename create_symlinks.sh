@@ -28,3 +28,7 @@ ln -s ../../$install_path/joplin_keymap.json keymap.json
 mkdir -p ~/.teamocil
 cd ~/.teamocil
 ln -s ../$install_path/teamocil/upgrade.yml upgrade.yml
+
+mkdir -p ~/.vim/after/ftplugin
+cd ~/.vim/after/ftplugin
+ln -s ../../../$install_path/vim/conventional-commits.vim gitcommit.vim
