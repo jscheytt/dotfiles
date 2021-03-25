@@ -20,7 +20,7 @@ alias suite-ssh='docker exec -it $(suite_container) env TERM=xterm-256color /bin
 alias t3log='$EDITOR /Volumes/Transline/Transact/3.7.0/customers/transline/dirs/log/$(date +%Y-%m-%e)/transact.log'
 alias tfgraph='terraform graph -draw-cycles | dot -Tsvg > graph.svg'
 alias tfmt='tf fmt'
-alias upgrade='itermocil upgrade'
+alias upgrade='itermocil upgrade --here'
 alias vim='nvim'
 alias vimdiff='nvim -d'
 alias y2j='ruby -ryaml -rjson -e "puts JSON.pretty_generate(YAML.load(STDIN.read))"'
