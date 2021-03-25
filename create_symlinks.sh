@@ -1,4 +1,5 @@
 #!/bin/sh
+set -euo pipefail
 set -x
 
 # Tell me where you cloned this repo to (relative to ~)
@@ -14,13 +15,7 @@ cd ~/.oh-my-zsh/custom
 ln -s ../../$install_path/zsh/aliases.zsh aliases.zsh
 
 cd ~/.vim_runtime
-ln -s ../$install_path/my_configs.vim my_configs.vim
-
-# cd ~/.ssh
-# ln -s ../$install_path/ssh_config.txt config
-
-cd ~/.aws
-ln -s ../$install_path/aws_config.ini config
+ln -s ../$install_path/vim/my_configs.vim my_configs.vim
 
 cd ~/.config/joplin
 ln -s ../../$install_path/joplin_keymap.json keymap.json

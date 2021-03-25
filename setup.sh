@@ -21,3 +21,6 @@ pip install -r requirements.txt
 
 # Create symlinks
 ./create_symlinks.sh
+
+# Set up vim
+./setup_vim.sh
