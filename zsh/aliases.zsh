@@ -66,6 +66,10 @@ function dirdiff() {
   dir2="$2"
   vimdiff <(ls -R "$dir1" | sed "s#$dir1/##g") <(ls -R "$dir2" | sed "s#$dir2/##g")
 }
+function dki() {
+  # docker kill container by image name
+  docker kill $(docker ps -qf "ancestor=$1")
+}
 function dust() {
   du -hs "$@" | sort -hr
 }
