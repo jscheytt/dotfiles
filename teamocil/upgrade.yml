@@ -8,14 +8,14 @@ windows:
           - brew upgrade --cask
           - mas upgrade
           - brew bundle dump -f --mas --file ~/Documents/ecosystem/dotfiles/Brewfile
-        name: homebrew
       - commands:
           - mu up --all
           - mu pull origin master --no-edit -q
+      - commands:
+          # - npm update -g
           - upgrade_pip
+          - gem update
+          - upgrade_vim
       - commands:
           - joplin sync
-          - npm update -g
-      - gem update
-      - omz update
-      - upgrade_vim
+          - omz update
