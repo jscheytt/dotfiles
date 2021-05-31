@@ -52,6 +52,7 @@ brew "libiconv"
 brew "libpq"
 brew "mas"
 brew "mercurial"
+brew "minikube"
 brew "mysql"
 brew "ncurses"
 brew "neovim"
@@ -103,6 +104,7 @@ cask "ngrok"
 cask "pomodone"
 cask "postman"
 cask "telegram"
+cask "virtualbox"
 mas "LastPass", id: 926036361
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "Microsoft To Do", id: 1274495053
