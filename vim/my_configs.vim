@@ -121,9 +121,7 @@ let g:terraform_fmt_on_save=1
 
 " XML
 let g:xml_syntax_folding=1
-autocmd FileType xml setlocal foldmethod=syntax
-autocmd FileType xslt setlocal foldmethod=syntax
-autocmd FileType html setlocal foldmethod=syntax
+autocmd FileType xml,xslt,html setlocal foldmethod=syntax
 
 " YAML
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
