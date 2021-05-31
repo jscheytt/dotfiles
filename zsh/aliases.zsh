@@ -8,6 +8,7 @@ alias ecr-login='aws --profile prod ecr get-login-password | docker login --user
 alias extstat="find . -type f -name '*.*' -not -iwholename '*.svn*' -not -iwholename '*.git*' -print | sed 's/.*\.//' | sort | uniq -c | sort -r"
 alias j2y='ruby -ryaml -rjson -e "puts YAML.dump(JSON.parse(STDIN.read))"'
 alias k9l="k9s info | grep Logs | awk '{ print \$2 }' | sed -e $'s#\033\[[;0-9]*m##g' | xargs vim"
+alias kdebug='kubectl run tmp-shell --rm -i --tty --image nicolaka/netshoot -- /bin/bash'
 alias ll='exa -la'
 alias myip='curl -s https://api.ipify.org'
 alias php53='docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp php:5.3.29-cli'
@@ -76,10 +77,12 @@ function kpf() {
   kubectl port-forward pod/$(kubectl get po -l "$1" -o jsonpath="{.items[0].metadata.name}") $2
 }
 function kex() {
-  local selector="$1"
+  local app_name="$1"
   shift
   local entrypoint=${@:-/bin/bash}
-  kubectl exec -it $(kubectl get po -l "$selector" -o jsonpath="{.items[0].metadata.name}") -- $entrypoint
+  pod_name=$(kubectl get po -l "app=$app_name" -o jsonpath="{.items[0].metadata.name}") || \
+    pod_name=$(kubectl get po -l "app.kubernetes.io/name=$app_name" -o jsonpath="{.items[0].metadata.name}")
+  kubectl exec -it "$pod_name" -- $(echo $entrypoint)
 }
 function pathogen() {
   cd ~/.vim_runtime/my_plugins

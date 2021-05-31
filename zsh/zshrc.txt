@@ -133,7 +133,8 @@ export SOPS_KMS_ARN="arn:aws:kms:eu-west-2:518307210247:key/01eba850-30aa-4602-9
 
 # Kubernetes configuration
 KUBECONFIG_PATH=~/.kube
-export KUBECONFIG=${KUBECONFIG_PATH}/configs/dev.yml:${KUBECONFIG_PATH}/configs/integration.yml:${KUBECONFIG_PATH}/configs/prod.yml:${KUBECONFIG_PATH}/config
+kubeconfig_sub_path=${KUBECONFIG_PATH}/configs
+export KUBECONFIG=${KUBECONFIG_PATH}/config:$(echo ${kubeconfig_sub_path}/* | tr ' ' ':')
 
 # Bat configuration
 export BAT_THEME="OneHalfLight"
@@ -142,11 +143,6 @@ export BAT_THEME="OneHalfLight"
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 nvm use node --silent
-
-# TBlue
-export PROCESS_ENGINE_URL=http://localhost:8888
-export PROCESS_ENGINE_AMQP_URL=amqp://guest:guest@localhost:5672
-export PROCESS_ENGINE_QUEUE=backend-dev-qe
 
 # SSH Keys
 ssh-add -q ~/.ssh/github_id.ed25519
