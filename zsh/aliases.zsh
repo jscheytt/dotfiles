@@ -41,6 +41,12 @@ function aws-unassume-role() {
   unset AWS_SECRET_ACCESS_KEY
   unset AWS_SESSION_TOKEN
 }
+function aws-resync-mfa() {
+  local username=${1:?'Username is 1st parameter'}
+  local code1=${2:?'Code 1 is 2nd parameter'}
+  local code2=${3:?'Code 2 is 3nd parameter'}
+  aws iam resync-mfa-device --user-name $username --serial-number $(aws iam list-mfa-devices --user-name $username | jq -r '.MFADevices[0].SerialNumber') --authentication-code1 $code1 --authentication-code2 $code2
+}
 function bpbuild() {
   # Run in repo root dir to automatically get the Dockerfile
   image="$1"
