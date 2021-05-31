@@ -74,7 +74,8 @@ au! BufNewFile,BufReadPost *.conf set filetype=apache foldmethod=syntax
 au! BufNewFile,BufReadPost *.{Dockerfile} set filetype=Dockerfile
 
 " Go
-" map <Leader>xg :GoRun<CR>
+map <Leader>xg :GoRun<CR>
+" let g:go_fmt_autosave = 1
 
 " JSON
 au FileType json setlocal foldmethod=syntax

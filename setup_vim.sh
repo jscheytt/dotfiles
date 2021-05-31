@@ -11,6 +11,7 @@ pathogen https://github.com/PProvost/vim-ps1.git
 pathogen https://github.com/bryanmylee/vim-colorscheme-icons.git
 pathogen https://github.com/chr4/nginx.vim
 pathogen https://github.com/editorconfig/editorconfig-vim.git
+pathogen https://github.com/fatih/vim-go
 pathogen https://github.com/hashivim/vim-terraform.git
 pathogen https://github.com/mechatroner/rainbow_csv.git
 pathogen https://github.com/mustache/vim-mustache-handlebars.git
