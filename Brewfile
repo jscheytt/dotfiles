@@ -67,6 +67,7 @@ brew "rbenv"
 brew "redis", restart_service: true
 brew "ruby"
 brew "sops"
+brew "sponge"
 brew "squashfs"
 brew "subversion"
 brew "swaks"
