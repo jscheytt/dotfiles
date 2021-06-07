@@ -1,0 +1,11 @@
+- name: Install homebrew packages
+  command: brew bundle install
+
+- name: Set up oh-my-zsh
+  import_role:
+    name: gantsign.oh-my-zsh
+  vars:
+    oh_my_zsh_theme: romkatv/powerlevel10k
+    oh_my_zsh_install: yes
+    users:
+      - username: "{{ ansible_user_id }}"
