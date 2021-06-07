@@ -12,7 +12,6 @@ alias kdebug='kubectl run tmp-shell --rm -i --tty --image nicolaka/netshoot -- /
 alias ll='exa -la'
 alias myip='curl -s https://api.ipify.org'
 alias php53='docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp php:5.3.29-cli'
-alias upgrade_pip="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 alias rdam='rails data:migrate'
 alias ssh-config='${=EDITOR} ~/.ssh/config'
 alias suite-container='docker ps -lqf name=app_suitecrm'

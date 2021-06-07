@@ -6,7 +6,7 @@ I strive for reproducibility a lot, so I also want the process of setting up a n
 
 This repo can do the following for me (and also for you 😊):
 
-* Install all dependencies mentioned in `Brewfile` (Homebrew), `Gemfile` (Ruby) and `requirements.txt` (Python) globally
+* Install all dependencies mentioned in `Brewfile` (Homebrew), and `Pipfile` (Python)
 * Set up iTerm2 as terminal with (ohmy)zsh, p10k, itermocil
 * Set some sane global git configuration
 * Set up vim with some plugins
