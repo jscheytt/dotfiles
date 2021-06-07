@@ -15,10 +15,6 @@ pipenv sync
 pipenv run ansible-galaxy install -r requirements.yml
 pipenv run ansible-playbook setup.yml -K
 
-# Create symlinks
-# TODO: Make idempotent
-# ./create_symlinks.sh
-
 # Set up vim
 # TODO: Make idempotent
 # ./setup_vim.sh

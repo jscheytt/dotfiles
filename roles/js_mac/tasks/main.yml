@@ -9,3 +9,12 @@
     oh_my_zsh_install: yes
     users:
       - username: "{{ ansible_user_id }}"
+
+- name: Set up zsh config
+  import_tasks: zsh.yml
+
+- name: Set up git config
+  community.general.git_config:
+    name: core.attributesfile
+    scope: global
+    value: "{{ ansible_env.PWD }}/.gitattributes"
