@@ -1,10 +1,10 @@
 backlog:
-  - name: set up iterm2 config link
   - name: move upgrade command from itermocil to ansible
   - name: set up github action for ansible-lint?
 in_progress:
 done:
   - name: setup_symlinks
   - name: setup_vim_config
+  - name: set up iterm2 config link
 references:
   - https://github.com/adamchainz/mac-ansible
