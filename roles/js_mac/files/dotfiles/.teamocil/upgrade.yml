@@ -9,7 +9,7 @@ windows:
           - mas upgrade
           - brew bundle dump -f --mas --file ecosystem/dotfiles/Brewfile
       - commands:
-          - gitup -c .
+          - gitup -c ecosystem qm suitecrm tblue transact
       - commands:
           - upgrade_vim
       - commands:
