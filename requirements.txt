@@ -1,3 +1,0 @@
-mu-repo
-flake8
-autopep8

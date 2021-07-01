@@ -1,0 +1,20 @@
+- name: Set fact for dotfiles path
+  set_fact:
+    # NOTE: Do keep the slash at the end!
+    dotfiles_path: "{{ ansible_env.PWD }}/roles/{{ role_name }}/files/dotfiles/"
+
+- name: Find all dotfiles to be linked
+  find:
+    paths: "{{ dotfiles_path }}"
+    file_type: file
+    recurse: yes
+    hidden: yes
+  register: dotfiles
+
+- name: Symlink zsh config
+  file:
+    src: "{{ item.path }}"
+    dest: "~/{{ item.path | replace(dotfiles_path, '') }}"
+    state: link
+    force: yes
+  with_items: "{{ dotfiles.files }}"

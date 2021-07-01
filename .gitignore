@@ -1,5 +1,2 @@
 # OSX files
 .DS_Store
-
-# When I set up a system afresh I prefer to have the latest versions of all global gems
-Gemfile.lock

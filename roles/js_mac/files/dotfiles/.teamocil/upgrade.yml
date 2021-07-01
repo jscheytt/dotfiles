@@ -7,14 +7,10 @@ windows:
           - brew upgrade
           - brew upgrade --cask
           - mas upgrade
-          - brew bundle dump -f --mas --file ~/Documents/ecosystem/dotfiles/Brewfile
+          - brew bundle dump -f --mas --file ecosystem/dotfiles/Brewfile
       - commands:
-          - mu up --all
-          - mu pull origin master --no-edit -q
+          - gitup -c ecosystem qm suitecrm tblue transact
       - commands:
-          # - npm update -g
-          - upgrade_pip
-          - gem update
           - upgrade_vim
       - commands:
           - joplin sync

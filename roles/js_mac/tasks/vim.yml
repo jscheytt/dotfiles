@@ -1,0 +1,29 @@
+- name: Vimrc repo should be present and updated
+  ansible.builtin.git:
+    repo: https://github.com/amix/vimrc.git
+    dest: ~/.vim_runtime
+    depth: 1
+    force: yes
+
+- name: Install vimrc repo
+  ansible.builtin.command: ~/.vim_runtime/install_awesome_vimrc.sh
+
+- name: Vim plugins should be present and updated
+  ansible.builtin.git:
+    repo: "{{ item }}"
+    dest: "~/.vim_runtime/my_plugins/{{ item | regex_replace('.*\\/(.*)\\.git', '\\1') }}"
+    force: yes
+  loop:
+    - https://github.com/PProvost/vim-ps1.git
+    - https://github.com/bryanmylee/vim-colorscheme-icons.git
+    - https://github.com/chr4/nginx.vim.git
+    - https://github.com/editorconfig/editorconfig-vim.git
+    - https://github.com/fatih/vim-go.git
+    - https://github.com/hashivim/vim-terraform.git
+    - https://github.com/mechatroner/rainbow_csv.git
+    - https://github.com/mustache/vim-mustache-handlebars.git
+    - https://github.com/ryanoasis/vim-devicons.git
+    - https://github.com/slim-template/vim-slim.git
+    - https://github.com/thoughtbot/vim-rspec.git
+    - https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git
+    - https://github.com/tpope/vim-rails.git

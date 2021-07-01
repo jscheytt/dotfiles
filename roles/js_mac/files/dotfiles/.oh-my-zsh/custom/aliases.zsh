@@ -8,11 +8,15 @@ alias ecr-login='aws --profile prod ecr get-login-password | docker login --user
 alias extstat="find . -type f -name '*.*' -not -iwholename '*.svn*' -not -iwholename '*.git*' -print | sed 's/.*\.//' | sort | uniq -c | sort -r"
 alias j2y='ruby -ryaml -rjson -e "puts YAML.dump(JSON.parse(STDIN.read))"'
 alias k9l="k9s info | grep Logs | awk '{ print \$2 }' | sed -e $'s#\033\[[;0-9]*m##g' | xargs vim"
+alias kbeta='kubectx prod && kubens beta-environment'
+alias kint='kubectx integration && kubens tblue-integration'
+alias kprod-depr='kubectx new-prod-depr && kubens kvg'
+alias kprod='kubectx new-prod && kubens tblue-prod'
+alias kstaging='kubectx integration && kubens tblue-staging'
 alias kdebug='kubectl run tmp-shell --rm -i --tty --image nicolaka/netshoot -- /bin/bash'
 alias ll='exa -la'
 alias myip='curl -s https://api.ipify.org'
 alias php53='docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp php:5.3.29-cli'
-alias upgrade_pip="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 alias rdam='rails data:migrate'
 alias ssh-config='${=EDITOR} ~/.ssh/config'
 alias suite-container='docker ps -lqf name=app_suitecrm'

@@ -1,0 +1,31 @@
+- name: Install homebrew packages
+  command: brew bundle install
+
+# NOTE: Should run before zsh.yml so the config file is not overwritten
+- name: Set up vim config
+  import_tasks: vim.yml
+
+- name: Omz should be installed and configured
+  import_role:
+    name: gantsign.oh-my-zsh
+  vars:
+    oh_my_zsh_theme: romkatv/powerlevel10k
+    oh_my_zsh_install: yes
+    users:
+      - username: "{{ ansible_user_id }}"
+
+- name: Set up zsh config
+  import_tasks: zsh.yml
+
+- name: Git global config should be set
+  community.general.git_config:
+    name: core.attributesfile
+    scope: global
+    value: "{{ ansible_env.PWD }}/.gitattributes"
+
+- name: iTerm custom settings file should be set
+  osx_defaults:
+    domain: com.googlecode.iterm2
+    key: PrefsCustomFolder
+    type: string
+    value: "{{ ansible_env.PWD }}/roles/js_mac/files"
