@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block, everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -76,15 +69,14 @@ DISABLE_UPDATE_PROMPT="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  bundler
   common-aliases
   docker-compose
   extract
+  fzf
   git
   kubectl
   osx
-  rails
-  terraform
+  # terraform
   vi-mode
 )
 
@@ -100,17 +92,12 @@ export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Docker configuration
-export DOCKER_BUILDKIT=1
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+# export DOCKER_BUILDKIT=1
 
 # Load Zsh tools for syntax highlighting and autosuggestions
 HOMEBREW_FOLDER="/usr/local/share"
 source "$HOMEBREW_FOLDER/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$HOMEBREW_FOLDER/zsh-autosuggestions/zsh-autosuggestions.zsh"
-
-# Ruby configuration
-eval "$(rbenv init -)"
-export PATH="/usr/local/sbin:$PATH"
 
 # Python conf
 eval "$(pyenv init -)"
@@ -124,24 +111,13 @@ export VISUAL='nvim'
 #   export EDITOR='mvim'
 # fi
 
-# SOPS keys
-export SOPS_KMS_ARN="arn:aws:kms:eu-west-2:518307210247:key/01eba850-30aa-4602-9dd7-af8cbd8e23a9,arn:aws:kms:eu-central-1:518307210247:key/6a60811e-6bb7-47a6-b7eb-cb56a6c58860"
-
 # Kubernetes configuration
-KUBECONFIG_PATH=~/.kube
-kubeconfig_sub_path=${KUBECONFIG_PATH}/configs
-export KUBECONFIG=${KUBECONFIG_PATH}/config:$(echo ${kubeconfig_sub_path}/* | tr ' ' ':')
+# KUBECONFIG_PATH=~/.kube
+# kubeconfig_sub_path=${KUBECONFIG_PATH}/configs
+# export KUBECONFIG=${KUBECONFIG_PATH}/config:$(echo ${kubeconfig_sub_path}/* | tr ' ' ':')
 
 # Bat configuration
 export BAT_THEME="OneHalfLight"
-
-# nvm configuration
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-nvm use node --silent
-
-# SSH Keys
-ssh-add -q ~/.ssh/github_id.ed25519
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -158,6 +134,6 @@ ssh-add -q ~/.ssh/github_id.ed25519
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# nvm configuration
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
