@@ -94,6 +94,10 @@ function kex() {
     pod_name=$(kubectl get po -l "app.kubernetes.io/name=$app_name" -o jsonpath="{.items[0].metadata.name}")
   kubectl exec -it "$pod_name" -- $(echo $entrypoint)
 }
+function mas_install() {
+  local app_name="${1:?'Parameter #1 is app name'}"
+  mas install $(mas search $app_name | head -n1 | awk -F ' ' '{print $1}')
+}
 function pathogen() {
   cd ~/.vim_runtime/my_plugins
   git clone --recurse-submodules "$1"
