@@ -22,10 +22,8 @@ alias ssh-config='${=EDITOR} ~/.ssh/config'
 alias suite-container='docker ps -lqf name=app_suitecrm'
 alias suite-db-local='docker exec -it $(docker ps -qf name=mariadb_1) mysql -u bn_suitecrm bitnami_suitecrm'
 alias suite-ssh='docker exec -it $(suite_container) env TERM=xterm-256color /bin/bash'
-alias t3log='$EDITOR /Volumes/Transline/Transact/3.7.0/customers/transline/dirs/log/$(date +%Y-%m-%e)/transact.log'
 alias tfgraph='terraform graph -draw-cycles | dot -Tsvg > graph.svg'
 alias tfmt='tf fmt'
-alias upgrade='itermocil upgrade --here'
 alias vim='nvim'
 alias vimdiff='nvim -d'
 alias y2j='ruby -ryaml -rjson -e "puts JSON.pretty_generate(YAML.load(STDIN.read))"'
@@ -107,16 +105,31 @@ function rdbs() {
   bundle exec rails db:migrate:reset
   bundle exec rails db:seed
 }
+function upgrade() {
+  local old_pwd="$PWD"
+  cd ~/Documents
+  # Homebrew
+  brew upgrade
+  brew upgrade --cask
+  mas upgrade
+  brew bundle dump -f --mas --file dotfiles/Brewfile
+  # Git pull
+  gitup .
+  # Other upgrades
+  upgrade_vim
+  omz update
+  joplin sync
+  cd "$old_pwd"
+}
 function upgrade_vim() {
-  OLD_PWD=$PWD
-  cd ~/.vim_runtime
-  git restore .
-  git clean -fd
-  git pull --rebase
-  python update_plugins.py
-  cd my_plugins
-  find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;
-  cd $OLD_PWD
+  local vim_dir=~/.vim_runtime
+  git -C "$vim_dir" restore .
+  git -C "$vim_dir" clean -fd
+  git -C "$vim_dir" pull --rebase
+  pyenv shell $(cat ~/Documents/dotfiles/.python-version)
+  pip install requests
+  python "$vim_dir"/update_plugins.py
+  gitup "${vim_dir}/my_plugins"
 }
 function yp() {
   yq e . "$1" -j | jq -C . | less -R
