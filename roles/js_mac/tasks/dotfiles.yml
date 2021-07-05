@@ -3,6 +3,20 @@
     # NOTE: Do keep the slash at the end!
     dotfiles_path: "{{ ansible_env.PWD }}/roles/{{ role_name }}/files/dotfiles/"
 
+- name: Find all dotfiles directories
+  find:
+    paths: "{{ dotfiles_path }}"
+    file_type: directory
+    recurse: yes
+    hidden: yes
+  register: dotfiles_directories
+
+- name: Ensure paths for dotfiles exist
+  file:
+    path: "~/{{ item.path | replace(dotfiles_path, '') }}"
+    state: directory
+  with_items: "{{ dotfiles_directories.files }}"
+
 - name: Find all dotfiles to be linked
   find:
     paths: "{{ dotfiles_path }}"
@@ -11,7 +25,7 @@
     hidden: yes
   register: dotfiles
 
-- name: Symlink zsh config
+- name: Symlink dotfiles
   file:
     src: "{{ item.path }}"
     dest: "~/{{ item.path | replace(dotfiles_path, '') }}"

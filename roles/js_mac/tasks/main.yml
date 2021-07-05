@@ -1,9 +1,5 @@
 - name: Install homebrew packages
-  command: brew bundle install
-
-# NOTE: Should run before zsh.yml so the config file is not overwritten
-- name: Set up vim config
-  import_tasks: vim.yml
+  command: brew bundle install -v
 
 - name: Omz should be installed and configured
   import_role:
@@ -14,8 +10,12 @@
     users:
       - username: "{{ ansible_user_id }}"
 
-- name: Set up zsh config
-  import_tasks: zsh.yml
+# NOTE: Should run before dotfiles.yml so the config file is not overwritten
+- name: Set up vim config
+  import_tasks: vim.yml
+
+- name: Set up dotfiles
+  import_tasks: dotfiles.yml
 
 - name: Git global config should be set
   community.general.git_config:

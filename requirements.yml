@@ -1,1 +1,5 @@
-- src: gantsign.oh-my-zsh
+roles:
+  - gantsign.oh-my-zsh
+  - stephdewit.nvm
+collections:
+  - community.general
