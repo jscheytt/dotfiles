@@ -26,6 +26,7 @@ alias tfgraph='terraform graph -draw-cycles | dot -Tsvg > graph.svg'
 alias tfmt='tf fmt'
 alias vim='nvim'
 alias vimdiff='nvim -d'
+alias vn="vim -s <(printf 'B3jo')"
 alias y2j='ruby -ryaml -rjson -e "puts JSON.pretty_generate(YAML.load(STDIN.read))"'
 
 function aws-assume-role() {
