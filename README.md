@@ -13,11 +13,25 @@ This repo can do the following for me (and also for you 😊):
 
 ## Recommended Usage
 
-1. Install dependencies
 1. Clone repo to a path of your choice  
 `git clone git@github.com:jscheytt/dotfiles.git`
-1. Enter repo directory and run setup:  
-`./setup.sh`
-1. Point iTerm2 to the configuration file `iterm2/com.googlecode.iterm2.plist`. See https://apple.stackexchange.com/a/140624
-1. Update whenever you like by `git pull`
+1. Run `./install.sh`
+1. Encrypt your local admin password:
+    1. Generate a secure password e.g. with LastPass
+    1. Save it into `./vault-password.txt`
+    1. Create a secret:  
+    `pipenv run ansible-vault create --vault-password-file vault-password.txt become-password.secret`
+    1. Put your admin password into this file with this yaml key:  
+    `ansible_sudo_pass: YOUR_ADMIN_PASSWORD`
+1. Run `./setup.sh`
 1. Enjoy 🙂
+
+## Updating
+
+Just do
+
+```sh
+git pull
+./install.sh
+./setup.sh
+```

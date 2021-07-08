@@ -6,5 +6,7 @@
       failed_when: not ansible_env.PWD.endswith('/dotfiles')
 
 - hosts: localhost
+  vars_files:
+    - become-password.secret
   roles:
     - js_mac
