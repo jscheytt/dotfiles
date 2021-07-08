@@ -106,20 +106,19 @@ function rdbs() {
   bundle exec rails db:seed
 }
 function upgrade() {
-  local old_pwd="$PWD"
-  cd ~/Documents
   # Homebrew
   brew upgrade
   brew upgrade --cask
   mas upgrade
-  brew bundle dump -f --mas --file dotfiles/Brewfile
+  brew bundle dump -f --mas --file ~/Documents/dotfiles/Brewfile
   # Git pull
-  gitup .
+  gitup ~/Documents
   # Other upgrades
   upgrade_vim
-  omz update
+  "$ZSH/tools/upgrade.sh"
+  # Joplin
+  npm update -g
   joplin sync
-  cd "$old_pwd"
 }
 function upgrade_vim() {
   local vim_dir=~/.vim_runtime
@@ -129,6 +128,7 @@ function upgrade_vim() {
   pyenv shell $(cat ~/Documents/dotfiles/.python-version)
   pip install requests
   python "$vim_dir"/update_plugins.py
+  pyenv shell -
   gitup "${vim_dir}/my_plugins"
 }
 function yp() {
