@@ -29,3 +29,6 @@
     key: PrefsCustomFolder
     type: string
     value: "{{ ansible_env.PWD }}/roles/js_mac/files"
+
+- name: Set up joplin cli
+  import_tasks: joplin.yml
