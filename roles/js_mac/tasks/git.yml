@@ -1,0 +1,17 @@
+- name: Set gitattributes
+  community.general.git_config:
+    name: core.attributesfile
+    scope: global
+    value: "~/.gitattributes"
+
+- name: Set default remote origin
+  community.general.git_config:
+    name: branch.master.remote
+    scope: global
+    value: origin
+
+- name: Set default merge branch to master
+  community.general.git_config:
+    name: branch.master.merge
+    scope: global
+    value: refs/heads/master

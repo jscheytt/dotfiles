@@ -17,11 +17,8 @@
 - name: Set up dotfiles
   import_tasks: dotfiles.yml
 
-- name: Git global config should be set
-  community.general.git_config:
-    name: core.attributesfile
-    scope: global
-    value: "{{ ansible_env.PWD }}/.gitattributes"
+- name: Set global Git config
+  import_tasks: git.yml
 
 - name: iTerm custom settings file should be set
   osx_defaults:
