@@ -17,9 +17,6 @@
 - name: Set up dotfiles
   import_tasks: dotfiles.yml
 
-- name: Set global Git config
-  import_tasks: git.yml
-
 - name: iTerm custom settings file should be set
   osx_defaults:
     domain: com.googlecode.iterm2

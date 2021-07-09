@@ -1,0 +1,12 @@
+[user]
+	name = Josia Scheytt
+	email = josia.scheytt@mimacom.com
+[core]
+  attributesfile = ~/.gitattributes 
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[push]
+	default = current
+[branch]
+	autoSetupMerge = always
