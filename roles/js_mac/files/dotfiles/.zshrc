@@ -112,9 +112,9 @@ export VISUAL='nvim'
 # fi
 
 # Kubernetes configuration
-# KUBECONFIG_PATH=~/.kube
-# kubeconfig_sub_path=${KUBECONFIG_PATH}/configs
-# export KUBECONFIG=${KUBECONFIG_PATH}/config:$(echo ${kubeconfig_sub_path}/* | tr ' ' ':')
+KUBECONFIG_PATH=~/.kube
+kubeconfig_sub_path=${KUBECONFIG_PATH}/configs
+export KUBECONFIG=${KUBECONFIG_PATH}/config:$(echo ${kubeconfig_sub_path}/* | tr ' ' ':')
 
 # Bat configuration
 export BAT_THEME="OneHalfLight"
