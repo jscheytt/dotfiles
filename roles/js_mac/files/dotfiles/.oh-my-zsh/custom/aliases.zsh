@@ -1,28 +1,24 @@
 alias aliases='${=EDITOR} $ZSH_CUSTOM/aliases.zsh'
 alias bcop='bundle exec rubocop -a'
 alias bfg='java -jar ~/Applications/bfg-1.13.0.jar'
-alias bppg="docker run --rm --name tf-postgres -e POSTGRES_DB='pipelines' -e POSTGRES_USER='test_user' -e POSTGRES_PASSWORD='test_user_password' -p 5432:5432 postgres:11"
 alias bym='bundle install && yarn install && rails db:migrate && rails data:migrate'
-alias cz='git cz'
+alias doru='docker run -it --volume="$PWD":/"$(basename $PWD)" --workdir=/"$(basename $PWD)"'
 alias ecr-login='aws --profile prod ecr get-login-password | docker login --username AWS --password-stdin 432815428702.dkr.ecr.eu-central-1.amazonaws.com'
 alias extstat="find . -type f -name '*.*' -not -iwholename '*.svn*' -not -iwholename '*.git*' -print | sed 's/.*\.//' | sort | uniq -c | sort -r"
 alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias j2y='ruby -ryaml -rjson -e "puts YAML.dump(JSON.parse(STDIN.read))"'
 alias k9l="k9s info | grep Logs | awk '{ print \$2 }' | sed -e $'s#\033\[[;0-9]*m##g' | xargs vim"
-alias kbeta='kubectx prod && kubens beta-environment'
-alias kint='kubectx integration && kubens tblue-integration'
-alias kprod-depr='kubectx new-prod-depr && kubens kvg'
-alias kprod='kubectx new-prod && kubens tblue-prod'
-alias kstaging='kubectx integration && kubens tblue-staging'
+alias kdev0='kubectx nonprod && kubens dev-0-otg'
+alias kdev1='kubectx nonprod && kubens dev-1-otg'
+alias kint='kubectx nonprod && kubens int-0-otg'
+alias kpre='kubectx nonprod && kubens preprod-0-otg'
+alias kprod='kubectx prod && kubens prod-0-otg'
 alias kdebug='kubectl run tmp-shell --rm -i --tty --image nicolaka/netshoot -- /bin/bash'
 alias ll='exa -la'
 alias myip='curl -s https://api.ipify.org'
 alias php53='docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp php:5.3.29-cli'
 alias rdam='rails data:migrate'
 alias ssh-config='${=EDITOR} ~/.ssh/config'
-alias suite-container='docker ps -lqf name=app_suitecrm'
-alias suite-db-local='docker exec -it $(docker ps -qf name=mariadb_1) mysql -u bn_suitecrm bitnami_suitecrm'
-alias suite-ssh='docker exec -it $(suite_container) env TERM=xterm-256color /bin/bash'
 alias tfgraph='terraform graph -draw-cycles | dot -Tsvg > graph.svg'
 alias tfmt='tf fmt'
 alias vim='nvim'
@@ -30,16 +26,6 @@ alias vimdiff='nvim -d'
 alias vn="vim -s <(printf 'B3jo')"
 alias y2j='ruby -ryaml -rjson -e "puts JSON.pretty_generate(YAML.load(STDIN.read))"'
 
-function aws-assume-role() {
-  profile="$1"
-  if [ "$profile" = "dev" ]; then local account_id="765196992255"; fi
-  if [ "$profile" = "prod" ]; then local account_id="432815428702"; fi
-  temp_role=$(aws sts assume-role --role-arn "arn:aws:iam::${account_id}:role/development-admin" --role-session-name "jsc")
-  export AWS_ACCESS_KEY_ID=$(echo $temp_role | jq .Credentials.AccessKeyId | xargs)
-  export AWS_SECRET_ACCESS_KEY=$(echo $temp_role | jq .Credentials.SecretAccessKey | xargs)
-  export AWS_SESSION_TOKEN=$(echo $temp_role | jq .Credentials.SessionToken | xargs)
-  env | grep -i AWS_
-}
 function aws-unassume-role() {
   unset AWS_ACCESS_KEY_ID
   unset AWS_SECRET_ACCESS_KEY
@@ -50,26 +36,6 @@ function aws-resync-mfa() {
   local code1=${2:?'Code 1 is 2nd parameter'}
   local code2=${3:?'Code 2 is 3nd parameter'}
   aws iam resync-mfa-device --user-name $username --serial-number $(aws iam list-mfa-devices --user-name $username | jq -r '.MFADevices[0].SerialNumber') --authentication-code1 $code1 --authentication-code2 $code2
-}
-function bpbuild() {
-  # Run in repo root dir to automatically get the Dockerfile
-  image="$1"
-  shift
-  docker build --memory=1g --memory-swap=1g -t "$image" . "$@"
-}
-function bpdebug() {
-  # Run after bpbuild or from existing image
-  image="$1"
-  shift
-  workdir="$(basename $PWD)"
-  docker run -it \
-    "$@" \
-    --volume="$PWD":/"$workdir" \
-    --workdir=/"$workdir" \
-    --memory=4g \
-    --memory-swap=4g \
-    --memory-swappiness=0 \
-    "$image"
 }
 function dirdiff() {
   dir1="$1"
