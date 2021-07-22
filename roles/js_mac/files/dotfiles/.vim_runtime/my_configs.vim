@@ -39,7 +39,7 @@ set expandtab
 
 " Linting
 " let g:ale_fix_on_save = 1
-autocmd BufWritePost *.css,*.scss,*.js,*.jsx,*.html,*.htm ALEFix
+autocmd BufWritePost *.css,*.jsx,*.html,*.htm ALEFix
 let g:ale_linters = {
 \  'css': ['prettier'],
 \  'dockerfile': ['hadolint'],
