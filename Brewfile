@@ -70,5 +70,6 @@ cask "telegram"
 cask "tunnelblick"
 cask "virtualbox"
 cask "zoom"
+mas "GarageBand", id: 682658836
 mas "LastPass", id: 926036361
 mas "Xcode", id: 497799835
