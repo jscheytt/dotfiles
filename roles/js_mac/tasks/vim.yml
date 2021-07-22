@@ -14,16 +14,18 @@
     dest: "~/.vim_runtime/my_plugins/{{ item | regex_replace('.*\\/(.*)\\.git', '\\1') }}"
     force: yes
   loop:
-    - https://github.com/PProvost/vim-ps1.git
+    # - https://github.com/PProvost/vim-ps1.git
     - https://github.com/bryanmylee/vim-colorscheme-icons.git
     - https://github.com/chr4/nginx.vim.git
     - https://github.com/editorconfig/editorconfig-vim.git
     - https://github.com/fatih/vim-go.git
     - https://github.com/hashivim/vim-terraform.git
+    - https://github.com/iamcco/markdown-preview.nvim
     - https://github.com/mechatroner/rainbow_csv.git
     - https://github.com/mustache/vim-mustache-handlebars.git
+    - https://github.com/robertbasic/vim-hugo-helper
     - https://github.com/ryanoasis/vim-devicons.git
-    - https://github.com/slim-template/vim-slim.git
-    - https://github.com/thoughtbot/vim-rspec.git
+    # - https://github.com/slim-template/vim-slim.git
+    # - https://github.com/thoughtbot/vim-rspec.git
     - https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git
-    - https://github.com/tpope/vim-rails.git
+    # - https://github.com/tpope/vim-rails.git
