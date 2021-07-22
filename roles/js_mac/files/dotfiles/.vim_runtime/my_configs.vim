@@ -66,6 +66,7 @@ let g:ale_fixers = {
 
 " Vim Plugins
 let g:snipMate = { 'snippet_version' : 1 }
+set rtp+=/usr/local/opt/fzf
 
 " Apache
 au! BufNewFile,BufReadPost *.conf set filetype=apache foldmethod=syntax
