@@ -72,11 +72,14 @@ set rtp+=/usr/local/opt/fzf
 au! BufNewFile,BufReadPost *.conf set filetype=apache foldmethod=syntax
 
 " Dockerfile
-au! BufNewFile,BufReadPost *.{Dockerfile} set filetype=Dockerfile
+au! BufNewFile,BufReadPost *Dockerfile* set filetype=Dockerfile
 
 " Go
 map <Leader>xg :GoRun<CR>
 " let g:go_fmt_autosave = 1
+
+" Jenkinsfile
+au BufNewFile,BufRead *Jenkinsfile* setf groovy
 
 " JSON
 au FileType json setlocal foldmethod=syntax
