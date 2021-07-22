@@ -88,6 +88,7 @@ au FileType json setlocal foldmethod=syntax
 set foldlevel=20
 au! BufNewFile,BufReadPost *.{markdown,md} set filetype=markdown foldmethod=indent
 autocmd FileType markdown setlocal ts=4 sts=4 sw=4 expandtab spell!
+vmap <leader>l S]%a()<Esc>
 
 " Nginx
 " au! BufNewFile,BufReadPost *.conf set filetype=nginx foldmethod=syntax
@@ -107,7 +108,7 @@ au FileType ruby setlocal foldmethod=syntax
 " Rspec bindings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
+" map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 let g:rspec_command = "term rspec --fail-fast #{spec}"
 map <Leader>xr :!ruby %<CR>
