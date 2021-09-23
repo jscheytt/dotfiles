@@ -161,3 +161,6 @@ load-nvmrc
 
 # zoxide
 eval "$(zoxide init zsh)"
+
+# pack zsh completions
+. $(pack completion --shell zsh)
