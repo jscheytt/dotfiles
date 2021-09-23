@@ -93,7 +93,7 @@ au FileType json setlocal foldmethod=syntax
 set foldlevel=20
 au! BufNewFile,BufReadPost *.{markdown,md} set filetype=markdown foldmethod=indent
 autocmd FileType markdown setlocal ts=4 sts=4 sw=4 expandtab spell!
-vmap <leader>l S]%a()<Esc>
+vmap <leader>l :HugoHelperLink 
 
 " Nginx
 " au! BufNewFile,BufReadPost *.conf set filetype=nginx foldmethod=syntax
