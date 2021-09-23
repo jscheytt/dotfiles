@@ -82,7 +82,7 @@ function upgrade() {
   mas upgrade
   brew bundle dump -f --mas --file ~/Documents/dotfiles/Brewfile
   # Git pull
-  gitup ~/Documents
+  gitup -t -1 ~/Documents
   # Other upgrades
   upgrade_vim
   "$ZSH/tools/upgrade.sh"
