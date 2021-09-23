@@ -2,7 +2,6 @@ alias aliases='${=EDITOR} $ZSH_CUSTOM/aliases.zsh'
 alias bcop='bundle exec rubocop -a'
 alias bfg='java -jar ~/Applications/bfg-1.13.0.jar'
 alias bym='bundle install && yarn install && rails db:migrate && rails data:migrate'
-alias ecr-login='aws --profile prod ecr get-login-password | docker login --username AWS --password-stdin 432815428702.dkr.ecr.eu-central-1.amazonaws.com'
 alias extstat="find . -type f -name '*.*' -not -iwholename '*.svn*' -not -iwholename '*.git*' -print | sed 's/.*\.//' | sort | uniq -c | sort -r"
 alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias j2y='ruby -ryaml -rjson -e "puts YAML.dump(JSON.parse(STDIN.read))"'
@@ -47,9 +46,14 @@ function dki() {
 }
 function dust() {
   du -hs "$@" | sort -hr
+}
 function doru() {
   docker run -it --volume="$PWD":/"$(basename $PWD)" --workdir=/"$(basename $PWD)" "$@"
 }
+function ecr-login() {
+  aws ecr get-login-password \
+    | docker login --username AWS --password-stdin \
+      $(aws sts get-caller-identity | jq -r '.Account').dkr.ecr.eu-central-1.amazonaws.com
 }
 function kpf() {
   kubectl port-forward pod/$(kubectl get po -l "$1" -o jsonpath="{.items[0].metadata.name}") $2
