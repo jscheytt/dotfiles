@@ -47,6 +47,7 @@ let g:ale_linters = {
 \  'javascript': ['eslint'],
 \  'python': ['flake8'],
 \  'scss' : ['prettier'],
+\  'sh' : ['shellcheck'],
 \  'xml' : ['xmllint'],
 \  'yaml': ['yamllint'],
 \}
