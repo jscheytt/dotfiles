@@ -69,8 +69,8 @@ let g:ale_fixers = {
 let g:snipMate = { 'snippet_version' : 1 }
 set rtp+=/usr/local/opt/fzf
 
-" Apache
-au! BufNewFile,BufReadPost *.conf set filetype=apache foldmethod=syntax
+" Nginx
+au! BufNewFile,BufReadPost *.conf set filetype=nginx foldmethod=syntax
 
 " Dockerfile
 au! BufNewFile,BufReadPost *Dockerfile* set filetype=Dockerfile
