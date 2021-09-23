@@ -50,7 +50,7 @@ function dki() {
   docker kill $(docker ps -qf "ancestor=$1")
 }
 function dust() {
-  du -hs "$@" | sort -hr
+  du -sch "$@" | sort -hr
 }
 function doru() {
   docker run -it --volume="$PWD":/"$(basename $PWD)" --workdir=/"$(basename $PWD)" "$@"
