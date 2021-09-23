@@ -56,7 +56,7 @@ let g:ale_fixers = {
 \  'html': ['prettier'],
 \  'javascript': ['prettier'],
 \  'json': ['jq'],
-\  'python': ['autopep8'],
+\  'python': ['yapf'],
 \  'ruby': ['rubocop'],
 \  'rust': ['rustfmt'],
 \  'scss' : ['prettier'],
