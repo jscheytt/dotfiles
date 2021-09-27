@@ -164,3 +164,6 @@ eval "$(zoxide init zsh)"
 
 # pack zsh completions
 . $(pack completion --shell zsh)
+
+# Customer specific includes
+source ~/Documents/.customer-specifics.sh
