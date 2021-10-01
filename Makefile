@@ -28,7 +28,7 @@ $(become_password_file): $(vault_password_file)
 		| pipenv run ansible-vault encrypt --vault-password-file $(vault_password_file) --output $@
 
 .PHONY: build
-build: install $(vault_password_file) $(become_password_file)
+build: $(vault_password_file) $(become_password_file)
 	pipenv run ansible-playbook setup.yml --vault-password-file $(vault_password_file) -vv
 
 .PHONY: clean
