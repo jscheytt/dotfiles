@@ -96,9 +96,6 @@ function upgrade() {
   # Other upgrades
   upgrade_vim
   "$ZSH/tools/upgrade.sh"
-  # Joplin
-  npm update -g
-  joplin sync
 }
 function upgrade_vim() {
   local vim_dir=~/.vim_runtime
