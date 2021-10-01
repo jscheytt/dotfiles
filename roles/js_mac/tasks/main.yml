@@ -1,5 +1,7 @@
 - name: Install homebrew packages
   command: brew bundle install -v
+  register: brew_output
+  changed_when: brew_output.rc != 0
 
 - name: Omz should be installed and configured
   import_role:

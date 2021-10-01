@@ -7,6 +7,8 @@
 
 - name: Install vimrc repo
   ansible.builtin.command: ~/.vim_runtime/install_awesome_vimrc.sh
+  register: vimrc_output
+  changed_when: vimrc_output.rc != 0
 
 - name: Vim plugins should be present and updated
   ansible.builtin.git:
