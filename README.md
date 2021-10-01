@@ -13,7 +13,8 @@ This repo can do the following for me (and also for you 😊):
 
 ## Recommended Usage
 
-* Initial usage: `make`
+* You can always run `make` to see all available commands.
+* Initial usage: `make install build`
 * Updating: `make update`
 * Running only the installation: `make install`
 * Running the setup playbook: `make build`

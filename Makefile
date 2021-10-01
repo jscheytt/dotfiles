@@ -7,6 +7,23 @@ SHELL := /bin/bash
 vault_password_file := vault-password.txt
 become_password_file := become-password.secret
 
+define HELPTEXT
+Usage: make [make-options] <target> [options]
+
+Common Targets:
+    build        Run Ansible playbook.
+    clean        Clean up artifacts.
+    help         Show this help info.
+    install      Install dependencies.
+    lint         Run linters.
+    update       Run a git pull.
+endef
+export HELPTEXT
+
+.PHONY: help
+help:
+	@echo "$$HELPTEXT"
+
 .PHONY: all
 all: update install build
 
