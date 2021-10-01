@@ -31,6 +31,10 @@ $(become_password_file): $(vault_password_file)
 build: $(vault_password_file) $(become_password_file)
 	pipenv run ansible-playbook setup.yml --vault-password-file $(vault_password_file) -vv
 
+.PHONY: lint
+lint:
+	pipenv run ansible-lint
+
 .PHONY: clean
 clean:
 	rm $(vault_password_file) $(become_password_file) || true
