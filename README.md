@@ -19,3 +19,7 @@ This repo can do the following for me (and also for you 😊):
 * Running only the installation: `make install`
 * Running the setup playbook: `make build`
 * Starting from a clean slate: `make clean`
+
+## References and Kudos
+
+* Thanks to Adam Johnson for his [mac-ansible role](https://github.com/adamchainz/mac-ansible).
