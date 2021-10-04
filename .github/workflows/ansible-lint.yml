@@ -7,6 +7,10 @@ jobs:
     steps:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@v2
+      # DEBUG
+      - run: |
+          ls -lAh
+          ls -lAh roles
       - name: 🚀 Run yamllint
         uses: frenck/action-yamllint@v1
         with:
@@ -21,4 +25,6 @@ jobs:
       - name: 🚀 Lint Ansible Playbook
         uses: ansible/ansible-lint-action@master
         with:
-          targets: .
+          targets: |
+            setup.yml
+            roles/
