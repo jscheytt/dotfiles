@@ -1,0 +1,24 @@
+name: Lint
+on: [push, pull_request]
+jobs:
+  yamllint:
+    name: yamllint
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⤵️ Check out code from GitHub
+        uses: actions/checkout@v2
+      - name: 🚀 Run yamllint
+        uses: frenck/action-yamllint@v1
+        with:
+          config: ./roles/js_mac/files/dotfiles/.config/yamllint/config
+  ansible-lint:
+    name: ansible-lint
+    runs-on: ubuntu-latest
+    steps:
+      # Important: This sets up your GITHUB_WORKSPACE environment variable
+      - name: ⤵️ Check out code from GitHub
+        uses: actions/checkout@v2
+      - name: 🚀 Lint Ansible Playbook
+        uses: ansible/ansible-lint-action@master
+        with:
+          targets: .
