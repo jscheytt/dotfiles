@@ -50,7 +50,8 @@ build: $(vault_password_file) $(become_password_file)
 
 .PHONY: lint
 lint:
-	pipenv run ansible-lint
+	pipenv run yamllint -c ./roles/js_mac/files/dotfiles/.config/yamllint/config .
+	pipenv run ansible-lint .
 
 .PHONY: clean
 clean:

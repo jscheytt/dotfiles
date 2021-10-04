@@ -8,6 +8,7 @@ ansible = "*"
 ansible-lint = "*"
 autopep8 = "*"
 flake8 = "*"
+yamllint = "*"
 
 [dev-packages]
 
