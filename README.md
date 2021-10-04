@@ -1,5 +1,7 @@
 # My [Dotfiles](https://wiki.archlinux.org/index.php/Dotfiles)
 
+![lint](https://github.com/jscheytt/dotfiles/actions/workflows/lint.yml/badge.svg)
+
 ## What is this repo for?
 
 I strive for reproducibility a lot, so I also want the process of setting up a new machine be as automatic and idempotent as possible.
