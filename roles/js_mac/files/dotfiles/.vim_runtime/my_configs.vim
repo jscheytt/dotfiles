@@ -147,8 +147,9 @@ vnoremap <leader>be c<c-r>=system('base64', @")<cr><esc>
 map <Leader>dt :diffthis<CR>
 map <Leader>df :diffoff!<CR>
 " Git
-map <Leader>gp :Git push<CR>
 map <Leader>gl :Git pull<CR>
+map <Leader>gp :Git push<CR>
+map <Leader>pf :Git push -f<CR>
 " ALEFix
 map <Leader>af :ALEFix<CR>
 " Shell
