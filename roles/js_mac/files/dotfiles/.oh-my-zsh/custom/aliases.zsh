@@ -97,6 +97,7 @@ function upgrade() {
   # Other upgrades
   upgrade_vim
   "$ZSH/tools/upgrade.sh"
+  omz changelog
 }
 function upgrade_vim() {
   local vim_dir=~/.vim_runtime
