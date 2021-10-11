@@ -1,6 +1,7 @@
 - name: Install homebrew packages
   command: brew bundle install -v
   register: brew_output
+  # TODO: Add correct condition
   changed_when: brew_output.rc != 0
 
 - name: Omz should be installed and configured
@@ -25,6 +26,3 @@
     key: PrefsCustomFolder
     type: string
     value: "{{ ansible_env.PWD }}/roles/js_mac/files"
-
-- name: Set up joplin cli
-  import_tasks: joplin.yml
