@@ -68,16 +68,19 @@ DISABLE_UPDATE_PROMPT="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+export NVM_LAZY_LOAD=true
+export NVM_AUTO_USE=true
 plugins=(
   common-aliases
-  docker-compose
+  # docker-compose
   extract
   fzf
   git
-  kubectl
+  # kubectl
   osx
   # terraform
   vi-mode
+  zsh-nvm
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -133,31 +136,6 @@ export BAT_THEME="OneHalfLight"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# nvm configuration
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
-# place this after nvm initialization!
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
 
 # zoxide
 eval "$(zoxide init zsh)"

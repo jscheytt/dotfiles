@@ -13,6 +13,14 @@
     users:
       - username: "{{ ansible_user_id }}"
 
+- name: Omz plugins should be installed
+  ansible.builtin.git:
+    repo: "{{ item }}"
+    dest: "~/.oh-my-zsh/custom/plugins/{{ item | regex_replace('.*\\/(.*)\\.git', '\\1') }}"
+    force: yes
+  loop:
+    - https://github.com/lukechilds/zsh-nvm.git
+
 # NOTE: Should run before dotfiles.yml so the config file is not overwritten
 - name: Set up vim config
   import_tasks: vim.yml

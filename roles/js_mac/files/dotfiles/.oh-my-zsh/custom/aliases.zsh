@@ -6,6 +6,7 @@ alias extstat="find . -type f -name '*.*' -not -iwholename '*.svn*' -not -iwhole
 alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias gpi='git push -u origin HEAD'
 alias j2y='ruby -ryaml -rjson -e "puts YAML.dump(JSON.parse(STDIN.read))"'
+alias k='kubectl'
 alias k9l="k9s info | grep Logs | awk '{ print \$2 }' | sed -e $'s#\033\[[;0-9]*m##g' | xargs vim"
 alias kdebug='kubectl run tmp-shell --rm -i --tty --image nicolaka/netshoot -- /bin/bash'
 alias kdebug-mysql='kubectl run tmp-mysql --rm -i --tty --image imega/mysql-client -- /bin/sh'
