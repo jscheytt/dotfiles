@@ -63,6 +63,10 @@ function ecr-login() {
     | docker login --username AWS --password-stdin \
       $(aws sts get-caller-identity | jq -r '.Account').dkr.ecr.eu-central-1.amazonaws.com
 }
+function free-port() {
+  local port="$1"
+  sudo lsof -nP -i4TCP:"$port" | grep LISTEN | awk '{print $2}' | xargs kill -9
+}
 function kpf() {
   kubectl port-forward pod/$(kubectl get po -l "$1" -o jsonpath="{.items[0].metadata.name}") $2
 }
