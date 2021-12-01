@@ -102,6 +102,9 @@ HOMEBREW_FOLDER="/usr/local/share"
 source "$HOMEBREW_FOLDER/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$HOMEBREW_FOLDER/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
+# Go
+export GOPATH="$HOME"/go
+
 # Python conf
 eval "$(pyenv init -)"
 
