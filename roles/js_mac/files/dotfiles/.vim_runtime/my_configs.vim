@@ -150,10 +150,23 @@ map <Leader>dt :diffthis<CR>
 map <Leader>df :diffoff!<CR>
 " Git
 map <Leader>gl :Git pull<CR>
+nnoremap <Leader>gL :Gclog!<CR>
 map <Leader>gp :Git push<CR>
-map <Leader>pf :Git push -f<CR>
+map <Leader>gP :Git push -f<CR>
 " ALEFix
 map <Leader>af :ALEFix<CR>
 " Shell
 map <Leader>xs :!sh % > out.log<CR>
 map <Leader>xb :!bash % > out.log<CR>
+
+
+" Copy current file name (relative/absolute) to system clipboard
+" https://stackoverflow.com/a/17096082/6435726
+" Relative path (src/foo.txt)
+nnoremap <leader>cf :let @+=expand("%")<CR>
+" Absolute path (/something/src/foo.txt)
+nnoremap <leader>cF :let @+=expand("%:p")<CR>
+" Filename (foo.txt)
+nnoremap <leader>ct :let @+=expand("%:t")<CR>
+" Directory name (/something/src)
+nnoremap <leader>ch :let @+=expand("%:p:h")<CR>
