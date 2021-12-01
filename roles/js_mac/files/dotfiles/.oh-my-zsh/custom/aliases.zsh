@@ -8,8 +8,6 @@ alias gpi='git push -u origin HEAD'
 alias j2y='ruby -ryaml -rjson -e "puts YAML.dump(JSON.parse(STDIN.read))"'
 alias k='kubectl'
 alias k9l="k9s info | grep Logs | awk '{ print \$2 }' | sed -e $'s#\033\[[;0-9]*m##g' | xargs vim"
-alias kdebug='kubectl run tmp-shell --rm -i --tty --image nicolaka/netshoot -- /bin/bash'
-alias kdebug-mysql='kubectl run tmp-mysql --rm -i --tty --image imega/mysql-client -- /bin/sh'
 alias ll='exa -la'
 alias mdl='doru markdownlint/markdownlint'
 alias myip='curl -s https://api.ipify.org | xargs'
@@ -57,6 +55,18 @@ function ecr-login() {
 function free-port() {
   local port="$1"
   sudo lsof -nP -i4TCP:"$port" | grep LISTEN | awk '{print $2}' | xargs kill -9
+}
+function kdebug() {
+  local variant="${1:-shell}"
+  case "$variant" in
+    shell) local opts='--image=nicolaka/netshoot -- /bin/bash';;
+    mysql) local opts='--image=imega/mysql-client -- /bin/sh';;
+    kubectl) local opts='--image=bitnami/kubectl:1.19 -- /bin/sh';;
+    *) echo "Variant not recognized!" && (exit 1) && true;;
+  esac
+  # alias kdebug='kubectl run tmp-shell --rm -i --tty --overrides='"'"'{ "apiVersion": "v1", "spec": { "hostNetwork": true } }'"'"' --image=nicolaka/netshoot -- /bin/bash'
+  kubectl run "tmp-$variant" --rm -i --tty $(echo $opts)
+  kubectl wait --for=delete pod/"tmp-$variant"
 }
 function kpf() {
   kubectl port-forward pod/$(kubectl get po -l "$1" -o jsonpath="{.items[0].metadata.name}") $2
