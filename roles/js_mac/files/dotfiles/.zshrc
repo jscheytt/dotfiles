@@ -77,7 +77,7 @@ plugins=(
   fzf
   git
   # kubectl
-  osx
+  macos
   # terraform
   vi-mode
   zsh-nvm
