@@ -68,9 +68,6 @@ function kdebug() {
   kubectl run "tmp-$variant" --rm -i --tty $(echo $opts)
   kubectl wait --for=delete pod/"tmp-$variant"
 }
-function kpf() {
-  kubectl port-forward pod/$(kubectl get po -l "$1" -o jsonpath="{.items[0].metadata.name}") $2
-}
 function kex() {
   local app_name="$1"
   shift
