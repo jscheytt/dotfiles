@@ -30,4 +30,5 @@
     # - https://github.com/slim-template/vim-slim.git
     # - https://github.com/thoughtbot/vim-rspec.git
     - https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git
+    - https://github.com/timonv/vim-cargo.git
     # - https://github.com/tpope/vim-rails.git

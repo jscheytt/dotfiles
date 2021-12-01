@@ -9,3 +9,4 @@ eval "$(pyenv init --path)"
 # NVM path management from ansible BEGIN
 . ~/.nvm/nvm.sh
 # NVM path management from ansible END
+. "$HOME/.cargo/env"

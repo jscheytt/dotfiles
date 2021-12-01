@@ -111,14 +111,16 @@ map <Leader>xp :!python %<CR>
 " Ruby
 au FileType ruby setlocal foldmethod=syntax
 " Rspec bindings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
+" map <Leader>t :call RunCurrentSpecFile()<CR>
+" map <Leader>s :call RunNearestSpec()<CR>
 " map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+" map <Leader>a :call RunAllSpecs()<CR>
 let g:rspec_command = "term rspec --fail-fast #{spec}"
-map <Leader>xr :!ruby %<CR>
 let g:reek_on_loading = 0
 let g:reek_always_show = 0
+
+" Rust
+map <Leader>xr :CargoRun<CR>
 
 " Terraform
 au! BufNewFile,BufReadPost *.{tmpl} set filetype=json foldmethod=syntax
