@@ -8,7 +8,7 @@ alias gpi='git push -u origin HEAD'
 alias k='kubectl'
 alias k9l="k9s info | grep Logs | awk '{ print \$2 }' | sed -e $'s#\033\[[;0-9]*m##g' | xargs vim"
 alias ll='exa -la'
-alias mdl='doru markdownlint/markdownlint'
+alias mdl='poru markdownlint/markdownlint'
 alias myip='curl -s https://api.ipify.org | xargs'
 alias php53='docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp php:5.3.29-cli'
 alias rdam='rails data:migrate'
@@ -43,8 +43,9 @@ function dki() {
 function dust() {
   du -sch "$@" | sort -hr
 }
-function doru() {
-  docker run -it --volume="$PWD":/"$(basename $PWD)" --workdir=/"$(basename $PWD)" "$@"
+function poru() {
+  # podman run -it --rm --mount type=bind,source="$PWD",target=/"$(basename $PWD)" --workdir=/"$(basename $PWD)" "$@"
+  podman run -it --rm "$@"
 }
 function ecr-login() {
   aws ecr get-login-password \
