@@ -66,6 +66,8 @@ function kdebug() {
     kubectl) local opts='--image=bitnami/kubectl:1.19 -- /bin/sh';;
     *) echo "Variant not recognized!" && (exit 1) && true;;
   esac
+  local namespace="$2"
+  if [ -n "$namespace" ]; then opts="-n $namespace $opts"; fi
   # alias kdebug='kubectl run tmp-shell --rm -i --tty --overrides='"'"'{ "apiVersion": "v1", "spec": { "hostNetwork": true } }'"'"' --image=nicolaka/netshoot -- /bin/bash'
   kubectl run "tmp-$variant" --rm -i --tty $(echo $opts)
   kubectl wait --for=delete pod/"tmp-$variant"
