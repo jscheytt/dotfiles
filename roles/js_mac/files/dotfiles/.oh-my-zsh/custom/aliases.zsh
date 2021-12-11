@@ -55,6 +55,9 @@ function free-port() {
   local port="$1"
   sudo lsof -nP -i4TCP:"$port" | grep LISTEN | awk '{print $2}' | xargs kill -9
 }
+function jqsort() {
+  jq -S '.' "$1" | sponge "$1"
+}
 function kdebug() {
   local variant="${1:-shell}"
   case "$variant" in
