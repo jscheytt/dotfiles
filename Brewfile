@@ -45,6 +45,7 @@ brew "kustomize"
 brew "mas"
 brew "maven"
 brew "mysql", restart_service: true
+brew "ncdu"
 brew "ncurses"
 brew "neovim"
 brew "nvm"
