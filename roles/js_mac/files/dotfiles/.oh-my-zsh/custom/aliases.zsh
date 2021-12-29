@@ -96,7 +96,6 @@ function rdbs() {
 function upgrade() {
   # Homebrew
   brew upgrade
-  brew upgrade --cask
   mas upgrade
   brew bundle dump -f --mas --file ~/Documents/dotfiles/Brewfile
   # Git pull
