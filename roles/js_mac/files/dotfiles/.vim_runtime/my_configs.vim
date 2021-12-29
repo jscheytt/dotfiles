@@ -154,12 +154,13 @@ map <Leader>gl :Git pull<CR>
 nnoremap <Leader>gL :Gclog!<CR>
 map <Leader>gp :Git push<CR>
 map <Leader>gP :Git push -f<CR>
+" Last commit message to line
+nnoremap <leader>lc :r!git log -1 --pretty=\%B \| head -n1<CR>
 " ALEFix
 map <Leader>af :ALEFix<CR>
 " Shell
 map <Leader>xs :!sh % > out.log<CR>
 map <Leader>xb :!bash % > out.log<CR>
-
 
 " Copy current file name (relative/absolute) to system clipboard
 " https://stackoverflow.com/a/17096082/6435726
