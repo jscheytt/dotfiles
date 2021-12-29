@@ -45,6 +45,7 @@ let g:ale_linters = {
 \  'dockerfile': ['hadolint'],
 \  'html': ['prettier'],
 \  'javascript': ['eslint'],
+\  'markdown': [''],
 \  'python': ['flake8'],
 \  'scss' : ['prettier'],
 \  'sh' : ['shellcheck'],
