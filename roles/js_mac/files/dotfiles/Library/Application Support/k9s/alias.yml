@@ -1,3 +1,2 @@
 alias:
-  dep: apps/v1/deployments
   kust: kustomize.toolkit.fluxcd.io/v1beta1/kustomizations
