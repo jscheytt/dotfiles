@@ -43,9 +43,8 @@ function dki() {
 function dust() {
   du -sch "$@" | sort -hr
 }
-function poru() {
-  # podman run -it --rm --mount type=bind,source="$PWD",target=/"$(basename $PWD)" --workdir=/"$(basename $PWD)" "$@"
-  podman run -it --rm "$@"
+function doru() {
+  docker run -it --volume="$PWD":/"$(basename $PWD)" --workdir=/"$(basename $PWD)" "$@"
 }
 function ecr-login() {
   aws ecr get-login-password \
