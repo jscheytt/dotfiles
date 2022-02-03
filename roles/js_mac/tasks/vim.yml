@@ -23,6 +23,7 @@
     - https://github.com/fatih/vim-go.git
     - https://github.com/hashivim/vim-terraform.git
     - https://github.com/iamcco/markdown-preview.nvim
+    - https://github.com/lmeijvogel/vim-yaml-helper.git
     - https://github.com/mechatroner/rainbow_csv.git
     - https://github.com/mustache/vim-mustache-handlebars.git
     - https://github.com/robertbasic/vim-hugo-helper
