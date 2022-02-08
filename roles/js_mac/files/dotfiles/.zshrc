@@ -151,3 +151,9 @@ eval "$(rbenv init - zsh)"
 
 # Customer specific includes
 source ~/Documents/.customer-specifics.sh
+
+# Set starting directory of new terminals (not new tabs)
+export START=~/Documents
+if [[ $PWD == $HOME ]]; then
+  cd $START
+fi
