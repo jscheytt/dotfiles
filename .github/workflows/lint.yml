@@ -10,7 +10,7 @@ jobs:
       - name: 🚀 Run yamllint
         uses: frenck/action-yamllint@v1
         with:
-          config: roles/js_mac/files/dotfiles/.config/yamllint/config
+          config: ./roles/js_mac/files/dotfiles/.config/yamllint/config
   ansible-lint:
     name: ansible-lint
     runs-on: ubuntu-latest
