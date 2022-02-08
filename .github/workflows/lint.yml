@@ -8,9 +8,9 @@ jobs:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@v2
       - name: 🚀 Run yamllint
-        uses: frenck/action-yamllint@v1
+        uses: karancode/yamllint-github-action@v2.0.0
         with:
-          config: roles/js_mac/files/dotfiles/.config/yamllint/config
+          yamllint_config_filepath: roles/js_mac/files/dotfiles/.config/yamllint/config
   ansible-lint:
     name: ansible-lint
     runs-on: ubuntu-latest
