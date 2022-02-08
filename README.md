@@ -1,6 +1,6 @@
 # My [Dotfiles](https://wiki.archlinux.org/index.php/Dotfiles)
 
-![lint](https://github.com/jscheytt/dotfiles/actions/workflows/lint.yml/badge.svg)
+[![lint](https://github.com/jscheytt/dotfiles/actions/workflows/lint.yml/badge.svg)](https://github.com/jscheytt/dotfiles/actions/workflows/lint.yml)
 
 ## What is this repo for?
 
