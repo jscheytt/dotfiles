@@ -73,13 +73,13 @@ function kdebug() {
   kubectl run "tmp-$variant" --rm -i --tty $(echo $opts)
   kubectl wait --for=delete pod/"tmp-$variant"
 }
-function kex() {
-  local app_name="$1"
-  shift
-  local entrypoint=${@:-/bin/bash}
-  pod_name=$(kubectl get po -l "app=$app_name" -o jsonpath="{.items[0].metadata.name}") || \
-    pod_name=$(kubectl get po -l "app.kubernetes.io/name=$app_name" -o jsonpath="{.items[0].metadata.name}")
-  kubectl exec -it "$pod_name" -- $(echo $entrypoint)
+# kubectl rollout wait
+function krowt() {
+  local deployment_name="$1"
+  local timeout="${2:-20m}"
+  kubectl rollout status deploy "$deployment_name" -w --timeout="$timeout" \
+    && say -v Lee "Deployment rollout has finished" \
+    || say -v Lee "Waiting for Deployment rollout has timed out"
 }
 function mas_install() {
   local app_name="${1:?'Parameter #1 is app name'}"
