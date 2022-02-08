@@ -10,7 +10,7 @@ jobs:
       - name: 🚀 Run yamllint
         uses: frenck/action-yamllint@v1
         with:
-          config: ./roles/js_mac/files/dotfiles/.config/yamllint/config
+          config: "./roles/js_mac/files/dotfiles/.config/yamllint/config"
   ansible-lint:
     name: ansible-lint
     runs-on: ubuntu-latest
@@ -21,6 +21,6 @@ jobs:
       - name: 🚀 Lint Ansible Playbook
         uses: ansible/ansible-lint-action@4.1.0
         with:
+          override-deps: |
+            ansible-lint==5.3.2
           targets: .
-        override-deps: |
-          ansible-lint==5.3.2
