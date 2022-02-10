@@ -10,14 +10,14 @@ alias k9l="k9s info | grep Logs | awk '{ print \$2 }' | sed -e $'s#\033\[[;0-9]*
 alias k='kubectl'
 alias ll='exa -la'
 alias myip='curl -s https://api.ipify.org | xargs'
+alias nd='nvim -d'
+alias nv='nvim'
+alias nvo="vim -s <(printf 'B3jo2jojJo')"
 alias php53='docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp php:5.3.29-cli'
 alias rdam='rails data:migrate'
 alias ssh-config='${=EDITOR} ~/.ssh/config'
 alias tfgraph='terraform graph -draw-cycles | dot -Tsvg > graph.svg'
 alias tfmt='tf fmt'
-alias vim='nvim'
-alias vimdiff='nvim -d'
-alias vn="vim -s <(printf 'B3jo2jojJo')"
 alias y2j='ruby -ryaml -rjson -e "puts JSON.pretty_generate(YAML.load(STDIN.read))"'
 
 function aws-unassume-role() {
