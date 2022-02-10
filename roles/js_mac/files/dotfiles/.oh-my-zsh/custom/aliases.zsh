@@ -31,6 +31,15 @@ function aws-resync-mfa() {
   local code2=${3:?'Code 2 is 3nd parameter'}
   aws iam resync-mfa-device --user-name $username --serial-number $(aws iam list-mfa-devices --user-name $username | jq -r '.MFADevices[0].SerialNumber') --authentication-code1 $code1 --authentication-code2 $code2
 }
+function clear-cache() {
+  local variant="$1"
+  case "$variant" in
+    kubelogin) local filepath=~/.kube/cache/oidc-login;;
+    docker) local filepath=~/.docker/config.json;;
+    *) echo "Variant not recognized!" && (exit 1) && true;;
+  esac
+  rm -rf "$filepath"
+}
 function dirdiff() {
   dir1="$1"
   dir2="$2"
