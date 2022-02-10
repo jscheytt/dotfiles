@@ -43,7 +43,6 @@ autocmd BufWritePost *.css,*.jsx,*.html,*.htm ALEFix
 let g:ale_linters = {
 \  'css': ['prettier'],
 \  'dockerfile': ['hadolint'],
-\  'html': ['prettier'],
 \  'javascript': ['eslint'],
 \  'markdown': [''],
 \  'python': ['flake8'],
@@ -55,7 +54,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \  'css': ['prettier'],
 \  'html': ['prettier'],
-\  'javascript': ['prettier'],
+\  'javascript': ['eslint'],
 \  'json': ['jq'],
 \  'python': ['yapf'],
 \  'ruby': ['rubocop'],
