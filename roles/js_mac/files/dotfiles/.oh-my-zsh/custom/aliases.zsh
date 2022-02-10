@@ -6,13 +6,13 @@ alias extstat="find . -type f -name '*.*' -not -iwholename '*.svn*' -not -iwhole
 alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias gpi='git push -u origin HEAD'
 alias k9cf='nvim "/Users/josia.scheytt/Library/Application Support/k9s/config.yml"'
-alias k9l="k9s info | grep Logs | awk '{ print \$2 }' | sed -e $'s#\033\[[;0-9]*m##g' | xargs vim"
+alias k9l="k9s info | grep Logs | awk '{ print \$2 }' | sed -e $'s#\033\[[;0-9]*m##g' | xargs ${=EDITOR}"
 alias k='kubectl'
 alias ll='exa -la'
 alias myip='curl -s https://api.ipify.org | xargs'
 alias nd='nvim -d'
 alias nv='nvim'
-alias nvo="vim -s <(printf 'B3jo2jojJo')"
+alias nvo="nvim -s <(printf 'B3jo2jojJo')"
 alias php53='docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp php:5.3.29-cli'
 alias rdam='rails data:migrate'
 alias ssh-config='${=EDITOR} ~/.ssh/config'
