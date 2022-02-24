@@ -158,22 +158,11 @@ function upgrade() {
   brew bundle dump -f --mas --file "$HOME"/Documents/dotfiles/Brewfile
   # Git pull
   gitup -t -1 -p "$HOME"/Documents
-  # Other upgrades
-  upgrade_vim
+  # Neovim plugins
+  nv +'PlugUpgrade' +'PlugUpdate --sync' +'qa'
+  # oh-my-zsh
   "$ZSH/tools/upgrade.sh"
   omz changelog
-}
-
-function upgrade_vim() {
-  local vim_dir="$HOME"/.vim_runtime
-  git -C "$vim_dir" restore .
-  git -C "$vim_dir" clean -fd
-  git -C "$vim_dir" pull --rebase
-  pyenv shell "$(cat "$HOME"/Documents/dotfiles/.python-version)"
-  pip install requests
-  python "$vim_dir"/update_plugins.py
-  pyenv shell -
-  gitup "${vim_dir}/my_plugins"
 }
 
 function yp() {

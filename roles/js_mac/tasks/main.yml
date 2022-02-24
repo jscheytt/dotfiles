@@ -21,10 +21,6 @@
   loop:
     - https://github.com/lukechilds/zsh-nvm.git
 
-# NOTE: Should run before dotfiles.yml so the config file is not overwritten
-- name: Set up vim config
-  import_tasks: vim.yml
-
 - name: Set up dotfiles
   import_tasks: dotfiles.yml
 
