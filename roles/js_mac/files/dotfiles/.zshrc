@@ -72,14 +72,10 @@ export NVM_LAZY_LOAD=true
 export NVM_AUTO_USE=true
 plugins=(
   common-aliases
-  # docker-compose
-  extract
   fzf
   git
-  # kubectl
   macos
-  # terraform
-  vi-mode
+  # vi-mode
   zsh-nvm
 )
 
