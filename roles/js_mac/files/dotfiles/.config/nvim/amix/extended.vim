@@ -4,7 +4,6 @@
 " => Fast editing and reloading of vimrc configs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>e :e! ~/.config/nvim/init.vim<cr>
-autocmd! bufwritepost ~/.config/nvim/init.vim source ~/.vim_runtime/my_configs.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Turn persistent undo on 
