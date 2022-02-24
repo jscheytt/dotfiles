@@ -23,13 +23,16 @@ call plug#begin()
 
 """ Basics & UI
 
+" Solarized Theme
+Plug 'altercation/vim-colors-solarized'
+
+" Light statusline
+Plug 'itchyny/lightline.vim'
+
 " File Tree
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
-" Light statusline
-Plug 'itchyny/lightline.vim'
 
 " Buffer Management (leader+o)
 Plug 'vim-scripts/bufexplorer.zip'
@@ -42,9 +45,6 @@ Plug 'junegunn/fzf.vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
-
-" Solarized Theme
-Plug 'altercation/vim-colors-solarized'
 
 """ Editing
 
