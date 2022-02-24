@@ -1,8 +1,12 @@
+### Taken and adapted from https://github.com/upbound/build/blob/master/makelib/common.mk
+
 # Remove default suffixes as we don't use them
 .SUFFIXES:
 
-# Set the Shell to Bash always
+# Set the shell to bash always
 SHELL := /bin/bash
+
+SELF_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 vault_password_file := vault-password.txt
 become_password_file := become-password.secret
@@ -17,6 +21,8 @@ Common Targets:
     install      Install dependencies.
     lint         Run linters.
     update       Run a git pull.
+
+$(LOCAL_HELPTEXT)
 endef
 export HELPTEXT
 
@@ -56,3 +62,5 @@ lint:
 .PHONY: clean
 clean:
 	rm $(vault_password_file) $(become_password_file) || true
+
+include $(SELF_DIR)makelib/git.mk
