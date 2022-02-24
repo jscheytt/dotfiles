@@ -94,6 +94,10 @@ set foldlevel=20
 au! BufNewFile,BufReadPost *.{markdown,md} set filetype=markdown foldmethod=indent
 autocmd FileType markdown setlocal ts=4 sts=4 sw=4 expandtab spell!
 vmap <leader>l :HugoHelperLink 
+let g:mkdp_preview_options = {
+\ 'disable_sync_scroll': 1,
+\ 'disable_filename': 1
+\ }
 
 " Nginx
 " au! BufNewFile,BufReadPost *.conf set filetype=nginx foldmethod=syntax
