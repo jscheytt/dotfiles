@@ -58,6 +58,9 @@ Plug 'amix/vim-zenroom2'
 " Go to file (gf)
 Plug 'amix/open_file_under_cursor.vim'
 
+" Match opening brackets automatically
+Plug 'Raimondi/delimitMate'
+
 " Surround selection with any character
 Plug 'tpope/vim-surround'
 
