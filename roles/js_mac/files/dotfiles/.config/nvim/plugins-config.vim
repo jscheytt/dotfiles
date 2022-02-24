@@ -47,6 +47,8 @@ nnoremap <silent> <leader>z :Goyo<cr>
 " => fzf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set rtp+=/usr/local/opt/fzf
+" Open fzf
+map <C-f> :GFiles<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fugitive

@@ -34,8 +34,11 @@ Plug 'itchyny/lightline.vim'
 " Buffer Management (leader+o)
 Plug 'vim-scripts/bufexplorer.zip'
 
-" Find files with silver searcher
+" Search through file contents with silver searcher
 Plug 'mileszs/ack.vim'
+" Find files by name with fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
