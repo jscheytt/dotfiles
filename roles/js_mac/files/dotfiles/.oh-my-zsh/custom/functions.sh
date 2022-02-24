@@ -127,9 +127,11 @@ function kdebug() {
 function krowt() {
   local deployment_name="$1"
   local timeout="${2:-20m}"
-  kubectl rollout status deploy "$deployment_name" -w --timeout="$timeout" \
-    && say -v Lee "Deployment rollout has finished" \
-    || say -v Lee "Waiting for Deployment rollout has timed out"
+  if kubectl rollout status deploy "$deployment_name" -w --timeout="$timeout"; then
+    say -v Lee "Deployment rollout has finished"
+  else
+    say -v Lee "Waiting for Deployment rollout has timed out"
+  fi
 }
 
 function mas_install() {
