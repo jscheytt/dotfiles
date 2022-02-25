@@ -55,52 +55,14 @@ function free-port() {
   sudo lsof -nP -i4TCP:"$port" | grep LISTEN | awk '{print $2}' | xargs kill -9
 }
 
-# See https://stackoverflow.com/a/62397081/6435726
-function git-get-default-branch() {
-  local git_dir="$1"
-  local git_cmd="git -C $git_dir"
-  git-remote-verify "$git_dir"
-
-  # Pull if default branch was changed on remote
-  $(echo $git_cmd) remote set-head origin -a > /dev/null
-
-  # Get local default branch
-  $(echo $git_cmd) rev-parse --abbrev-ref origin/HEAD | xargs -I {} basename {}
+# Execute a Git command (rest of parameters) on all Git repositories on the given path (first parameter)
+function git-xargs() {
+  local filepath="$1"
+  find "$filepath" -path "*/.git" -not -path "*build*" -not -path "*.diff-kustomize*" \
+    -exec dirname {} \; \
+    | { xargs -t -I {} git -C {} "${@:2}" || true; }
 }
-export -f git-get-default-branch > /dev/null
 
-# Remove local branches that were deleted on the remote
-function git-prune-local-branches() {
-  local git_dir="$1"
-  default_branch="$(git-get-default-branch "$git_dir")"
-  local git_cmd="git -C $git_dir"
-  git-remote-verify "$git_dir"
-
-  echo -e "\nPruning local branches that were deleted on the remote for $git_dir ..."
-  # Remove local references to branches that were deleted on the remote branch
-  $(echo $git_cmd) remote prune origin
-  # Switch to the default branch
-  $(echo $git_cmd) switch "$default_branch" &> /dev/null
-  # Delete all merged branches apart from the default branch (and some special branches)
-  $(echo $git_cmd) branch --merged "$default_branch" \
-    | grep -vE "(develop|quality|master|main|$default_branch)\$"
-    # | xargs $(echo $git_cmd) branch -d
-}
-export -f git-prune-local-branches > /dev/null
-
-function git-remote-verify() {
-  local git_dir="$1"
-  local git_cmd="git -C $git_dir"
-  if [[ ! $($(echo $git_cmd) remote -v) ]]; then
-    echo -e "\nNo remote present for ${git_dir}. Skipping ..."
-    exit 0
-  fi
-}
-export -f git-remote-verify > /dev/null
-
-function git-prune-local-branches-all() {
-  make -f "${0:a:h}"/Makefile branches.prune.all
-}
 function jqsort() {
   jq -S '.' "$1" | sponge "$1"
 }

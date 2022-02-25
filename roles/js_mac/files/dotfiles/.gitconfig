@@ -10,6 +10,7 @@
 [init]
   defaultBranch = main
 [pull]
+  ; TODO: Revise this
 	rebase = false
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -23,3 +24,29 @@
 	show = delta
 [interactive]
 	diffFilter = delta --color-only --features=interactive
+[alias]
+  ; What is the default branch of a repo?
+  default-branch = "!git remote set-head origin -a > /dev/null \
+    && git rev-parse --abbrev-ref origin/HEAD | sed 's#origin/##'"
+  ; Switch to the default branch.
+  switch-default = !git switch $(git default-branch)
+  ; Which branches have been merged into the default branch on the remote?
+  remotely-merged-branches = "!git branch --all --merged $(git default-branch) \
+    | { grep -vE '^\\*|develop|quality|master|main|$(git default-branch)' || true; }"
+  ; Delete those branches on the remote which were merged.
+  ; NOTE: Removal of local corresponding branches probably happens on `remote prune origin`.
+  push-delete-remotely-merged-branches = "!git remote prune origin && \
+    git switch-default && \
+    git remotely-merged-branches \
+      | sed 's#remotes/origin/##' \
+      | xargs -I {} git push origin --delete {}"
+  ; Which local branches are not present on the remote?
+  local-branches-without-remote = "!git branch -vv \
+    | grep ': gone]' \
+    | grep -v "\\*" \
+    | awk '{ print $1; }'"
+  ; Delete local branches that are not present on the remote (safely, including warnings).
+  ; You can override the warning by passing "-D" as a parameter.
+  delete-local-branches-without-remote = "!delete_flag=${1:-'-d'} && \
+    git local-branches-without-remote \
+    | xargs -I {} git branch $delete_flag {}"

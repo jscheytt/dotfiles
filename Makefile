@@ -62,5 +62,3 @@ lint:
 .PHONY: clean
 clean:
 	rm $(vault_password_file) $(become_password_file) || true
-
-include $(SELF_DIR)makelib/git.mk

@@ -5,6 +5,7 @@ alias bym='bundle install && yarn install && rails db:migrate && rails data:migr
 alias extstat="find . -type f -name '*.*' -not -iwholename '*.svn*' -not -iwholename '*.git*' -print | sed 's/.*\.//' | sort | uniq -c | sort -r"
 alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias functions='${=EDITOR} $ZSH_CUSTOM/functions.sh'
+alias git-prune-remote-deleted-branches='git remotely-deleted-branches | xargs git branch -d'
 alias gpi='git push -u origin HEAD'
 alias k9cf='nvim "/Users/josia.scheytt/Library/Application Support/k9s/config.yml"'
 alias k9l="k9s info | grep Logs | awk '{ print \$2 }' | sed -e $'s#\033\[[;0-9]*m##g' | xargs ${=EDITOR}"
