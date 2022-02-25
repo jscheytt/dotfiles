@@ -142,12 +142,6 @@ function mas_install() {
     | xargs -I {} mas install {}
 }
 
-function pathogen() {
-  cd "$HOME"/.vim_runtime/my_plugins
-  git clone --recurse-submodules "$1"
-  cd -
-}
-
 function rdbs() {
   bundle exec rails db:migrate:reset
   bundle exec rails db:seed
