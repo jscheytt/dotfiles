@@ -50,3 +50,6 @@
   delete-local-branches-without-remote = "!delete_flag=${1:-'-d'} && \
     git local-branches-without-remote \
     | xargs -I {} git branch $delete_flag {}"
+  ; Output file contents from any revision
+  ; See https://stackoverflow.com/a/54819889/6435726
+  cat = "!git show \"$1:$2\" #"
