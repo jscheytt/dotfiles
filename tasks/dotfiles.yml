@@ -4,7 +4,7 @@
     dotfiles_path: "{{ ansible_env.PWD }}/files/dotfiles/"
 
 - name: Find all dotfiles directories
-  find:
+  find: &findParams
     paths: "{{ dotfiles_path }}"
     file_type: directory
     recurse: true
@@ -20,10 +20,8 @@
 
 - name: Find all dotfiles to be linked
   find:
-    paths: "{{ dotfiles_path }}"
+    <<: *findParams
     file_type: file
-    recurse: true
-    hidden: true
   register: dotfiles
 
 - name: Symlink dotfiles
