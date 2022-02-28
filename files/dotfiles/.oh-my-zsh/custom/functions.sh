@@ -114,8 +114,6 @@ function upgrade() {
   brew upgrade
   mas upgrade
   brew bundle dump -f --mas --file "$HOME"/Documents/dotfiles/Brewfile
-  # Git pull
-  gitup -t -1 -p "$HOME"/Documents
   # Neovim plugins
   nvim --headless +'PlugUpgrade' +'PlugUpdate --sync' +'qa'
   # oh-my-zsh
