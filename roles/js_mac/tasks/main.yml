@@ -8,7 +8,7 @@
   import_role:
     name: gantsign.oh-my-zsh
   vars:
-    oh_my_zsh_theme: romkatv/powerlevel10k
+    # oh_my_zsh_theme: romkatv/powerlevel10k
     oh_my_zsh_install: yes
     users:
       - username: "{{ ansible_user_id }}"
@@ -24,9 +24,9 @@
 - name: Set up dotfiles
   import_tasks: dotfiles.yml
 
-- name: iTerm custom settings file should be set
-  osx_defaults:
-    domain: com.googlecode.iterm2
-    key: PrefsCustomFolder
-    type: string
-    value: "{{ ansible_env.PWD }}/roles/js_mac/files"
+# - name: iTerm custom settings file should be set
+#   osx_defaults:
+#     domain: com.googlecode.iterm2
+#     key: PrefsCustomFolder
+#     type: string
+#     value: "{{ ansible_env.PWD }}/roles/js_mac/files"
