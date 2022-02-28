@@ -22,5 +22,6 @@ alias ssh-config='${=EDITOR} ~/.ssh/config'
 alias tfgraph='terraform graph -draw-cycles | dot -Tsvg > graph.svg'
 alias tfmt='tf fmt'
 alias y2j='ruby -ryaml -rjson -e "puts JSON.pretty_generate(YAML.load(STDIN.read))"'
+alias weekly-reports='bat "$HOME"/Documents/mbio/reports/*'
 
 source ${0:a:h}/functions.sh
