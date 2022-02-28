@@ -1,7 +1,7 @@
 - name: Set fact for dotfiles path
   set_fact:
     # NOTE: Do keep the slash at the end!
-    dotfiles_path: "{{ ansible_env.PWD }}/roles/{{ role_name }}/files/dotfiles/"
+    dotfiles_path: "{{ ansible_env.PWD }}/files/dotfiles/"
 
 - name: Find all dotfiles directories
   find:

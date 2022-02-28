@@ -12,4 +12,8 @@
     - role: geerlingguy.mac.homebrew
       tags: ['homebrew']
       homebrew_brewfile_dir: ansible_env.PWD
-    - js_mac
+  tasks:
+    - import_tasks: tasks/oh-my-zsh.yml
+      tags: ['oh-my-zsh']
+    - import_tasks: tasks/dotfiles.yml
+      tags: ['dotfiles']

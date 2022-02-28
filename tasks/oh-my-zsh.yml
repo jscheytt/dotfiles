@@ -15,9 +15,6 @@
   loop:
     - https://github.com/lukechilds/zsh-nvm.git
 
-- name: Set up dotfiles
-  import_tasks: dotfiles.yml
-
 # - name: iTerm custom settings file should be set
 #   osx_defaults:
 #     domain: com.googlecode.iterm2

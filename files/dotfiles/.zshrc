@@ -98,6 +98,9 @@ HOMEBREW_FOLDER="/usr/local/share"
 source "$HOMEBREW_FOLDER/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$HOMEBREW_FOLDER/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
+# Homebrew binaries
+export PATH="/usr/local/sbin:$PATH"
+
 # Go
 export GOPATH="$HOME"/go
 
