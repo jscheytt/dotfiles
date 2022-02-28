@@ -1,9 +1,9 @@
 - name: Ensure all repositories are up-to-date
   cron:
     name: Update all repositories
-    minute: '15'
-    hour: '8-16'
-    weekday: '1-5' # on workdays
+    minute: "15"
+    hour: "8-16"
+    weekday: "1-5" # on workdays
     job: gitup -t -1 -p "$HOME"/Documents
 
 - name: Set fact for logging directory
