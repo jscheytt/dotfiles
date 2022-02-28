@@ -2,6 +2,7 @@ alias aliases='${=EDITOR} $ZSH_CUSTOM/aliases.zsh'
 alias bcop='bundle exec rubocop -a'
 alias bfg='java -jar ~/Applications/bfg-1.13.0.jar'
 alias bym='bundle install && yarn install && rails db:migrate && rails data:migrate'
+alias date-iso='date -u +"%FT%TZ"'
 alias extstat="find . -type f -name '*.*' -not -iwholename '*.svn*' -not -iwholename '*.git*' -print | sed 's/.*\.//' | sort | uniq -c | sort -r"
 alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias functions='${=EDITOR} $ZSH_CUSTOM/functions.sh'
