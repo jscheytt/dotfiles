@@ -7,8 +7,8 @@
   find:
     paths: "{{ dotfiles_path }}"
     file_type: directory
-    recurse: yes
-    hidden: yes
+    recurse: true
+    hidden: true
   register: dotfiles_directories
 
 - name: Ensure paths for dotfiles exist
@@ -22,8 +22,8 @@
   find:
     paths: "{{ dotfiles_path }}"
     file_type: file
-    recurse: yes
-    hidden: yes
+    recurse: true
+    hidden: true
   register: dotfiles
 
 - name: Symlink dotfiles
@@ -31,5 +31,5 @@
     src: "{{ item.path }}"
     dest: "~/{{ item.path | replace(dotfiles_path, '') }}"
     state: link
-    force: yes
+    force: true
   with_items: "{{ dotfiles.files }}"
