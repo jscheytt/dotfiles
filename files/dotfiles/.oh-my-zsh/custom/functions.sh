@@ -117,5 +117,5 @@ function upgrade() {
 }
 
 function yp() {
-  yq e . "$1" -j | jq -C . | less -R
+  yq "$1" -o=json | jq -C . | less -R
 }
