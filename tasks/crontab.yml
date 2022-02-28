@@ -22,6 +22,16 @@
     env: true
     job: "{{ logging_dir }}"
 
+- name: Ensure dotfiles are applied
+  cron:
+    name: Ensure dotfiles are applied
+    minute: "0"
+    hour: "9"
+    weekday: "1-5" # on workdays
+    job: >-
+      log_file_name="$LOGGING_DIR/$(date-iso)-dotfiles.log" &&
+      make -f {{ ansible_env.PWD }}/Makefile build >> "$log_file_name"
+
 - name: Report merged remote branches
   cron:
     name: Report merged remote branches
