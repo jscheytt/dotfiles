@@ -10,7 +10,7 @@ jobs:
       - name: 🚀 Run yamllint
         uses: karancode/yamllint-github-action@v2.0.0
         with:
-          yamllint_config_filepath: roles/js_mac/files/dotfiles/.config/yamllint/config
+          yamllint_config_filepath: files/dotfiles/.config/yamllint/config
   ansible-lint:
     name: ansible-lint
     runs-on: ubuntu-latest
