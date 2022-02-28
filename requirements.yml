@@ -1,5 +1,4 @@
 roles:
-  - gantsign.oh-my-zsh
-  - stephdewit.nvm
+  - name: gantsign.oh-my-zsh
 collections:
-  - community.general
+  - name: community.general
