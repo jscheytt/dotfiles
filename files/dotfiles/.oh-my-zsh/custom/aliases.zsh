@@ -1,5 +1,4 @@
 alias aliases='${=EDITOR} $ZSH_CUSTOM/aliases.zsh'
-alias bcop='bundle exec rubocop -a'
 alias bfg='java -jar ~/Applications/bfg-1.13.0.jar'
 alias bym='bundle install && yarn install && rails db:migrate && rails data:migrate'
 alias date-iso='date -u +"%FT%TZ"'
@@ -17,7 +16,6 @@ alias nd='nvim -d'
 alias nv='nvim'
 alias nvo="nvim -s <(printf 'B3jo2jojJo')"
 alias php53='docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp php:5.3.29-cli'
-alias rdam='rails data:migrate'
 alias ssh-config='${=EDITOR} ~/.ssh/config'
 alias tfgraph='terraform graph -draw-cycles | dot -Tsvg > graph.svg'
 alias tfmt='tf fmt'

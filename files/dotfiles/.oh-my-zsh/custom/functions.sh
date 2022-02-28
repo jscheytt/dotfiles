@@ -104,11 +104,6 @@ function mas_install() {
     | xargs -I {} mas install {}
 }
 
-function rdbs() {
-  bundle exec rails db:migrate:reset
-  bundle exec rails db:seed
-}
-
 function upgrade() {
   # Homebrew
   brew upgrade
