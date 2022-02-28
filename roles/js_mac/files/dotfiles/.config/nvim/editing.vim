@@ -41,3 +41,6 @@ nnoremap <leader>ch :let @+=expand("%:p:h")<CR>
 
 " Center search results in the middle of the screen
 set scrolloff=10
+
+" Wrap lines on whole words
+set linebreak
