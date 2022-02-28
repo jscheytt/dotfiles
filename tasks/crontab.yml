@@ -8,7 +8,7 @@
 
 - name: Set fact for logging directory
   set_fact:
-    logging_dir: $HOME/Documents/mbio/reports
+    logging_dir: $HOME/Documents/crontab-reports
 
 - name: Ensure path for logging directory exists
   file:
