@@ -117,7 +117,7 @@ function upgrade() {
   # Git pull
   gitup -t -1 -p "$HOME"/Documents
   # Neovim plugins
-  nv +'PlugUpgrade' +'PlugUpdate --sync' +'qa'
+  nvim --headless +'PlugUpgrade' +'PlugUpdate --sync' +'qa'
   # oh-my-zsh
   "$ZSH/tools/upgrade.sh"
   omz changelog
