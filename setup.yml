@@ -1,11 +1,5 @@
 #!/usr/bin/env ansible-playbook
-- hosts: localhost
-  tasks:
-    - debug:
-        msg: Check we are running in the directory of the script
-      failed_when: not ansible_env.PWD.endswith('/dotfiles')
-
-- hosts: localhost
+- hosts: all
   vars_files:
     - become-password.secret
   roles:

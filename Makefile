@@ -52,7 +52,9 @@ $(become_password_file): $(vault_password_file)
 
 .PHONY: build
 build: $(vault_password_file) $(become_password_file)
-	pipenv run ansible-playbook setup.yml --vault-password-file $(vault_password_file) -vv
+	pipenv run ansible-playbook setup.yml \
+		--vault-password-file $(vault_password_file) \
+		--inventory inventory -vv
 
 .PHONY: lint
 lint:
