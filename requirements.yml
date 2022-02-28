@@ -1,4 +1,6 @@
 roles:
   - name: gantsign.oh-my-zsh
+  - name: elliotweiser.osx-command-line-tools
 collections:
   - name: community.general
+  - name: geerlingguy.mac

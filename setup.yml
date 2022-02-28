@@ -9,4 +9,7 @@
   vars_files:
     - become-password.secret
   roles:
+    - role: geerlingguy.mac.homebrew
+      tags: ['homebrew']
+      homebrew_brewfile_dir: ansible_env.PWD
     - js_mac
