@@ -26,8 +26,10 @@
 	diffFilter = delta --color-only --features=interactive
 [alias]
   ; What is the default branch of this repo?
-  default-branch = "!git remote set-head origin -a > /dev/null \
-    && git rev-parse --abbrev-ref origin/HEAD | sed 's#origin/##'"
+  default-branch = "! \
+    git remote set-head origin -a > /dev/null \
+    && git rev-parse --abbrev-ref origin/HEAD \
+    | sed 's#origin/##'"
   ; Switch to the default branch.
   switch-default = !git switch $(git default-branch)
   ; Which branches have been merged into the default branch on the remote?
@@ -47,14 +49,15 @@
     | awk '{print $1;}'"
   ; Delete local branches that are not present on the remote (safely, including warnings).
   ; You can override the warning by passing "-D" as a parameter.
-  delete-local-branches-without-remote = "!delete_flag=${1:-'-d'} && \
+  delete-local-branches-without-remote = "! \
     git local-branches-without-remote \
-    | xargs -I {} git branch $delete_flag {}"
+    | xargs -I {} git branch ${1:-'-d'} {}"
   ; Output file contents from any revision
   ; See https://stackoverflow.com/a/54819889/6435726
   cat = !git show "$1:$2"
   ; Fetch new branches, then switch to the newest one
-  switch-newest = "!git fetch 2>&1 \
+  switch-newest = "! \
+    git fetch 2>&1 \
     | { grep '\\[new branch\\]' || true; } \
     | tail -n1 \
     | awk '{print $NF;}' \
