@@ -33,14 +33,15 @@
   ; Switch to the default branch.
   switch-default = !git switch $(git default-branch)
   ; Which branches have been merged into the default branch on the remote?
-  remotely-merged-branches = "!git branch --all --merged $(git default-branch) \
-    | { grep -vE '^\\*|develop|quality|master|main|$(git default-branch)' || true; }"
+  ; For safety, manually add names of long-lived branches to the grep pattern.
+  remotely-merged-branches = "! \
+    git branch --all --merged $(git default-branch) \
+    | { grep -vE '^\\*|(\\b($(git default-branch)|develop|main|master|quality)\\b)' || true; } \
+    | sed 's#remotes/origin/##'"
   ; Delete those branches on the remote which were merged.
-  ; NOTE: Removal of local corresponding branches probably happens on `remote prune origin`.
-  push-delete-remotely-merged-branches = "!git remote prune origin && \
+  push-delete-remotely-merged-branches = "! \
     git switch-default && \
     git remotely-merged-branches \
-      | sed 's#remotes/origin/##' \
       | xargs -I {} git push origin --delete {}"
   ; Which local branches are not present on the remote?
   local-branches-without-remote = "!git branch -vv \
