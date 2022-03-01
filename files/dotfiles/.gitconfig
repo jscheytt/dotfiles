@@ -25,7 +25,7 @@
 [interactive]
 	diffFilter = delta --color-only --features=interactive
 [alias]
-  ; What is the default branch of a repo?
+  ; What is the default branch of this repo?
   default-branch = "!git remote set-head origin -a > /dev/null \
     && git rev-parse --abbrev-ref origin/HEAD | sed 's#origin/##'"
   ; Switch to the default branch.
@@ -52,7 +52,7 @@
     | xargs -I {} git branch $delete_flag {}"
   ; Output file contents from any revision
   ; See https://stackoverflow.com/a/54819889/6435726
-  cat = "!git show \"$1:$2\" #"
+  cat = !git show "$1:$2"
   ; Fetch new branches, then switch to the newest one
   switch-newest = "!git fetch 2>&1 \
     | { grep '\\[new branch\\]' || true; } \
