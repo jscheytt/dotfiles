@@ -82,6 +82,7 @@ function kdebug() {
   esac
   local namespace="$2"
   if [ -n "$namespace" ]; then opts="-n $namespace $opts"; fi
+  # shellcheck disable=SC2046,SC2116,SC2086
   kubectl run "tmp-$variant" --rm -i --tty $(echo $opts)
   kubectl wait --for=delete pod/"tmp-$variant"
 }
