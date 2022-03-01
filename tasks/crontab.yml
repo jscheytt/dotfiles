@@ -4,7 +4,7 @@
     minute: "15"
     hour: "8-16"
     weekday: "1-5" # on workdays
-    job: gitup -t -1 -p "$HOME"/Documents
+    job: gitup --depth -1 --prune "$HOME"/Documents
 
 - name: Set fact for logging directory
   set_fact:
@@ -41,7 +41,7 @@
     job: >-
       log_file_name="$LOGGING_DIR/$(date-iso)-remote-merged-branches.log" &&
       for dir in "$HOME"/Documents/mbio/ot*; do
-      git-xargs "$dir" remotely-merged-branches >> "$log_file_name"
+      gitup --depth -1 --prune "$dir" --exec "git remotely-merged-branches" >> "$log_file_name"
       ;done
 
 - name: Report local branches without remote
@@ -53,7 +53,7 @@
     job: >-
       log_file_name="$LOGGING_DIR/$(date-iso)-local-branches-without-remote.log" &&
       for dir in "$HOME"/Documents/mbio/ot*; do
-      git-xargs "$dir" local-branches-without-remote >> "$log_file_name"
+      gitup --depth -1 --prune "$dir" --exec "git local-branches-without-remote" >> "$log_file_name"
       ;done
 
 - name: Report divergent target branches

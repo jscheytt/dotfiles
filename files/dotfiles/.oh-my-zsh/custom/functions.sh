@@ -55,12 +55,13 @@ function free-port() {
   sudo lsof -nP -i4TCP:"$port" | grep LISTEN | awk '{print $2}' | xargs kill -9
 }
 
-# Execute a Git command (rest of parameters) on all Git repositories on the given path (first parameter)
+# Execute a Git command on all Git repositories
+# $1: Path with Git repositories below
+# Rest of parameters: Git command (e.g. "status")
 function git-xargs() {
   local filepath="$1"
-  find "$filepath" -path "*/.git" -not -path "*build*" -not -path "*.diff-kustomize*" \
-    -exec dirname {} \; \
-    | { xargs -t -I {} git -C {} "${@:2}" || true; }
+  # shellcheck disable=SC2116
+  gitup --depth -1 "$filepath" --exec "git $(echo "${@:2}")"
 }
 
 function jqsort() {
