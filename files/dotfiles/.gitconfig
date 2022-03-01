@@ -53,3 +53,10 @@
   ; Output file contents from any revision
   ; See https://stackoverflow.com/a/54819889/6435726
   cat = "!git show \"$1:$2\" #"
+  ; Fetch new branches, then switch to the newest one
+  switch-newest = "!git fetch 2>&1 \
+    | { grep '\\[new branch\\]' || true; } \
+    | tail -n1 \
+    | awk '{print $NF;}' \
+    | sed 's#origin/##' \
+    | xargs -I {} git switch {}"
