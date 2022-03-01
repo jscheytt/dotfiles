@@ -43,13 +43,23 @@
     git switch-default && \
     git remotely-merged-branches \
       | xargs -I {} git push origin --delete {}"
-  ; Which local branches are not present on the remote?
-  local-branches-without-remote = "!git branch -vv \
-    | grep ': gone]' \
-    | grep -v '\\*' \
-    | awk '{print $1;}'"
-  ; Delete local branches that are not present on the remote (safely, including warnings).
-  ; You can override the warning by passing "-D" as a parameter.
+  ; Which local branches are not present on the remote (but were once)?
+  ; NOTE: `git remote prune origin` only deletes local snapshots
+  ; of remote branches that were deleted on the remote.
+  ; See https://stackoverflow.com/a/48820687/6435726
+  ; It will not delete local branches where the remote branch is "gone".
+  ; This command finds these local branches.
+  local-branches-without-remote = "! \
+    git remote prune origin && \
+    git branch --list --format '%(if:equals=[gone])%(upstream:track)%(then)%(refname)%(end)' \
+    | awk NF \
+    | sed 's#refs/heads/##'"
+  ; Delete local branches that are not present on the remote
+  ; (safely, including warnings).
+  ; You can ignore the warnings by passing "-D" as a parameter.
+  ; NOTE: `git remote prune origin` only deletes local snapshots
+  ; of remote branches that were deleted on the remote.
+  ; It will not delete local branches where the remote branch is "gone".
   delete-local-branches-without-remote = "! \
     git local-branches-without-remote \
     | xargs -I {} git branch ${1:-'-d'} {}"
