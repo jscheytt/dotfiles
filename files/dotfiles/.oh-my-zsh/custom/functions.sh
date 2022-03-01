@@ -106,7 +106,7 @@ function mas_install() {
 
 function upgrade() {
   # Homebrew
-  brew upgrade
+  HOMEBREW_NO_ENV_HINTS=1 brew upgrade
   mas upgrade
   brew bundle dump -f --mas --file "$HOME"/Documents/dotfiles/Brewfile
   # Neovim plugins
