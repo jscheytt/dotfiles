@@ -43,8 +43,8 @@
   ; Which local branches are not present on the remote?
   local-branches-without-remote = "!git branch -vv \
     | grep ': gone]' \
-    | grep -v "\\*" \
-    | awk '{ print $1; }'"
+    | grep -v '\\*' \
+    | awk '{print $1;}'"
   ; Delete local branches that are not present on the remote (safely, including warnings).
   ; You can override the warning by passing "-D" as a parameter.
   delete-local-branches-without-remote = "!delete_flag=${1:-'-d'} && \
