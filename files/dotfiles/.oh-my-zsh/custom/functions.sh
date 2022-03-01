@@ -56,7 +56,7 @@ function free-port() {
 }
 
 # Execute a Git command on all Git repositories
-# $1: Path with Git repositories below
+# $1: Path with Git repositories in subdirectories
 # Rest of parameters: Git command (e.g. "status")
 function git-xargs() {
   local filepath="$1"

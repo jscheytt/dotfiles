@@ -26,6 +26,7 @@
 	diffFilter = delta --color-only --features=interactive
 [alias]
   ; What is the default branch of this repo?
+  ; The first command asks the remote if the default branch was changed.
   default-branch = "! \
     git remote set-head origin -a > /dev/null \
     && git rev-parse --abbrev-ref origin/HEAD \
