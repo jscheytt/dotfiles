@@ -41,7 +41,7 @@
     | sed 's#remotes/origin/##'"
   ; Delete those branches on the remote which were merged.
   push-delete-remotely-merged-branches = "! \
-    git switch-default && \
+    git switch-default &> /dev/null && \
     git remotely-merged-branches \
       | xargs -I {} git push origin --delete {}"
   ; Which local branches are not present on the remote (but were once)?
