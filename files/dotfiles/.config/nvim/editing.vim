@@ -36,9 +36,6 @@ nnoremap <leader>ct :let @+=expand("%:t")<CR>
 " Directory name (/something/src)
 nnoremap <leader>ch :let @+=expand("%:p:h")<CR>
 
-" Remap Esc key to exit Terminal mode
-" tnoremap <Esc> <C-\><C-n>
-
 " Center search results in the middle of the screen
 set scrolloff=10
 
