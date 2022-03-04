@@ -98,3 +98,12 @@ map <leader>p :cp<cr>
 
 " Make sure that enter is never overriden in the quickfix window
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => delimitMate
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Fix code fenced blocks
+autocmd FileType markdown let b:delimitMate_expand_cr = 2
+autocmd FileType markdown let b:delimitMate_expand_inside_quotes = 1
+autocmd FileType markdown let b:delimitMate_expand_space = 0
+autocmd FileType markdown let b:delimitMate_nesting_quotes = ['`']
