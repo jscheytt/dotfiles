@@ -1,5 +1,4 @@
 alias aliases='${=EDITOR} $ZSH_CUSTOM/aliases.zsh'
-alias bfg='java -jar ~/Applications/bfg-1.13.0.jar'
 alias bym='bundle install && yarn install && rails db:migrate && rails data:migrate'
 alias date-iso='date -u +"%FT%TZ"'
 alias extstat="find . -type f -name '*.*' -not -iwholename '*.svn*' -not -iwholename '*.git*' -print | sed 's/.*\.//' | sort | uniq -c | sort -r"
