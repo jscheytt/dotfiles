@@ -31,8 +31,8 @@
     git remote set-head origin -a > /dev/null \
     && git rev-parse --abbrev-ref origin/HEAD \
     | sed 's#origin/##'"
-  ; Switch to the default branch.
-  switch-default = !git switch $(git default-branch)
+  ; *Switch* to the *default* branch.
+  swd = !git switch $(git default-branch)
   ; Which branches have been merged into the default branch on the remote?
   ; For safety, manually add names of long-lived branches to the grep pattern.
   remotely-merged-branches = "! \
@@ -67,8 +67,8 @@
   ; Output file contents from any revision
   ; See https://stackoverflow.com/a/54819889/6435726
   cat = !git show "$1:$2"
-  ; Fetch new branches, then switch to the newest one
-  switch-newest = "! \
+  ; Fetch new branches, then *switch* to the *newest* one
+  swn = "! \
     git fetch 2>&1 \
     | { grep '\\[new branch\\]' || true; } \
     | tail -n1 \
