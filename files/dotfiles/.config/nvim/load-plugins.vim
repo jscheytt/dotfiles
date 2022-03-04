@@ -64,6 +64,9 @@ Plug 'Raimondi/delimitMate'
 " Surround selection with any character
 Plug 'tpope/vim-surround'
 
+" Search with asterisk
+Plug 'thinca/vim-visualstar'
+
 " Toggle comment (gcc)
 Plug 'tpope/vim-commentary'
 
