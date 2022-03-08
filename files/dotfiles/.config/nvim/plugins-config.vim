@@ -21,7 +21,12 @@ autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | e
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => lightline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set background=light
+let output = system("defaults read -g AppleInterfaceStyle")
+if v:shell_error != 0
+  set background=light
+else    
+  set background=dark
+endif
 " Do not show INSERT mode in lowest line because it is already shown in the statusline
 set noshowmode
 let g:lightline = {
