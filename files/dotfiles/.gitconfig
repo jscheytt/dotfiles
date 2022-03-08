@@ -10,8 +10,9 @@
 [init]
   defaultBranch = main
 [pull]
-  ; TODO: Revise this
-	rebase = false
+	rebase = true
+[fetch]
+	prune = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
