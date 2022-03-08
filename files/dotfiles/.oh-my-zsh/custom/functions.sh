@@ -31,6 +31,12 @@ function dirdiff() {
   nvim -d <(ls -R "$dir1" | sed "s#$dir1/##g") <(ls -R "$dir2" | sed "s#$dir2/##g")
 }
 
+# Shortcut for diff.kustomize target
+function dfku() {
+  local filepath="$1"
+  make diff.kustomize diff_source="$filepath" | diff-so-fancy
+}
+
 function dki() {
   # docker kill container by image name
   docker kill "$(docker ps -qf "ancestor=$1")"
