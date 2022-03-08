@@ -98,9 +98,9 @@ function krowt() {
   local deployment_name="$1"
   local timeout="${2:-20m}"
   if kubectl rollout status deploy "$deployment_name" -w --timeout="$timeout"; then
-    say -v Lee "Deployment rollout has finished"
+    say-english "Deployment rollout has finished"
   else
-    say -v Lee "Waiting for Deployment rollout has timed out"
+    say-english "Waiting for Deployment rollout has timed out"
   fi
 }
 
@@ -110,6 +110,12 @@ function mas_install() {
     | head -n1 \
     | awk -F ' ' '{print $1}' \
     | xargs -I {} mas install {}
+}
+
+# Use English voice and reduce volume
+# Needs "Lee" macOS voice - I think you have to download this manually
+function say-english() {
+  say -v Lee "[[volm 0.3]] $1"
 }
 
 function upgrade() {
