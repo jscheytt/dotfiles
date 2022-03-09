@@ -26,8 +26,9 @@ call plug#begin()
 " Solarized Theme
 Plug 'altercation/vim-colors-solarized'
 
-" Light statusline
-Plug 'itchyny/lightline.vim'
+" Statusline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " File Tree
 Plug 'preservim/nerdtree'
