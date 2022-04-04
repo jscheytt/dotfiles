@@ -33,7 +33,12 @@ update: ## Run a git pull.
 
 .PHONY: install
 install: ## Install dependencies.
-	./install.sh
+	command -v brew > /dev/null || { /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; }
+	command -v pyenv > /dev/null || { brew install pyenv; }
+	command -v pipenv > /dev/null || { brew install pipenv; }
+	pyenv install "$$(cat .python-version)" --skip-existing
+	pipenv sync
+	pipenv run ansible-galaxy install -r requirements.yml
 
 $(vault_password_file):
 	@echo 'Generating random vault password ...'
