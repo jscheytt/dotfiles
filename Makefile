@@ -11,34 +11,28 @@ SELF_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 vault_password_file := vault-password.txt
 become_password_file := become-password.secret
 
-define HELPTEXT
-Usage: make [make-options] <target> [options]
-
-Common Targets:
-    build        Run Ansible playbook.
-    clean        Clean up artifacts.
-    help         Show this help info.
-    install      Install dependencies.
-    lint         Run linters.
-    update       Run a git pull.
-
-$(LOCAL_HELPTEXT)
-endef
-export HELPTEXT
-
 .PHONY: help
-help:
-	@echo "$$HELPTEXT"
+USAGE_TEXT := Usage: make [make-options] <target> [options]
+HELPTEXT_HEADING := Common Targets:
+# See https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
+help: ## Show this help info.
+	@printf "$(USAGE_TEXT)\n"
+	@for makefile in $(MAKEFILE_LIST); do \
+		echo; \
+		grep '^HELPTEXT_HEADING := ' "$$makefile" | sed -E 's#.* := (.*)#\1#'; \
+		grep -E '^[a-zA-Z_\.-]+:.*?## .*$$' "$$makefile" | sort | \
+			awk 'BEGIN {FS = ":.*?## "}; {printf "  %-27s %s\n", $$1, $$2}'; \
+	done
 
 .PHONY: all
 all: update install build
 
 .PHONY: update
-update:
+update: ## Run a git pull.
 	@git pull
 
 .PHONY: install
-install:
+install: ## Install dependencies.
 	./install.sh
 
 $(vault_password_file):
@@ -51,17 +45,17 @@ $(become_password_file): $(vault_password_file)
 		| pipenv run ansible-vault encrypt --vault-password-file $(vault_password_file) --output $@
 
 .PHONY: build
-build: $(vault_password_file) $(become_password_file)
+build: $(vault_password_file) $(become_password_file) ## Run Ansible playbook.
 	pipenv run ansible-playbook main.yml \
 		--vault-password-file $(vault_password_file) \
 		--inventory inventory \
 		-vv
 
 .PHONY: lint
-lint:
+lint: ## Run linters.
 	pipenv run yamllint -c files/dotfiles/.config/yamllint/config .
 	pipenv run ansible-lint .
 
 .PHONY: clean
-clean:
+clean: ## Clean up artifacts.
 	rm $(vault_password_file) $(become_password_file) || true
