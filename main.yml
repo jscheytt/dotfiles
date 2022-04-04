@@ -4,12 +4,12 @@
     - become-password.secret
   roles:
     - role: geerlingguy.mac.homebrew
-      tags: ['homebrew']
+      tags: ["homebrew"]
       homebrew_brewfile_dir: ansible_env.PWD
   tasks:
     - import_tasks: tasks/oh-my-zsh.yml
-      tags: ['oh-my-zsh']
+      tags: ["oh-my-zsh"]
     - import_tasks: tasks/dotfiles.yml
-      tags: ['dotfiles']
+      tags: ["dotfiles"]
     - import_tasks: tasks/crontab.yml
-      tags: ['crontab']
+      tags: ["crontab"]
