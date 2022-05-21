@@ -12,7 +12,7 @@ alias ll='exa -la'
 alias myip='curl -s https://api.ipify.org | xargs'
 alias nd='nvim -d'
 alias nv='nvim'
-alias nvo="nvim -s <(printf 'B3jo2jojJo')"
+alias nvo="nvim -s <(printf 'B3jo4jojJo')"
 alias ssh-config='${=EDITOR} ~/.ssh/config'
 alias tfgraph='terraform graph -draw-cycles | dot -Tsvg > graph.svg'
 alias weekly-reports='bat "$HOME"/Documents/crontab-reports/*'
