@@ -81,7 +81,7 @@ function kdebug() {
   kubectl wait --for=delete pod/"tmp-$variant"
   case "$variant" in
     awscli) local opts='--image=woahbase/alpine-awscli -- /bin/bash';;
-    shell) local opts='--image=nicolaka/netshoot -- /bin/bash';;
+    shell) local opts='--image=nicolaka/netshoot';;
     mysql) local opts='--image=imega/mysql-client -- /bin/sh';;
     kubectl) local opts='--image=bitnami/kubectl:1.19 -- /bin/sh';;
     *) echo "Variant not recognized!" && (exit 1) && true;;
