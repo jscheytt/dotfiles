@@ -113,6 +113,13 @@ function mas_install() {
     | xargs -I {} mas install {}
 }
 
+# Simulate native Buildpacks experience by hooking into the lifecycle
+function pack_build() {
+  local builder="${1:-paketobuildpacks/builder}"
+  shift
+  docker run --volume="$PWD":/workspace --workdir=/workspace "$builder" /cnb/lifecycle/creator "$@"
+}
+
 # Use English voice and reduce volume
 # Needs "Lee" macOS voice - I think you have to download this manually
 function say-english() {

@@ -141,9 +141,6 @@ export BAT_THEME="OneHalfLight"
 # zoxide
 eval "$(zoxide init zsh)"
 
-# pack zsh completions
-. $(pack completion --shell zsh)
-
 # rbenv
 eval "$(rbenv init - zsh)"
 
