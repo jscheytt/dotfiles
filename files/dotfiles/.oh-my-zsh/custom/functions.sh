@@ -83,6 +83,7 @@ function kdebug() {
     awscli) local opts='--image=woahbase/alpine-awscli -- /bin/bash';;
     shell) local opts='--image=nicolaka/netshoot';;
     mysql) local opts='--image=imega/mysql-client -- /bin/sh';;
+    postgres) local opts='--image=postgres:alpine -- /bin/sh';;
     kubectl) local opts='--image=bitnami/kubectl:1.19 -- /bin/sh';;
     *) echo "Variant not recognized!" && (exit 1) && true;;
   esac
