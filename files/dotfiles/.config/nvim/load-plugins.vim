@@ -93,6 +93,9 @@ Plug 'fatih/vim-go'
 " Hugo
 Plug 'robertbasic/vim-hugo-helper'
 
+" Helm
+Plug 'towolf/vim-helm'
+
 " Terraform
 Plug 'hashivim/vim-terraform'
 
