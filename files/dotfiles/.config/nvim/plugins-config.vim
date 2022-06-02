@@ -90,3 +90,8 @@ autocmd FileType markdown let b:delimitMate_expand_cr = 2
 autocmd FileType markdown let b:delimitMate_expand_inside_quotes = 1
 autocmd FileType markdown let b:delimitMate_expand_space = 0
 autocmd FileType markdown let b:delimitMate_nesting_quotes = ['`']
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => mkdx
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:mkdx#settings = { 'enter': { 'increment': 0 } }
