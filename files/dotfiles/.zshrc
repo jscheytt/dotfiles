@@ -72,7 +72,6 @@ export NVM_LAZY_LOAD=true
 export NVM_AUTO_USE=true
 plugins=(
   common-aliases
-  fzf
   git
   macos
   zsh-nvm
@@ -140,9 +139,6 @@ export BAT_THEME="OneHalfLight"
 
 # zoxide
 eval "$(zoxide init zsh)"
-
-# rbenv
-eval "$(rbenv init - zsh)"
 
 # Customer specific includes
 source ~/Documents/.customer-specifics.sh

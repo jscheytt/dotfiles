@@ -104,6 +104,7 @@ cask "syntax-highlight"
 cask "telegram"
 cask "tunnelblick"
 cask "virtualbox"
+cask "warp"
 cask "zoom"
 mas "GarageBand", id: 682658836
 mas "Xcode", id: 497799835
