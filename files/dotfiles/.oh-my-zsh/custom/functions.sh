@@ -115,7 +115,7 @@ function mas_install() {
 
 # Simulate native Buildpacks experience by hooking into the lifecycle
 function pack_build() {
-  local builder="${1:-paketobuildpacks/builder}"
+  local builder="${1}"
   shift
   docker run --volume="$PWD":/workspace --workdir=/workspace "$builder" /cnb/lifecycle/creator "$@"
 }
