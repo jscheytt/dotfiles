@@ -82,6 +82,9 @@ Plug 'nathanaelkane/vim-indent-guides'
 " ALE already covers many languages
 Plug 'dense-analysis/ale'
 
+" Asciidoc
+Plug 'habamax/vim-asciidoctor'
+
 " CSV
 Plug 'mechatroner/rainbow_csv'
 
