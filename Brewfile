@@ -102,7 +102,6 @@ cask "joplin"
 cask "michaelvillar-timer"
 cask "ngrok"
 cask "onedrive"
-cask "pomodone"
 cask "postman"
 cask "syntax-highlight"
 cask "telegram"
@@ -110,6 +109,7 @@ cask "tunnelblick"
 cask "virtualbox"
 cask "warp"
 cask "zoom"
+mas "Flow", id: 1423210932
 mas "GarageBand", id: 682658836
 mas "Microsoft To Do", id: 1274495053
 mas "Xcode", id: 497799835
