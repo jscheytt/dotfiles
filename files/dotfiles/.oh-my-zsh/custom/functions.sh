@@ -120,6 +120,25 @@ function pack_build() {
   docker run --volume="$PWD":/workspace --workdir=/workspace "$builder" /cnb/lifecycle/creator "$@"
 }
 
+# Replace pattern with replacement in multiple files recursively.
+function replace_in_files() {
+  local pattern="$1"
+  local replacement="$2"
+  local file_extensions="$3"
+  find -E . -type f -regex ".*\.(${file_extensions})" \
+    -exec sed -i '' "s!${pattern}!${replacement}!g" {} \;
+}
+
+# Rename a file and change all its references in files.
+function rename_replace_in_files() {
+  local source_filepath="$1"
+  local target_filepath="$2"
+  local file_extensions="$3"
+  mkdir -p "$(dirname "$target_filepath")"
+  mv "$source_filepath" "$target_filepath"
+  replace_in_files "$source_filepath" "$target_filepath" "$file_extensions"
+}
+
 # Use English voice and reduce volume
 # Needs "Lee" macOS voice - I think you have to download this manually
 function say-english() {
