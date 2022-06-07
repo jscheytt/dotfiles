@@ -132,7 +132,7 @@ function upgrade() {
   mas upgrade
   brew bundle dump -f --mas --file "$HOME"/Documents/dotfiles/Brewfile
   # Neovim plugins
-  nvim --headless +'PlugUpgrade' +'PlugUpdate --sync' +'qa'
+  nvim --headless +'PlugUpgrade' +'PlugInstall' +'PlugUpdate --sync' +'qa'
   # oh-my-zsh
   "$ZSH/tools/upgrade.sh"
   omz changelog
