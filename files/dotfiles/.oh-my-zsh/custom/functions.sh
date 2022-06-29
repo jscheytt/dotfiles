@@ -46,6 +46,22 @@ function dust() {
   du -sch "$@" | sort -hr
 }
 
+# Create a Kubernetes .dockerconfigjson and output it to stdout
+function dockerconfigjson() {
+  local docker_registry="${1}"
+  local docker_registry_username="${2}"
+  local docker_registry_password="${3}"
+  kubectl create secret docker-registry irrelevant \
+    --docker-server="${docker_registry}" \
+    --docker-username="${docker_registry_username}" \
+    --docker-password="${docker_registry_password}" \
+    --dry-run=client \
+    -o=yaml \
+    | grep ".dockerconfigjson: " \
+    | awk '{print $2}' \
+    | base64 --decode
+}
+
 function doru() {
   docker run -it --volume="$PWD":/workspace --workdir=/workspace "$@"
 }
