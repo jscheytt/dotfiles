@@ -9,6 +9,7 @@ alias k9cf='nvim "/Users/josia.scheytt/Library/Application Support/k9s/config.ym
 alias k9l="k9s info | grep Logs | awk '{ print \$2 }' | sed -e $'s#\033\[[;0-9]*m##g' | xargs ${=EDITOR}"
 alias k='kubectl'
 alias ll='exa -la'
+alias mdl='doru pipelinecomponents/markdownlint'
 alias myip='curl -s https://api.ipify.org | xargs'
 alias nd='nvim -d'
 alias nv='nvim'
