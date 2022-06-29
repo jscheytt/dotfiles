@@ -1,7 +1,7 @@
 alias aliases='${=EDITOR} $ZSH_CUSTOM/aliases.zsh'
 alias bym='bundle install && yarn install && rails db:migrate && rails data:migrate'
 alias date-iso='date -u +"%FT%TZ"'
-alias extstat="find . -type f -name '*.*' -not -iwholename '*.svn*' -not -iwholename '*.git*' -print | sed 's/.*\.//' | sort | uniq -c | sort -r"
+alias extstat="find . -type f -name '*.*' -not -iwholename '*.svn*' -not -iwholename '*.git*' | sed 's/.*\.//' | sort | uniq -c | sort -r"
 alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias functions='${=EDITOR} $ZSH_CUSTOM/functions.sh'
 alias gpi='git push -u origin HEAD'
