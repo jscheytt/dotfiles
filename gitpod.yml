@@ -1,0 +1,10 @@
+#!/usr/bin/env ansible-playbook
+- hosts: all
+  roles:
+    - role: geerlingguy.mac.homebrew
+      tags: ["homebrew"]
+      homebrew_installed_packages:
+        - neovim
+  tasks:
+    - import_tasks: tasks/dotfiles.yml
+      tags: ["dotfiles"]
