@@ -5,4 +5,9 @@ IFS=$'\n\t'
 
 ### This is the installation script for Gitpod
 
-make install.gitpod build.gitpod
+# brew and pipenv are assumed
+pipenv sync
+pipenv run ansible-galaxy install -r requirements.yml
+pipenv run ansible-playbook gitpod.yml \
+  --inventory inventory \
+  -vv

@@ -49,22 +49,10 @@ $(become_password_file): $(vault_password_file)
 		echo "ansible_sudo_pass: $$admin_password" \
 		| pipenv run ansible-vault encrypt --vault-password-file $(vault_password_file) --output $@
 
-.PHONY: install.gitpod
-install.gitpod: ## Install dependencies in Gitpod workspace.
-	# brew and pipenv are assumed
-	pipenv sync
-	pipenv run ansible-galaxy install -r requirements.yml
-
 .PHONY: build
 build: $(vault_password_file) $(become_password_file) ## Run Ansible playbook.
 	pipenv run ansible-playbook main.yml \
 		--vault-password-file $(vault_password_file) \
-		--inventory inventory \
-		-vv
-
-.PHONY: build.gitpod
-build.gitpod: ## Run Ansible playbook for Gitpod workspace setup.
-	pipenv run ansible-playbook gitpod.yml \
 		--inventory inventory \
 		-vv
 
