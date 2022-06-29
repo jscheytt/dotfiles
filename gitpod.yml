@@ -1,5 +1,12 @@
 #!/usr/bin/env ansible-playbook
 - hosts: all
+  environment:
+    HOMEBREW_NO_AUTO_UPDATE: 1
+  pre_tasks:
+    - name: Fix ownership
+      shell: sudo chown -R $(whoami) /usr/local/share/man /usr/local/share/man/man1
+    - name: Fix writeability
+      shell: chmod u+w /usr/local/share/man /usr/local/share/man/man1
   roles:
     - role: geerlingguy.mac.homebrew
       tags: ["homebrew"]
