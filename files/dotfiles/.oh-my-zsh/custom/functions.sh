@@ -47,7 +47,7 @@ function dust() {
 }
 
 function doru() {
-  docker run -it --volume="$PWD":/"$(basename "$PWD")" --workdir=/"$(basename "$PWD")" "$@"
+  docker run -it --volume="$PWD":/workspace --workdir=/workspace "$@"
 }
 
 function ecr-login() {
