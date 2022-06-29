@@ -5,8 +5,15 @@ IFS=$'\n\t'
 
 ### This is the installation script for Gitpod
 
-command -v brew > /dev/null || { /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; }
+
+# brew is assumed
 command -v pipenv > /dev/null || { brew install pipenv; }
+
+# Enter and leave this directory
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+# Make sure to go back to previous directory
+trap popd EXIT
+pushd "$SCRIPT_DIR"
 pipenv sync
 pipenv run ansible-galaxy install -r requirements.yml
 pipenv run ansible-playbook gitpod.yml \
