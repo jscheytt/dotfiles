@@ -1,8 +1,10 @@
 #!/usr/bin/env ansible-playbook
 - hosts: all
+  environment:
+    HOMEBREW_NO_AUTO_UPDATE: 1
   tasks:
     - name: Install homebrew packages
-      command: HOMEBREW_NO_AUTO_UPDATE=1 brew install neovim
+      command: brew install neovim
       register: out
     - debug: var=out.stdout_lines
     - import_tasks: tasks/dotfiles.yml
