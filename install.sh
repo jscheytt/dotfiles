@@ -9,6 +9,10 @@ IFS=$'\n\t'
 
 # Enter and leave this script's directory
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+# Ignore desired Python version
+rm -f "${SCRIPT_DIR}"/.python-version
+
 # Make sure to go back to previous directory
 trap popd EXIT
 pushd "$SCRIPT_DIR"
@@ -17,8 +21,6 @@ pushd "$SCRIPT_DIR"
 python3 -m pip install --user ansible
 ansible-galaxy install -r requirements-gitpod.yml
 
-# Ignore desired Python version
-rm -f .python-version
 # Install everything via Ansible
 ansible-playbook gitpod.yml \
   --inventory inventory \
