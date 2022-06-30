@@ -9,6 +9,9 @@ IFS=$'\n\t'
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
+# Ignore desired Python version
+rm -f "${SCRIPT_DIR}"/.python-version
+
 # Install Ansible
 python3 -m pip install --user ansible
 
