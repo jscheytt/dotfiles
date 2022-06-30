@@ -37,6 +37,7 @@ install: ## Install dependencies.
 	command -v pyenv > /dev/null || { brew install pyenv; }
 	command -v pipenv > /dev/null || { brew install pipenv; }
 	pyenv install "$$(cat .python-version)" --skip-existing
+	pip install --user pipenv
 	pipenv sync
 	pipenv run ansible-galaxy install -r requirements.yml
 
