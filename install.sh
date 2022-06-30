@@ -20,5 +20,8 @@ ansible-playbook "${SCRIPT_DIR}"/gitpod.yml \
   --inventory "${SCRIPT_DIR}"/inventory \
   -vv
 
-# Install Homebrew packages
+# Install Neovim
 brew install neovim
+# It will fail the first time but work the second time
+nvim --headless +'PlugUpgrade' +'PlugInstall' +'PlugUpdate --sync' +'qa' || true
+nvim --headless +'PlugUpgrade' +'PlugInstall' +'PlugUpdate --sync' +'qa'
