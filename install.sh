@@ -3,25 +3,19 @@ set -euo pipefail
 IFS=$'\n\t'
 # set -x # DEBUG
 
-### This is the installation script for Gitpod
+### This is the installation script for Gitpod.
 ### It has a hard timeout of 2mins, so it's a very stripped down version of the
-# normal installation.
+### normal installation.
 
-# Enter and leave this script's directory
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-# Ignore desired Python version
-rm -f "${SCRIPT_DIR}"/.python-version
-
-# Make sure to go back to previous directory
-trap popd EXIT
-pushd "$SCRIPT_DIR"
-
-# Install Ansible & Requirements
+# Install Ansible
 python3 -m pip install --user ansible
-ansible-galaxy install -r requirements-gitpod.yml
 
-# Install everything via Ansible
-ansible-playbook gitpod.yml \
-  --inventory inventory \
+# Install only dotfiles via Ansible
+ansible-playbook "${SCRIPT_DIR}"/gitpod.yml \
+  --inventory "${SCRIPT_DIR}"/inventory \
   -vv
+
+# Install Homebrew packages
+brew install neovim
