@@ -37,6 +37,15 @@ function dfku() {
   make diff.kustomize diff_source="$filepath" | diff-so-fancy
 }
 
+# Docker Pull-Forward (pull locally and push to another registry)
+function dpf() {
+  local source_tag="$1"
+  local target_tag="$2"
+  docker pull "$source_tag"
+  docker tag "$source_tag" "$target_tag"
+  docker push "$target_tag"
+}
+
 function dki() {
   # docker kill container by image name
   docker kill "$(docker ps -qf "ancestor=$1")"
