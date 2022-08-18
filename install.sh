@@ -22,5 +22,3 @@ ansible-playbook "${SCRIPT_DIR}"/gitpod.yml \
 
 # Install NeoVim
 brew install neovim
-# Install NeoVim plugins
-nvim --headless +'PlugUpgrade' +'PlugInstall' +'PlugUpdate --sync' +'qa'
