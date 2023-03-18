@@ -28,54 +28,33 @@
 [alias]
   ; What is the default branch of this repo?
   ; The first command asks the remote if the default branch was changed.
-  default-branch = "! \
-    git remote set-head origin -a > /dev/null \
-    && git rev-parse --abbrev-ref origin/HEAD \
-    | sed 's#origin/##'"
+  default-branch = "! git remote set-head origin -a > /dev/null && git rev-parse --abbrev-ref origin/HEAD | sed 's#origin/##'"
   ; *Switch* to the *default* branch.
   swd = !git switch $(git default-branch)
   ; Which branches have been merged into the default branch on the remote?
   ; For safety, manually add names of long-lived branches to the grep pattern.
-  remotely-merged-branches = "! \
-    git branch --all --merged $(git default-branch) \
-    | { grep -vE '^\\*|(\\b($(git default-branch)|develop|main|master|quality)\\b)' || true; } \
-    | sed 's#remotes/origin/##'"
+  remotely-merged-branches = "! git branch --all --merged $(git default-branch) | { grep -vE '^\\*|(\\b($(git default-branch)|develop|main|master|quality)\\b)' || true; } | sed 's#remotes/origin/##'"
   ; Delete those branches on the remote which were merged.
-  push-delete-remotely-merged-branches = "! \
-    git switch-default &> /dev/null && \
-    git remotely-merged-branches \
-      | xargs -I {} git push origin --delete {}"
+  push-delete-remotely-merged-branches = "! git switch-default &> /dev/null && git remotely-merged-branches | xargs -I {} git push origin --delete {}"
   ; Which local branches are not present on the remote (but were once)?
   ; NOTE: `git remote prune origin` only deletes local snapshots
   ; of remote branches that were deleted on the remote.
   ; See https://stackoverflow.com/a/48820687/6435726
   ; It will not delete local branches where the remote branch is "gone".
   ; This command finds these local branches.
-  local-branches-without-remote = "! \
-    git remote prune origin && \
-    git branch --list --format '%(if:equals=[gone])%(upstream:track)%(then)%(refname)%(end)' \
-    | awk NF \
-    | sed 's#refs/heads/##'"
+  local-branches-without-remote = "! git remote prune origin && git branch --list --format '%(if:equals=[gone])%(upstream:track)%(then)%(refname)%(end)' | awk NF | sed 's#refs/heads/##'"
   ; Delete local branches that are not present on the remote
   ; (safely, including warnings).
   ; You can ignore the warnings by passing "-D" as a parameter.
   ; NOTE: `git remote prune origin` only deletes local snapshots
   ; of remote branches that were deleted on the remote.
   ; It will not delete local branches where the remote branch is "gone".
-  delete-local-branches-without-remote = "! \
-    git local-branches-without-remote \
-    | xargs -I {} git branch ${1:-'-d'} {}"
+  delete-local-branches-without-remote = "! git local-branches-without-remote | xargs -I {} git branch ${1:-'-d'} {}"
   ; Output file contents from any revision
   ; See https://stackoverflow.com/a/54819889/6435726
   cat = !git show "$1:$2"
   ; Fetch new branches, then *switch* to the *newest* one
-  swn = "! \
-    git fetch 2>&1 \
-    | { grep '\\[new branch\\]' || true; } \
-    | tail -n1 \
-    | awk '{print $NF;}' \
-    | sed 's#origin/##' \
-    | xargs -I {} git switch {}"
+  swn = "! git fetch 2>&1 | { grep '\\[new branch\\]' || true; } | tail -n1 | awk '{print $NF;}' | sed 's#origin/##' | xargs -I {} git switch {}"
   ; Pretty log from https://stackoverflow.com/a/34467298/6435726
   lg = lg1
   lg1 = lg1-specific --all
