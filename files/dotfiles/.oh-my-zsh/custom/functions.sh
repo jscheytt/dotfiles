@@ -183,16 +183,33 @@ function say-english() {
   say -v Lee "[[volm 0.3]] $1"
 }
 
+# Find all cloned repos with a configured remote (so not just inited), then run fetch all.
+function update_repos_with_remote(){
+  echo "INFO: Updating local Git repos ..."
+  git config --global --unset-all maintenance.repo || true
+  gfind "$HOME/Documents" -name HEAD \
+    -not -path "$HOME/Documents/archive/*" \
+    -not -path "$HOME/Documents/experiments/*" \
+    -execdir test -d refs -a -d objects -a -f FETCH_HEAD \; -printf %h\\n \
+    | xargs -I {} git config --global --add maintenance.repo {}
+  git for-each-repo --config=maintenance.repo fetch
+  # Remove entries again so we don't leak customer specifics
+  git config --global --unset-all maintenance.repo || true
+  echo "INFO: Finished updating local Git repos"
+}
+
 function upgrade() {
   # Homebrew
   HOMEBREW_NO_ENV_HINTS=1 brew upgrade
   mas upgrade
-  brew bundle dump -f --mas --file "$HOME"/Documents/dotfiles/Brewfile
+  brew bundle dump -f --mas --file "$HOME/Documents/dotfiles/Brewfile"
   # Neovim plugins
   nvim --headless +'PlugUpgrade' +'PlugInstall' +'PlugUpdate --sync' +'qa'
   # oh-my-zsh
   "$ZSH/tools/upgrade.sh"
   omz changelog
+  # Local Git clones
+  update_repos_with_remote
 }
 
 function yp() {
