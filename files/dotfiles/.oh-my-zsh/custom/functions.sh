@@ -25,6 +25,12 @@ function clear-cache() {
   rm -rf "$filepath"
 }
 
+# Get ID of running Docker container by name filter
+function drid() {
+  local name="$1"
+  docker ps --latest --filter name="$name" --format "{{.ID}}"
+}
+
 function dirdiff() {
   dir1="$1"
   dir2="$2"
