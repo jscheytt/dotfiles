@@ -19,8 +19,6 @@ jobs:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@v2
       - name: 🚀 Lint Ansible Playbook
-        uses: ansible/ansible-lint-action@c37fb7b4bda2c8cb18f4942716bae9f11b0dc9bc
+        uses: ansible/ansible-lint-action@v6
         with:
-          override-deps: |
-            rich>=9.5.1,<11.0.0
           targets: .

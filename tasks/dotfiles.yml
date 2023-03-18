@@ -1,10 +1,10 @@
 - name: Set fact for dotfiles path
-  set_fact:
+  ansible.builtin.set_fact:
     # NOTE: Do keep the slash at the end!
     dotfiles_path: "{{ ansible_env.PWD }}/files/dotfiles/"
 
 - name: Find all dotfiles directories
-  find: &findParams
+  ansible.builtin.find: &findParams
     paths: "{{ dotfiles_path }}"
     file_type: directory
     recurse: true
@@ -12,20 +12,20 @@
   register: dotfiles_directories
 
 - name: Ensure paths for dotfiles exist
-  file:
+  ansible.builtin.file:
     path: "~/{{ item.path | replace(dotfiles_path, '') }}"
     state: directory
     mode: 0755
   with_items: "{{ dotfiles_directories.files }}"
 
 - name: Find all dotfiles to be linked
-  find:
+  ansible.builtin.find:
     <<: *findParams
     file_type: file
   register: dotfiles
 
 - name: Symlink dotfiles
-  file:
+  ansible.builtin.file:
     src: "{{ item.path }}"
     dest: "~/{{ item.path | replace(dotfiles_path, '') }}"
     state: link
