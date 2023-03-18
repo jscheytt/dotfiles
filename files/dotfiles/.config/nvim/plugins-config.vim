@@ -95,3 +95,8 @@ autocmd FileType markdown let b:delimitMate_nesting_quotes = ['`']
 " => mkdx
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:mkdx#settings = { 'enter': { 'increment': 0 } }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => markdown-preview
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:mkdp_auto_close = 0

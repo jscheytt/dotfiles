@@ -99,6 +99,12 @@ Plug 'robertbasic/vim-hugo-helper'
 " Helm
 Plug 'towolf/vim-helm'
 
+" Markdown shortcuts
+Plug 'SidOfc/mkdx'
+
+" Show Markdown preview in browser
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 " Terraform
 Plug 'hashivim/vim-terraform'
 
@@ -106,12 +112,6 @@ Plug 'hashivim/vim-terraform'
 Plug 'rust-lang/rust.vim'
 " Cargo
 Plug 'timonv/vim-cargo'
-
-" Markdown shortcuts
-Plug 'SidOfc/mkdx'
-
-" Show Markdown preview in browser
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " YAML
 " Folding
