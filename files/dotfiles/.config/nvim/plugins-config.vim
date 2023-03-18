@@ -102,6 +102,37 @@ let g:mkdx#settings = { 'enter': { 'increment': 0 } }
 let g:mkdp_auto_close = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vimtex
+" See https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup vimtex_common
+  autocmd!
+  autocmd FileType tex nmap <buffer> <F9> <plug>(vimtex-compile)
+  autocmd FileType tex nmap <leader>lv <plug>(vimtex-view)
+augroup END
+
+let g:vimtex_compiler_latexmk = {
+  \ 'build_dir' : 'build',
+\ }
+
+let g:tex_flavor = 'latex'
+let g:vimtex_view_method = 'skim'
+
+" Ignore certain warnings in quickfix
+let g:vimtex_quickfix_ignore_filters = [
+  \ 'Underfull',
+  \ 'Overfull',
+  \ 'contains only floats.',
+  \]
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => deoplete for vimtex
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call deoplete#custom#var('omni', 'input_patterns', {
+  \ 'tex': g:vimtex#re#deoplete
+  \})
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-local-vimrc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:localvimrc_ask=0

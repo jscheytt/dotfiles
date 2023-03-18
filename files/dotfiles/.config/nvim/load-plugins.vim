@@ -76,6 +76,16 @@ Plug 'terryma/vim-expand-region'
 " Show indentation levels
 Plug 'nathanaelkane/vim-indent-guides'
 
+" Auto-completion (mostly for LaTeX)
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
 " Project-specific vimrc
 Plug 'embear/vim-localvimrc'
 
@@ -106,6 +116,12 @@ Plug 'robertbasic/vim-hugo-helper'
 
 " Helm
 Plug 'towolf/vim-helm'
+
+" LaTeX
+Plug 'lervag/vimtex'
+" Add snippets (e.g. figures, environments)
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Markdown shortcuts
 Plug 'SidOfc/mkdx'
