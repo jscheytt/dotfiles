@@ -190,8 +190,10 @@ function update_repos_with_remote(){
   gfind "$HOME/Documents" -name HEAD \
     -not -path "$HOME/Documents/archive/*" \
     -not -path "$HOME/Documents/experiments/*" \
-    -execdir test -d refs -a -d objects -a -f FETCH_HEAD \; -printf %h\\n \
-    | xargs -I {} git config --global --add maintenance.repo {}
+    -execdir sh -c \
+    'test -d refs/remotes -a -d objects && find refs/remotes -mindepth 1 -maxdepth 1 | read' \; \
+    -printf %h\\n \
+    | xargs -t -I {} git config --global --add maintenance.repo {}
   git for-each-repo --config=maintenance.repo fetch
   # Remove entries again so we don't leak customer specifics
   git config --global --unset-all maintenance.repo || true
