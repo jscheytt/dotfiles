@@ -87,6 +87,9 @@ Plug 'habamax/vim-asciidoctor'
 " CSV
 Plug 'mechatroner/rainbow_csv'
 
+" Cuelang
+Plug 'jjo/vim-cue'
+
 " editorconfig
 Plug 'editorconfig/editorconfig-vim'
 
