@@ -4,9 +4,9 @@
 [core]
   attributesfile = ~/.gitattributes 
 [push]
-	default = current
+	default = simple
 [branch]
-	autoSetupMerge = always
+	autoSetupMerge = simple
 [init]
   defaultBranch = main
 [pull]
