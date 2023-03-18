@@ -125,6 +125,13 @@ function kdebug() {
   kubectl wait --for=delete pod/"tmp-$variant"
 }
 
+# Kubectl Debug for containers without a Shell
+function kds() {
+  local labels="$1"
+  local image="${2:-alpine:3}"
+  kubectl debug -it --image="$image" "$(kubectl get po -l="$labels" -o=name | head -n1)"
+}
+
 # kubectl rollout wait
 function krowt() {
   local deployment_name="$1"
