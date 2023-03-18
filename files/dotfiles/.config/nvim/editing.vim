@@ -7,7 +7,7 @@ set softtabstop=2
 set shiftwidth=2
 
 " List all TODOs and similar tags
-map <leader>do :vimgrep /# \(TODO<Bslash><Bar>FIXME\): / **/*<CR><leader>cc<CR>
+map <leader>do :Ack \(TODO<Bslash><Bar>FIXME\): <CR>
 
 " Handle base64 strings
 vnoremap <leader>bd c<c-r>=system('base64 --decode', @")<cr><esc>
