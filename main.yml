@@ -11,5 +11,3 @@
       tags: ["oh-my-zsh"]
     - import_tasks: tasks/dotfiles.yml
       tags: ["dotfiles"]
-    - import_tasks: tasks/crontab.yml
-      tags: ["crontab"]
