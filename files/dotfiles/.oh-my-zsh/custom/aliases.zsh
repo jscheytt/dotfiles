@@ -10,6 +10,7 @@ alias k9l="k9s info | grep Logs | awk '{ print \$2 }' | sed -e $'s#\033\[[;0-9]*
 alias k='kubectl'
 alias ll='exa -la'
 alias mdl='doru pipelinecomponents/markdownlint'
+alias mkdocs='docker run --rm -it -v ${PWD}:/docs -p 8000:8000 squidfunk/mkdocs-material'
 alias myip='curl -s https://api.ipify.org | xargs'
 alias nd='nvim -d'
 alias nv='nvim'
