@@ -113,8 +113,9 @@ Plug 'SidOfc/mkdx'
 " Show Markdown preview in browser
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
-" Get yaml path of line under cursor
-Plug 'lmeijvogel/vim-yaml-helper'
+" YAML
+" Folding
+Plug 'pedrohdz/vim-yaml-folds'
 
 " Initialize plugin system
 call plug#end()
