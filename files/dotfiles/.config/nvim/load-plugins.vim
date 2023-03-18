@@ -76,6 +76,9 @@ Plug 'terryma/vim-expand-region'
 " Show indentation levels
 Plug 'nathanaelkane/vim-indent-guides'
 
+" Project-specific vimrc
+Plug 'embear/vim-localvimrc'
+
 """ Languages & File Formats
 
 " ALE already covers many languages
