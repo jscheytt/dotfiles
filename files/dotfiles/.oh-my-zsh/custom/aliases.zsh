@@ -16,6 +16,7 @@ alias nd='nvim -d'
 alias nv='nvim'
 alias nvo="nvim -s <(printf 'B3jo4jojJo')"
 alias ssh-config='${=EDITOR} ~/.ssh/config'
+alias ssh='/usr/bin/ssh'
 alias tf='terraform'
 alias tfgraph='terraform graph -draw-cycles | dot -Tsvg > graph.svg'
 alias weekly-reports='bat "$HOME"/Documents/crontab-reports/*'
