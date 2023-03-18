@@ -90,6 +90,9 @@ Plug 'mechatroner/rainbow_csv'
 " Cuelang
 Plug 'jjo/vim-cue'
 
+" Earthly/Earthfile
+Plug 'earthly/earthly.vim', { 'branch': 'main' }
+
 " editorconfig
 Plug 'editorconfig/editorconfig-vim'
 
