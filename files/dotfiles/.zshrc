@@ -117,9 +117,9 @@ export VISUAL='nvim'
 # fi
 
 # Kubernetes configuration
-KUBECONFIG_PATH=~/.kube
-kubeconfig_sub_path=${KUBECONFIG_PATH}/configs
-export KUBECONFIG=${KUBECONFIG_PATH}/config:$(echo ${kubeconfig_sub_path}/* | tr ' ' ':')
+# KUBECONFIG_PATH=~/.kube
+# kubeconfig_sub_path=${KUBECONFIG_PATH}/configs
+# export KUBECONFIG=${KUBECONFIG_PATH}/config:$(echo ${kubeconfig_sub_path}/* | tr ' ' ':')
 
 # Bat configuration
 export BAT_THEME="OneHalfLight"
@@ -143,7 +143,7 @@ export BAT_THEME="OneHalfLight"
 eval "$(zoxide init zsh)"
 
 # Customer specific includes
-source ~/Documents/.customer-specifics.sh
+source ~/Documents/.customer-specifics.sh || true
 
 # Set starting directory of new terminals (not new tabs)
 export START=~/Documents
