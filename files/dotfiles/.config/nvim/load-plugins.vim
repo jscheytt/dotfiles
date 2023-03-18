@@ -33,7 +33,6 @@ Plug 'vim-airline/vim-airline-themes'
 " File Tree
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Buffer Management (leader+o)
 Plug 'vim-scripts/bufexplorer.zip'
