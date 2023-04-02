@@ -109,7 +109,10 @@ augroup vimtex_common
   autocmd!
   autocmd FileType tex nmap <buffer> <F9> <plug>(vimtex-compile)
   autocmd FileType tex nmap <leader>lv <plug>(vimtex-view)
+  autocmd FileType tex nmap <leader>tt <plug>(vimtex-toc-toggle)
 augroup END
+
+let g:surround_{char2nr('c')} = "\\\1command\1{\r}"
 
 let g:vimtex_compiler_latexmk = {
   \ 'build_dir' : 'build',
