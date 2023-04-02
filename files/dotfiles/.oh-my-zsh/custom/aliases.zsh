@@ -18,6 +18,9 @@ alias nvo="nvim -s <(printf 'B3jojojJo')"
 alias ssh-config='${=EDITOR} ~/.ssh/config'
 alias ssh='/usr/bin/ssh'
 alias tf='terraform'
+alias tfp='terraform plan'
+alias tfa='terraform apply'
+alias tfaa='terraform apply -auto-approve'
 alias tfgraph='terraform graph -draw-cycles | dot -Tsvg > graph.svg'
 alias weekly-reports='bat "$HOME"/Documents/crontab-reports/*'
 
