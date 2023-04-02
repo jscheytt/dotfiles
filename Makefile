@@ -55,6 +55,7 @@ build: $(vault_password_file) $(become_password_file) ## Run Ansible playbook.
 	pipenv run ansible-playbook main.yml \
 		--vault-password-file $(vault_password_file) \
 		--inventory inventory \
+		--extra-vars="ansible_python_interpreter=$$(which python)" \
 		-vv
 
 .PHONY: lint
