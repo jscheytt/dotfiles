@@ -68,10 +68,12 @@ DISABLE_UPDATE_PROMPT="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-export NVM_LAZY_LOAD=true
 export NVM_AUTO_USE=true
+export NVM_COMPLETION=true
+export NVM_LAZY_LOAD=true
 plugins=(
   common-aliases
+  evalcache
   git
   forgit
   macos
@@ -106,7 +108,8 @@ export GOPATH="$HOME"/go
 export PATH="/usr/local/sbin:$GOPATH/bin:$PATH"
 
 # Python conf
-eval "$(pyenv init -)"
+_evalcache pyenv init -
+# eval "$(pyenv init -)"
 
 # Preferred editor for local and remote sessions
 export EDITOR='nvim'
@@ -141,7 +144,8 @@ export BAT_THEME="OneHalfLight"
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # zoxide
-eval "$(zoxide init zsh)"
+_evalcache zoxide init zsh
+# eval "$(zoxide init zsh)"
 
 # Customer specific includes
 source ~/Documents/.customer-specifics.sh || true

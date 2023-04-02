@@ -13,4 +13,5 @@
     force: true
   loop:
     - https://github.com/lukechilds/zsh-nvm.git
+    - https://github.com/mroth/evalcache.git
     - https://github.com/wfxr/forgit.git
