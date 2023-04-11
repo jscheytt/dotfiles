@@ -106,9 +106,6 @@ Plug 'jjo/vim-cue'
 " Earthly/Earthfile
 Plug 'earthly/earthly.vim', { 'branch': 'main' }
 
-" editorconfig
-Plug 'editorconfig/editorconfig-vim'
-
 " Go
 Plug 'fatih/vim-go'
 " Hugo

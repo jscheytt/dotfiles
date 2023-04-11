@@ -40,10 +40,10 @@ map <C-f> :GFiles<CR>
 nnoremap <leader>v :.GBrowse!<CR>
 xnoremap <leader>v :'<'>GBrowse!<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => EditorConfig (project-specific EditorConfig rule)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" => EditorConfig (project-specific EditorConfig rule)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ack searching and cope displaying

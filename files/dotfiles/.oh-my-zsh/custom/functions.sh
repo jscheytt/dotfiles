@@ -151,6 +151,14 @@ function mas_install() {
     | xargs -I {} mas install {}
 }
 
+# Open NeoVim as notepad
+function nvo() {
+  cat <<EOF | nvim -s -
+:NERDTreeFromBookmark Notizen
+jojJo
+EOF
+}
+
 # Simulate native Buildpacks experience by hooking into the lifecycle
 function pack_build() {
   local builder="${1}"
