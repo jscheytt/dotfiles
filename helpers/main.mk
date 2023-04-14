@@ -8,3 +8,7 @@ build: install $(vault_password_file) $(become_password_file) ## Run Ansible pla
 		--inventory inventory \
 		--vault-password-file $(vault_password_file) \
 		-vv
+
+.PHONY: update
+update: ## Update pipenv dependencies:
+	pipenv update --dev
