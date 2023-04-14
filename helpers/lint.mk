@@ -1,6 +1,14 @@
 HELPTEXT_HEADING := Linting Targets:
 
 .PHONY: lint
-lint: install ## Run linters.
+lint: install lint.yaml lint.ansible ## Run linters.
+
+.PHONY: lint.yaml
+lint.yaml: ## Lint yaml files.
 	pipenv run yamllint -c files/dotfiles/.config/yamllint/config .
-	pipenv run ansible-lint .
+
+.PHONY: lint.ansible
+lint.ansible: ## Lint ansible files.
+	ANSIBLE_VAULT_PASSWORD_FILE=$(vault_password_file) \
+		pipenv run ansible-lint \
+		--show-relpath
