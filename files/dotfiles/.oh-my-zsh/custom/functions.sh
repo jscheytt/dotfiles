@@ -143,12 +143,13 @@ function krowt() {
   fi
 }
 
-function mas_install() {
+# Find App Store app by substring and uninstall
+function mas-uninstall-lucky() {
   local app_name="${1:?'Parameter #1 is app name'}"
-  mas search "$app_name" \
-    | head -n1 \
-    | awk -F ' ' '{print $1}' \
-    | xargs -I {} mas install {}
+  mas list \
+    | grep -i "$app_name"  \
+    | awk '{print $1}' \
+    | xargs -I {} mas uninstall {}
 }
 
 # Open NeoVim as notepad
