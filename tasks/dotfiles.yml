@@ -15,7 +15,7 @@
   ansible.builtin.file:
     path: "~/{{ item.path | replace(dotfiles_path, '') }}"
     state: directory
-    mode: 0755
+    mode: u=rwx,go=rx
   with_items: "{{ dotfiles_directories.files }}"
 
 - name: Find all dotfiles to be linked
