@@ -1,20 +1,17 @@
-### Taken and adapted from https://github.com/upbound/build/blob/master/makelib/common.mk
-
-# Remove default suffixes as we don't use them
+# Remove default suffixes as we don't use them.
 .SUFFIXES:
 
-# Set the shell to bash always
+# Set the Shell to Bash always to avoid surprises.
 SHELL := /bin/bash
 
-SELF_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+.PHONY: all
+all: help ## Default target: Run help.
 
-vault_password_file := vault-password.txt
-become_password_file := become-password.secret
-
+# Auto-generate help texts from end-of-line comments.
+# See https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 .PHONY: help
 USAGE_TEXT := Usage: make [make-options] <target> [options]
 HELPTEXT_HEADING := Common Targets:
-# See https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 help: ## Show this help info.
 	@printf "$(USAGE_TEXT)\n"
 	@for makefile in $(MAKEFILE_LIST); do \
@@ -24,45 +21,12 @@ help: ## Show this help info.
 			awk 'BEGIN {FS = ":.*?## "}; {printf "  %-27s %s\n", $$1, $$2}'; \
 	done
 
-.PHONY: all
-all: update install build
-
-.PHONY: update
-update: ## Run a git pull.
-	@git pull
-
-.PHONY: install
-install: ## Install dependencies.
-	command -v brew > /dev/null || { /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; }
-	command -v pyenv > /dev/null || { brew install pyenv; }
-	command -v pipenv > /dev/null || { brew install pipenv; }
-	pyenv install "$$(cat .python-version)" --skip-existing
-	pip install --user pipenv
-	pipenv sync
-	pipenv run ansible-galaxy install -r requirements.yml
-
-$(vault_password_file):
-	@echo 'Generating random vault password ...'
-	@LC_ALL=C tr -dc A-Za-z0-9 < /dev/urandom | head -c 32 > $@
-
-$(become_password_file): $(vault_password_file)
-	@read -sp 'Enter your admin password (so Ansible can execute sudo commands): ' admin_password; \
-		echo "ansible_sudo_pass: $$admin_password" \
-		| pipenv run ansible-vault encrypt --vault-password-file $(vault_password_file) --output $@
-
-.PHONY: build
-build: $(vault_password_file) $(become_password_file) ## Run Ansible playbook.
-	pipenv run ansible-playbook main.yml \
-		--vault-password-file $(vault_password_file) \
-		--inventory inventory \
-		--extra-vars="ansible_python_interpreter=$$(which python)" \
-		-vv
-
-.PHONY: lint
-lint: ## Run linters.
-	pipenv run yamllint -c files/dotfiles/.config/yamllint/config .
-	pipenv run ansible-lint .
+vault_password_file := vault-password.txt
+become_password_file := become-password.secret
 
 .PHONY: clean
-clean: ## Clean up artifacts.
+clean: clean.git-hooks ## Remove artifacts.
 	rm $(vault_password_file) $(become_password_file) || true
+
+# Split out Make modules into `helpers/`.
+-include helpers/*.mk helpers/**/*.mk
