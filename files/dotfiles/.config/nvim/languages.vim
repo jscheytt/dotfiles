@@ -3,9 +3,10 @@ autocmd BufWritePost *.css,*.jsx,*.html,*.htm ALEFix
 let g:ale_linters = {
 \  'css': ['prettier'],
 \  'dockerfile': ['hadolint'],
-\  'javascript': ['eslint'],
-\  'markdown': [''],
 \  'go': ['go', 'golint', 'errcheck'],
+\  'javascript': ['eslint'],
+\  'make': ['checkmake'],
+\  'markdown': [''],
 \  'python': ['flake8'],
 \  'scss' : ['prettier'],
 \  'sh' : ['shellcheck'],
@@ -18,6 +19,7 @@ let g:ale_fixers = {
 \  'html': ['prettier'],
 \  'javascript': ['eslint'],
 \  'json': ['jq'],
+\  'make': ['checkmake'],
 \  'python': ['yapf'],
 \  'ruby': ['rubocop'],
 \  'rust': ['rustfmt'],
@@ -46,6 +48,10 @@ autocmd BufNewFile,BufRead *Jenkinsfile* setf groovy
 
 " JSON
 autocmd FileType json setlocal foldmethod=syntax
+
+" Makefile
+" Set default config filepath
+let g:ale_make_checkmake_config = "checkmake.ini"
 
 " Markdown
 let vim_markdown_folding_disabled = 1

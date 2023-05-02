@@ -24,6 +24,8 @@ help: ## Show this help info.
 vault_password_file := vault-password.txt
 become_password_file := become-password.secret
 
+.PHONY: test
+
 .PHONY: clean
 clean: clean.git-hooks ## Remove artifacts.
 	rm $(vault_password_file) $(become_password_file) || true
