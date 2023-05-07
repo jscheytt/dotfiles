@@ -58,6 +58,7 @@ let vim_markdown_folding_disabled = 1
 set foldlevel=20
 autocmd! BufNewFile,BufReadPost *.{markdown,md} set filetype=markdown foldmethod=indent
 autocmd FileType markdown setlocal ts=4 sts=4 sw=4 expandtab spell!
+autocmd FileType markdown let b:surround_{char2nr('b')} = "**\r**"
 vmap <leader>l :HugoHelperLink 
 let g:mkdp_preview_options = {
 \ 'disable_sync_scroll': 1,
