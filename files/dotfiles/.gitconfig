@@ -5,6 +5,7 @@
   attributesfile = ~/.gitattributes 
 [push]
 	default = simple
+	autoSetupRemote = true
 [branch]
 	autoSetupMerge = simple
 [init]
