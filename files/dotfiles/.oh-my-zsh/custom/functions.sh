@@ -34,6 +34,7 @@ function drid() {
 function dirdiff() {
   dir1="$1"
   dir2="$2"
+  # shellcheck disable=SC2012
   nvim -d <(ls -R "$dir1" | sed "s#$dir1/##g") <(ls -R "$dir2" | sed "s#$dir2/##g")
 }
 
