@@ -7,3 +7,5 @@ vault-password.txt
 
 # I always want the latest versions of my brew formulae & casks
 Brewfile.lock.json
+
+megalinter-reports/
