@@ -7,7 +7,6 @@ alias functions='${=EDITOR} $ZSH_CUSTOM/functions.sh'
 alias gpi='git push -u origin HEAD'
 alias k9cf='nvim "/Users/josia.scheytt/Library/Application Support/k9s/config.yml"'
 alias k9l="k9s info | grep Logs | awk '{ print \$2 }' | sed -e $'s#\033\[[;0-9]*m##g' | xargs ${=EDITOR}"
-alias k='kubectl'
 alias ll='exa -la'
 alias mdl='doru pipelinecomponents/markdownlint'
 alias mkdocs='docker run --rm -it -v ${PWD}:/docs -p 8000:8000 squidfunk/mkdocs-material'
@@ -22,5 +21,10 @@ alias tfa='terraform apply'
 alias tfaa='terraform apply -auto-approve'
 alias tfgraph='terraform graph -draw-cycles | dot -Tsvg > graph.svg'
 alias weekly-reports='bat "$HOME"/Documents/crontab-reports/*'
+
+# Global
+alias -g k='kubectl'
+alias -g W='| wc -l'
+alias -g C='| pbcopy'
 
 source ${0:a:h}/functions.sh
