@@ -79,3 +79,7 @@ export START=~/Documents
 if [[ $PWD == $HOME ]]; then
   cd $START
 fi
+
+# Fix errors with colima
+# See https://github.com/wagoodman/dive/issues/397#issuecomment-1231063268
+export DOCKER_HOST=unix://$HOME/.colima/docker.sock
