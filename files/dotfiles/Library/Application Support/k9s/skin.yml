@@ -1,120 +1,89 @@
-# Axual Skin contributed by [@JayKus](jimmy@axual.com)
-# Style
-blue: &blue "#113851"
-red: &red "#D7595F"
-yellow: &yellow "#F2BF40"
-cyan: &cyan "#47B0AB"
-grey: &grey "#A99688"
-light: &light "#F1EFE4"
+# -----------------------------------------------------------------------------
+# Narsingh skin
+# -----------------------------------------------------------------------------
 
-# Skin
+# Skin...
 k9s:
   # General K9s styles
   body:
-    fgColor: *yellow
-    bgColor: *blue
-    logoColor: orange
-
-  # Command prompt styles
+    fgColor: "#97979b"
+    bgColor: "#282a36"
+    logoColor: "#5af78e"
   prompt:
-    fgColor: *yellow
-    bgColor: *blue
-    suggestColor: orange
-
-  # ClusterInfoView styles
+    fgColor: "#97979b"
+    bgColor: "#282a36"
+    suggestColor: "#5af78e"
   info:
-    fgColor: *yellow
-    sectionColor: *light
-
+    fgColor: white
+    sectionColor: "#5af78e"
   dialog:
-    fgColor: *yellow
-    bgColor: *blue
-    buttonFgColor: *yellow
-    buttonBgColor: *blue
-    buttonFocusFgColor: *grey
-    buttonFocusBgColor: *light
-    labelFgColor: *grey
-    fieldFgColor: *light
-
-  # Frame styles
+    fgColor: "#97979b"
+    bgColor: "#282a36"
+    buttonFgColor: "#97979b"
+    buttonBgColor: "#282a36"
+    buttonFocusFgColor: "#97979b"
+    buttonFocusBgColor: "#5af78e"
+    labelFgColor: "#97979b"
+    fieldFgColor: "#5af78e"
   frame:
-    # Borders styles
     border:
-      fgColor: *yellow
-      focusColor: *light
-
-    # MenuView attributes and styles
+      fgColor: "#5af78e"
+      focusColor: "#5af78e"
     menu:
-      fgColor: *yellow
-      keyColor: *yellow
-      # Used for favorite namespaces
-      numKeyColor: *light
-
-    # CrumbView attributes for history navigation.
+      fgColor: white
+      keyColor: "#57c7ff"
+      numKeyColor: "#ff6ac1"
     crumbs:
-      fgColor: *light
-      bgColor: *cyan
-      activeColor: *red
-
-    # Resource status and update styles
+      fgColor: "#282a36"
+      bgColor: white
+      activeColor: "#f3f99d"
     status:
-      # Text display, highlight is same colors inverted
-      newColor: *yellow
-      modifyColor: *blue
-      addColor: *blue
-      errorColor: *red
-      highlightcolor: *yellow
-      killColor: *red
-      completedColor: *grey
-
-    # Border title styles.
+      newColor: "#eff0eb"
+      modifyColor: "#5af78e"
+      addColor: "#57c7ff"
+      errorColor: "#ff5c57"
+      highlightColor: "#f3f99d"
+      killColor: mediumpurple
+      completedColor: gray
     title:
-      fgColor: *yellow
-      bgColor: *blue
-      highlightColor: *cyan
-      counterColor: *light
-      filterColor: "slategray"
-  # Specific views styles
+      fgColor: "#5af78e"
+      bgColor: "#282a36"
+      highlightColor: white
+      counterColor: white
+      filterColor: "#57c7ff"
   views:
-    # TableView attributes.
-    table:
-      fgColor: *blue
-      bgColor: *blue
-      cursorColor: *blue
-      # Header row styles.
-      header:
-        fgColor: *light
-        bgColor: *blue
-        sorterColor: "orange"
-
-    # Xray style
-    xray:
-      fgColor: *light
-      bgColor: *blue
-      cursorColor: *red
-      graphicColor: *yellow
-      showIcons: false
-
-    # YAML info styles.
-    yaml:
-      keyColor: *yellow
-      colonColor: *yellow
-      valueColor: *cyan
-
-    # Logs styles.
-    logs:
-      fgColor: *yellow
-      bgColor: *blue
-      indicator:
-        fgColor: *red
-        bgColor: *blue
-
-    # Chart drawing
+    # Charts skins...
     charts:
-      bgColor: *blue
+      bgColor: default
       defaultDialColors:
-        - *light
-        - *red
+        - "#57c7ff"
+        - "#ff5c57"
       defaultChartColors:
-        - *light
-        - *red
+        - "#57c7ff"
+        - "#ff5c57"
+    table:
+      fgColor: "#57c7ff"
+      bgColor: "#282a36"
+      markColor: darkgoldenrod
+      header:
+        fgColor: white
+        bgColor: "#282a36"
+        sorterColor: orange
+    xray:
+      fgColor: "#57c7ff"
+      bgColor: "#282a36"
+      cursorColor: "#5af78e"
+      graphicColor: darkgoldenrod
+      showIcons: false
+    yaml:
+      keyColor: "#ff5c57"
+      colonColor: white
+      valueColor: "#f3f99d"
+    logs:
+      fgColor: white
+      bgColor: "#282a36"
+      indicator:
+        fgColor: white
+        bgColor: "#282a36"
+        toggleOnColor: "#ff5c57"
+        toggleOffColor: "#f3f99d"
