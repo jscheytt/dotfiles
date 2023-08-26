@@ -124,6 +124,7 @@ let g:vimtex_quickfix_ignore_filters = [
   \ 'Underfull',
   \ 'Overfull',
   \ 'contains only floats.',
+  \ 'Label(s) may have changed. Rerun to get cross-references right.',
   \]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
