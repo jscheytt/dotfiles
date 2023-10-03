@@ -174,7 +174,7 @@ function replace_in_files() {
 	local replacement="$2"
 	local file_extensions="$3"
 	find -E . -type f -regex ".*\.(${file_extensions})" \
-		-exec sed -i '' "s!${pattern}!${replacement}!g" {} \;
+		-exec sed -i '' -E "s#${pattern}#${replacement}#g" {} \;
 }
 
 # Rename a file and change all its references in files.
