@@ -5,6 +5,6 @@ collections:
     version: 2.1.1
 roles:
   - name: gantsign.oh-my-zsh
-    version: 2.3.0
+    version: 2.7.0
   - name: elliotweiser.osx-command-line-tools
     version: 2.3.0
