@@ -10,6 +10,7 @@ let g:ale_linters = {
 \  'python': ['flake8'],
 \  'scss' : ['prettier'],
 \  'sh' : ['shellcheck'],
+\  'tex' : ['chktex'],
 \  'xml' : ['xmllint'],
 \  'yaml': ['yamllint'],
 \  'zsh' : ['shellcheck'],
