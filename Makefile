@@ -4,6 +4,10 @@
 # Set the Shell to Bash always to avoid surprises.
 SHELL := /bin/bash
 
+# Improve performance by running in parallel by default
+MAKEFLAGS := --jobs=$(shell nproc)
+MAKEFLAGS += --output-sync=target
+
 .PHONY: all
 all: help ## Default target: Run help.
 
