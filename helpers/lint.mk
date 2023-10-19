@@ -1,7 +1,7 @@
 HELPTEXT_HEADING := Linting Targets:
 
 .PHONY: lint
-lint: install lint.yaml lint.ansible ## Run linters.
+lint: lint.yaml lint.ansible ## Run linters.
 
 .PHONY: lint.yaml
 lint.yaml: ## Lint yaml files.
