@@ -5,7 +5,7 @@ lint: install lint.yaml lint.ansible ## Run linters.
 
 .PHONY: lint.yaml
 lint.yaml: ## Lint yaml files.
-	pipenv run yamllint -c files/dotfiles/.config/yamllint/config .
+	yamllint -c files/dotfiles/.config/yamllint/config .
 
 .PHONY: lint.ansible
 lint.ansible: ## Lint ansible files.
