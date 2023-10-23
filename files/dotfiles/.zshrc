@@ -47,7 +47,9 @@ export GOPATH="$HOME"/go
 export PATH="/usr/local/sbin:$GOPATH/bin:$PATH"
 
 # Python conf
-_evalcache pyenv init -
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+_evalcache pyenv init --path
 # eval "$(pyenv init -)"
 
 # Preferred editor for local and remote sessions
