@@ -67,6 +67,7 @@ brew "kubernetes-cli"
 brew "kubectx"
 brew "kubescape"
 brew "kustomize"
+brew "libpq", link: true
 brew "mas"
 brew "maven"
 brew "minikube"
