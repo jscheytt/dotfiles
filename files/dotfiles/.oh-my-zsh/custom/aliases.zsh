@@ -1,4 +1,5 @@
 alias aliases='${=EDITOR} $ZSH_CUSTOM/aliases.zsh'
+alias cat='bat'
 alias bym='bundle install && yarn install && rails db:migrate && rails data:migrate'
 alias date-iso='date -u +"%FT%TZ"'
 alias extstat="find . -type f -name '*.*' -not -iwholename '*.svn*' -not -iwholename '*.git*' | sed 's/.*\.//' | sort | uniq -c | sort -r"
