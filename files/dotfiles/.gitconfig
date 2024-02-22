@@ -9,6 +9,8 @@
 [branch]
 	autoSetupMerge = simple
 	sort = -committerdate
+[column]
+	ui = auto
 [init]
   defaultBranch = main
 [pull]
