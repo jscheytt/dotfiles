@@ -8,6 +8,7 @@
 	autoSetupRemote = true
 [branch]
 	autoSetupMerge = simple
+	sort = -committerdate
 [init]
   defaultBranch = main
 [pull]
