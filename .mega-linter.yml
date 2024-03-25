@@ -1,2 +1,9 @@
 DISABLE:
   - SPELL
+DISABLE_LINTERS:
+  # Needs an API key to configure severity threshold
+  - REPOSITORY_CHECKOV
+  # Too experimental
+  - MAKEFILE_CHECKMAKE
+REPOSITORY_KICS_ARGUMENTS: --fail-on=high
+REPOSITORY_TRIVY_ARGUMENTS: --severity=HIGH,CRITICAL
