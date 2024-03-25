@@ -8,7 +8,9 @@ install: git-hooks ## Install dependencies.
 	pyenv install "$$(cat .python-version)" --skip-existing
 	pip install --user pipenv
 	pipenv sync --dev
-	pipenv run ansible-galaxy install -r requirements.yml
+	pipenv run ansible-galaxy install \
+		--role-file requirements.yml \
+		--force
 
 $(vault_password_file):
 	@echo 'Generating random vault password ...'
