@@ -21,7 +21,7 @@ map <leader>df :diffoff!<CR>
 map <leader>gl :Git pull<CR>
 nnoremap <leader>gL :Gclog!<CR>
 map <leader>gp :Git push<CR>
-map <leader>gP :Git push -f<CR>
+map <leader>gP :Git push --force-with-lease<CR>
 " Last commit message to line
 nnoremap <leader>lc :r!git log -1 --pretty=\%B \| head -n1<CR>
 
