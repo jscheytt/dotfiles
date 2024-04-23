@@ -1,2 +1,2 @@
-alias:
+aliases:
   kust: kustomize.toolkit.fluxcd.io/v1/kustomizations
