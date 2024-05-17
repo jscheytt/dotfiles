@@ -70,6 +70,7 @@ brew "kustomize"
 brew "libpq", link: true
 brew "mas"
 brew "maven"
+brew "mdbook"
 brew "minikube"
 brew "mtr"
 brew "mysql"
