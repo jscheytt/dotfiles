@@ -1,5 +1,5 @@
 " Theme
-colorscheme solarized
+colorscheme solarized-high
 
 " Open new buffers horizontally
 set splitright

@@ -24,7 +24,7 @@ call plug#begin()
 """ Basics & UI
 
 " Solarized Theme
-Plug 'altercation/vim-colors-solarized'
+Plug 'ishan9299/nvim-solarized-lua'
 
 " Statusline
 Plug 'vim-airline/vim-airline'
