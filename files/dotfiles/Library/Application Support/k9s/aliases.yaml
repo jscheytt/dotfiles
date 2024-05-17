@@ -1,2 +1,9 @@
 aliases:
-  kust: kustomize.toolkit.fluxcd.io/v1/kustomizations
+  dp: deployments
+  sec: v1/secrets
+  jo: jobs
+  cr: clusterroles
+  crb: clusterrolebindings
+  ro: roles
+  rb: rolebindings
+  np: networkpolicies
