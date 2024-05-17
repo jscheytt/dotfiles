@@ -146,7 +146,6 @@ cask "visual-studio-code"
 cask "warp"
 cask "webex"
 cask "zoom"
-mas "Flow", id: 1423210932
 mas "GarageBand", id: 682658836
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "Microsoft To Do", id: 1274495053
