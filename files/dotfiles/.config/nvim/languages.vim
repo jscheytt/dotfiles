@@ -26,6 +26,7 @@ let g:ale_fixers = {
 \  'rust': ['rustfmt'],
 \  'scss' : ['prettier'],
 \  'sh': ['shfmt'],
+\  'terraform' : ['terraform'],
 \  'xml' : ['xmllint'],
 \  'yaml': ['prettier'],
 \}
@@ -99,6 +100,8 @@ map <Leader>xr :CargoRun<CR>
 autocmd! BufNewFile,BufReadPost *.{tmpl} set filetype=json foldmethod=syntax
 autocmd FileType terraform set foldmethod=syntax
 let g:terraform_fmt_on_save=1
+let g:ale_terraform_terraform_executable="tofu"
+let g:ale_terraform_fmt_executable="tofu"
 
 " Shell
 map <leader>xs :!sh %<CR>
