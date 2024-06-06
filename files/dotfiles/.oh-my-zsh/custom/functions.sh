@@ -107,16 +107,16 @@ function jqsort() {
 }
 
 function kdebug() {
-	local variant="${1:-shell}"
+	local variant="${1:-alpine}"
 	# First, clean up in case connection was lost previously
 	kubectl delete pod/"tmp-$variant"
 	kubectl wait --for=delete pod/"tmp-$variant"
 	case "$variant" in
 	awscli) local opts='--image=woahbase/alpine-awscli -- /bin/bash' ;;
-	shell) local opts='--image=nicolaka/netshoot' ;;
+	alpine) local opts='--image=alpine:3' ;;
 	mysql) local opts='--image=imega/mysql-client -- /bin/sh' ;;
 	postgres) local opts='--image=postgres:alpine -- /bin/sh' ;;
-	kubectl) local opts='--image=bitnami/kubectl:1.19 -- /bin/sh' ;;
+	kubectl) local opts='--image=bitnami/kubectl -- /bin/sh' ;;
 	*) echo "Variant not recognized!" && (exit 1) && true ;;
 	esac
 	local namespace="$2"
