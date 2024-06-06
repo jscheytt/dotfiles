@@ -46,6 +46,10 @@ Plug 'junegunn/fzf.vim'
 " Git
 Plug 'tpope/vim-fugitive'
 
+" " Coding assistant
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'sourcegraph/sg.nvim', { 'do': 'nvim -l build/init.lua' }
+
 """ Editing
 
 " Keep latest yank
