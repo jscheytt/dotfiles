@@ -112,8 +112,9 @@ function kdebug() {
 	kubectl delete pod/"tmp-$variant"
 	kubectl wait --for=delete pod/"tmp-$variant"
 	case "$variant" in
-	awscli) local opts='--image=woahbase/alpine-awscli -- /bin/bash' ;;
 	alpine) local opts='--image=alpine:3' ;;
+	awscli) local opts='--image=woahbase/alpine-awscli -- /bin/bash' ;;
+	azure-cli) local opts='--image=mcr.microsoft.com/azure-cli -- /bin/sh' ;;
 	mysql) local opts='--image=imega/mysql-client -- /bin/sh' ;;
 	postgres) local opts='--image=postgres:alpine -- /bin/sh' ;;
 	kubectl) local opts='--image=bitnami/kubectl -- /bin/sh' ;;
