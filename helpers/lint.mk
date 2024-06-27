@@ -10,5 +10,5 @@ lint.yaml: ## Lint yaml files.
 .PHONY: lint.ansible
 lint.ansible: ## Lint ansible files.
 	ANSIBLE_VAULT_PASSWORD_FILE=$(vault_password_file) \
-		pipenv run ansible-lint \
+		$(pipenv_command) run ansible-lint \
 		--show-relpath
