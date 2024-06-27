@@ -12,16 +12,12 @@ DISABLE_UPDATE_PROMPT="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-export NVM_AUTO_USE=true
-export NVM_COMPLETION=true
-export NVM_LAZY_LOAD=true
 plugins=(
   common-aliases
   evalcache
   git
   forgit
   macos
-  zsh-nvm
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -72,6 +68,10 @@ export BAT_THEME="OneHalfLight"
 # zoxide
 _evalcache zoxide init zsh
 # eval "$(zoxide init zsh)"
+
+# fnm for Node.js versions
+_evalcache fnm env --use-on-cd
+# eval "$(fnm env --use-on-cd)"
 
 # Customer specific includes
 source ~/Documents/.customer-specifics.sh || true

@@ -12,6 +12,5 @@
     dest: "~/.oh-my-zsh/custom/plugins/{{ item | regex_replace('.*\\/(.*)\\.git', '\\1') }}"
     force: true
   loop:
-    - https://github.com/lukechilds/zsh-nvm.git
     - https://github.com/mroth/evalcache.git
     - https://github.com/wfxr/forgit.git
