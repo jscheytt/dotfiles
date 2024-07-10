@@ -7,7 +7,7 @@ name = "pypi"
 ansible = "==10.1.0"
 
 [dev-packages]
-ansible-lint = "==24.6.1"
+ansible-lint = "==24.7.0"
 
 [requires]
 python_version = "3.12.4"
