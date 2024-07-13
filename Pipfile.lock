@@ -287,11 +287,11 @@
     "develop": {
         "ansible-compat": {
             "hashes": [
-                "sha256:1e1695454ea759b24beab7dfbeac18964553edca4a4ad0584567aa3eef491f0e",
-                "sha256:f93d4c347d8e1903c292449441c09a987d70366f9cadf9afe5e32dc8a0193cac"
+                "sha256:7bc7a0c20a505a1eb6ff9877071fe20330130429087da298e25099a14f70d02f",
+                "sha256:9f18ed1104e3affc716a95720bdd7e0c01bb1ecb0c316335fd23c31ade6e4582"
             ],
             "markers": "python_version >= '3.9'",
-            "version": "==24.6.1"
+            "version": "==24.7.0"
         },
         "ansible-core": {
             "hashes": [
@@ -874,7 +874,7 @@
                 "sha256:f481f16baec5290e45aebdc2a5168ebc6d35189ae6fea7a58787613a25f6e875",
                 "sha256:fff3573c2db359f091e1589c3d7c5fc2f86f5bdb6f24252c2d8e539d4e45f412"
             ],
-            "markers": "python_version < '3.13' and platform_python_implementation == 'CPython'",
+            "markers": "platform_python_implementation == 'CPython' and python_version < '3.13'",
             "version": "==0.2.8"
         },
         "subprocess-tee": {
