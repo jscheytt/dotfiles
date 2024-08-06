@@ -22,6 +22,10 @@ This repo can do the following for me (and also for you 😊):
 * Run the main playbook: `make build`
 * Start from a clean slate: `make clean build`
 
+## Full initial setup
+
+See [Initial Setup](docs/init.md)
+
 ## References and Kudos
 
 * Thanks to Adam Johnson for his [mac-ansible role](https://github.com/adamchainz/mac-ansible).
