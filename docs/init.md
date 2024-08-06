@@ -26,5 +26,6 @@
     ```
 1. Run these Make targets:
     ```sh
-    make install build
+    make install
+    make build
     ```

@@ -16,10 +16,9 @@ This repo can do the following for me (and also for you 😊):
 ## Recommended Usage
 
 * You can always run `make` to see all available commands.
-* Initial usage: `make install build`
-* Update pipenv dependencies: `make update`
-* Run only the installation: `make install`
+* Run only the installation of dependencies: `make install`
 * Run the main playbook: `make build`
+* Update pipenv dependencies: `make update`
 * Start from a clean slate: `make clean build`
 
 ## Full initial setup
