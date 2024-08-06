@@ -73,9 +73,6 @@ _evalcache zoxide init zsh
 _evalcache fnm env --use-on-cd
 # eval "$(fnm env --use-on-cd)"
 
-# Customer specific includes
-source ~/Documents/.customer-specifics.sh || true
-
 # Set starting directory of new terminals (not new tabs)
 export START=~/Documents
 if [[ $PWD == $HOME ]]; then
