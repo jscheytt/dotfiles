@@ -5,12 +5,15 @@
     - become-password.secret
   roles:
     - role: geerlingguy.mac.homebrew
-      tags: ["homebrew"]
       homebrew_brewfile_dir: ansible_env.PWD
+      tags:
+        - homebrew
   tasks:
     - name: Zsh
       ansible.builtin.import_tasks: tasks/oh-my-zsh.yml
-      tags: ["oh-my-zsh"]
+      tags:
+        - oh-my-zsh
     - name: Dotfiles
       ansible.builtin.import_tasks: tasks/dotfiles.yml
-      tags: ["dotfiles"]
+      tags:
+        - dotfiles
