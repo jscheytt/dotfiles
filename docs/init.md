@@ -24,8 +24,19 @@
     git clone git@github.com:jscheytt/dotfiles.git "${HOME}/Documents/dotfiles"
     cd "${HOME}/Documents/dotfiles"
     ```
-1. Run these Make targets:
+1. Run these commands:
     ```sh
+    # Prerequisite for brew
+    xcode-select --install
+    # Install dependencies.
     make install
+    # Run the main playbook.
     make build
+    # Set global Python version to ensure that the `pynvim` module is present everywhere.
+    # NOTE: We may consider optimizing this only if the number of local Python projects starts growing.
+    pyenv global 3
+    # Check brew health.
+    brew doctor
     ```
+1. Configure Warp settings (above all: Change the Terminal font to "Hack Nerd Font Mono").
+1. Open NeoVim once to let it download and install all plugins.
