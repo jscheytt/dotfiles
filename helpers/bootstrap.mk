@@ -1,12 +1,12 @@
 HELPTEXT_HEADING := Bootstrapping Targets:
 
 .PHONY: install
-pipenv_command = python -m pipenv
+pipenv_command = python3 -m pipenv
 install: git-hooks ## Install dependencies.
 	command -v brew > /dev/null || { /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; }
 	command -v pyenv > /dev/null || { brew install pyenv; }
 	pyenv install "$$(cat .python-version)" --skip-existing
-	pip install --upgrade --user pipenv
+	pip3 install --break-system-packages --upgrade --user pipenv
 	$(pipenv_command) sync --dev
 	$(pipenv_command) run ansible-galaxy install \
 		--role-file requirements.yml \
