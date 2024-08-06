@@ -17,3 +17,10 @@
       ansible.builtin.import_tasks: tasks/dotfiles.yml
       tags:
         - dotfiles
+    - name: Python packages
+      ansible.builtin.pip:
+        name:
+          # Install python package for python-based NeoVim plugins.
+          - pynvim
+      tags:
+        - pip
