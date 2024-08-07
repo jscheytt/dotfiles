@@ -1,0 +1,7 @@
+# Install python package for python-based NeoVim plugins.
+- name: Python packages
+  ansible.builtin.pip:
+    name:
+      - pynvim
+  tags:
+    - pip
