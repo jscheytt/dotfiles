@@ -1,4 +1,4 @@
-HELPTEXT_HEADING := Bootstrapping Targets:
+HELPTEXT_HEADING := Install Targets:
 
 .PHONY: install
 pipenv_command = python3 -m pipenv

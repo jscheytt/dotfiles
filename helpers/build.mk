@@ -1,4 +1,4 @@
-HELPTEXT_HEADING := Main Targets:
+HELPTEXT_HEADING := Build Targets:
 
 .PHONY: build
 playbook = main.yml
