@@ -4,7 +4,7 @@ HELPTEXT_HEADING := Install Targets:
 pipenv_command = python3 -m pipenv
 install: git-hooks ## Install dependencies.
 	@# Install Xcode for Homebrew.
-	xcode-select --install
+	xcode-select --install || true
 	@# Install Homebrew.
 	command -v brew > /dev/null || { /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; }
 	@# Install pyenv.
