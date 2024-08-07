@@ -26,8 +26,6 @@
     ```
 1. Run these commands:
     ```sh
-    # Prerequisite for brew
-    xcode-select --install
     # Install dependencies.
     make install
     # Run the main playbook.
