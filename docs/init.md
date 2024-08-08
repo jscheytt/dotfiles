@@ -30,11 +30,9 @@
     make install
     # Run the main playbook.
     make build
-    # Set global Python version to ensure that the `pynvim` module is present everywhere.
-    # NOTE: We may consider optimizing this only if the number of local Python projects starts growing.
-    pyenv global 3
     # Check brew health.
     brew doctor
     ```
 1. Configure Warp settings (above all: Change the Terminal font to "Hack Nerd Font Mono").
 1. Open NeoVim once to let it download and install all plugins.
+    Open again to verify that the whole setup works as intended.

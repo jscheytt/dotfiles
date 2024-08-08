@@ -3,5 +3,11 @@
   ansible.builtin.pip:
     name:
       - pynvim
-  tags:
-    - pip
+
+# Set global Python version to ensure that the `pynvim` module is present everywhere.
+# NOTE: We may consider optimizing this only if the number of local Python projects starts growing.
+- name: Set global Python version
+  ansible.builtin.command:
+    cmd: pyenv global 3
+  register: pyenv_output
+  changed_when: pyenv_output.rc != 0
