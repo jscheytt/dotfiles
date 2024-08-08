@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "64559f21534b06b96eb7ad87a59b1035ebdbfebafcfab74c4ae7880893b3b33f"
+            "sha256": "fd4b2fdd7b65010518999ad9808a49cccf72823745d6ab99fb4dfae11af6dd93"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.12.4"
+            "python_version": "3.12.5"
         },
         "sources": [
             {
@@ -902,7 +902,7 @@
                 "sha256:f481f16baec5290e45aebdc2a5168ebc6d35189ae6fea7a58787613a25f6e875",
                 "sha256:fff3573c2db359f091e1589c3d7c5fc2f86f5bdb6f24252c2d8e539d4e45f412"
             ],
-            "markers": "platform_python_implementation == 'CPython' and python_version < '3.13'",
+            "markers": "python_version < '3.13' and platform_python_implementation == 'CPython'",
             "version": "==0.2.8"
         },
         "subprocess-tee": {
