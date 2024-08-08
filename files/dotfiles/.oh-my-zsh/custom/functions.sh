@@ -79,7 +79,7 @@ function dockerconfigjson() {
 }
 
 function doru() {
-	docker run -it --volume="$PWD":/workspace --workdir=/workspace "$@"
+	docker run --rm -it --volume="$PWD":/workspace --workdir=/workspace "$@"
 }
 
 function ecr-login() {
