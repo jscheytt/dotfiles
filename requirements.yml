@@ -2,7 +2,7 @@ collections:
   - name: community.general
     version: 9.2.0
   - name: geerlingguy.mac
-    version: 4.0.1
+    version: 4.0.2
 roles:
   - name: gantsign.oh-my-zsh
     version: 2.7.0
