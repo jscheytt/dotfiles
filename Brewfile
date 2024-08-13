@@ -108,4 +108,4 @@ cask "warp"
 cask "webex"
 cask "zoom"
 mas "GarageBand", id: 682658836
-mas "Microsoft To Do", id: 1274495053
+mas "Things", id: 904280696
