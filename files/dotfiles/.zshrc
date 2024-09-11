@@ -19,6 +19,7 @@ plugins=(
   git
   forgit
   macos
+  kind
 )
 
 source $ZSH/oh-my-zsh.sh
