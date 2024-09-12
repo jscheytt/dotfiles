@@ -105,7 +105,6 @@ cask "syntax-highlight"
 cask "telegram"
 cask "visual-studio-code"
 cask "warp"
-cask "webex"
 cask "zoom"
 mas "GarageBand", id: 682658836
 mas "Things", id: 904280696
