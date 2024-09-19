@@ -157,8 +157,8 @@ function mas-uninstall-lucky() {
 # Open NeoVim as notepad
 function nvo() {
 	\cat <<EOF | nvim -s -
-:NERDTreeFromBookmark Notizen
-jojJo
+:NERDTreeFromBookmark scratch.md
+Go
 EOF
 }
 
