@@ -5,7 +5,8 @@
     - become-password.secret
   roles:
     - role: geerlingguy.mac.homebrew
-      homebrew_brewfile_dir: ansible_env.PWD
+      vars:
+        homebrew_brewfile_dir: "{{ ansible_env.PWD }}"
       tags:
         - homebrew
   tasks:

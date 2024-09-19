@@ -8,7 +8,7 @@ install: git-hooks ## Install dependencies.
 	@# Install Homebrew.
 	command -v brew > /dev/null || { /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; }
 	@# Install pyenv.
-	command -v pyenv > /dev/null || { brew install pyenv; }
+	command -v pyenv > /dev/null || { brew install readline xz pyenv; }
 	@# Install target Python version.
 	pyenv install "$$(cat .python-version)" --skip-existing
 	@# Install pipenv.
