@@ -31,17 +31,13 @@ export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-# Load Zsh tools for syntax highlighting and autosuggestions
-HOMEBREW_FOLDER="/usr/local/share"
-source "$HOMEBREW_FOLDER/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "$HOMEBREW_FOLDER/zsh-autosuggestions/zsh-autosuggestions.zsh"
+# Configure Homebrew.
+# _evalcache /opt/homebrew/bin/brew shellenv
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Go
 export GOPATH="$HOME"/go
-
-# Add to path:
-# * Homebrew binaries
-# * Go binaries
+# Add Go binaries to path.
 export PATH="/usr/local/sbin:$GOPATH/bin:$PATH"
 
 # Python conf
