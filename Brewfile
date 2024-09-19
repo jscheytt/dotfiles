@@ -99,5 +99,4 @@ cask "syntax-highlight"
 cask "telegram"
 cask "visual-studio-code"
 cask "warp"
-mas "GarageBand", id: 682658836
 mas "Things", id: 904280696
