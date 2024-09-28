@@ -6,9 +6,6 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 
-" Set default line length
-set textwidth=120
-
 " List all TODOs and similar tags
 map <leader>do :Ack \(TODO<Bslash><Bar>FIXME\): <CR>
 
