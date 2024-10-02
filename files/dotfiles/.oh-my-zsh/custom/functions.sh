@@ -25,6 +25,12 @@ function clear-cache() {
 	rm -rf "$filepath"
 }
 
+# Inspect Docker image without pulling.
+function dii() {
+	local name="$1"
+  docker buildx imagetools inspect --format "{{json .}}" "$name"
+}
+
 # Get ID of running Docker container by name filter
 function drid() {
 	local name="$1"
