@@ -10,4 +10,4 @@ ansible = "==10.4.0"
 ansible-lint = "==24.9.2"
 
 [requires]
-python_version = "3.12.6"
+python_version = "3.12.7"
