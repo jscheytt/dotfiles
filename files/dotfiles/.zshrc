@@ -40,6 +40,9 @@ export GOPATH="$HOME"/go
 # Add Go binaries to path.
 export PATH="/usr/local/sbin:$GOPATH/bin:$PATH"
 
+# Make v4
+export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+
 # Python conf
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"

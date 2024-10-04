@@ -52,6 +52,7 @@ brew "kubectx"
 brew "kubescape"
 brew "kustomize"
 brew "libpq", link: true
+brew "make"
 brew "mas"
 brew "maven"
 brew "mdbook"
