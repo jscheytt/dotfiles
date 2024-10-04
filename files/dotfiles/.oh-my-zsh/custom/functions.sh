@@ -221,7 +221,7 @@ function upgrade() {
 	# Homebrew
 	HOMEBREW_NO_ENV_HINTS=1 brew upgrade
 	mas upgrade
-	brew bundle dump --force --file "$HOME/Documents/dotfiles/Brewfile"
+	brew bundle dump --force --file "$HOME/Documents/personal/dotfiles/Brewfile"
 	# Neovim plugins
 	nvim --headless +'PlugUpgrade' +'PlugInstall' +'PlugUpdate --sync' +'qa'
 	# oh-my-zsh
