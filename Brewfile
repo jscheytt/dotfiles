@@ -75,6 +75,7 @@ brew "tree"
 brew "trivy"
 brew "watch"
 brew "wget"
+brew "wireguard-tools"
 brew "yamllint"
 brew "yq"
 brew "zoxide"
@@ -111,3 +112,4 @@ mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Things", id: 904280696
+mas "WireGuard", id: 1451685025
