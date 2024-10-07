@@ -106,6 +106,7 @@ cask "syntax-highlight"
 cask "telegram"
 cask "visual-studio-code"
 cask "warp"
+cask "zoom"
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
