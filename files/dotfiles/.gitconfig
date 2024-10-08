@@ -1,6 +1,8 @@
 [user]
 	name = Josia Scheytt
-	email = josia.scheytt@mimacom.com
+	email = jscheytt@googlemail.com
+[includeIf "hasconfig:remote.*.url:git@gitlab.com:*/**"]
+  path = ~/.gitconfig-work
 [core]
   attributesfile = ~/.gitattributes 
 [push]
