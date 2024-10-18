@@ -46,6 +46,8 @@ tasks:
 
   update:
     desc: Update pipenv dependencies.
+    deps:
+      - sync-python-versions
     cmds:
       - >-
         {{.PIPENV_COMMAND}} update --dev
@@ -65,3 +67,16 @@ tasks:
         --inventory inventory
         --vault-password-file {{.VAULT_PASSWORD_FILE}}
         {{.EXTRA_ANSIBLE_ARGS}}
+
+  # Renovate only updates the Python version in .python-version, not the
+  # version constraints in the Pipfiles.
+  sync-python-versions:
+    desc: Synchronize all places where the Python version is set.
+    vars:
+      PYTHON_VERSION:
+        sh: cat .python-version
+    cmds:
+      - sed -i '' -E 's/^python_version = .*/python_version = "{{.PYTHON_VERSION}}"/' Pipfile
+      - >-
+        yq --inplace --output-format=json
+        '._meta.requires.python_version = "{{.PYTHON_VERSION}}"' Pipfile.lock
