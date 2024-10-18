@@ -1,0 +1,97 @@
+plugins:
+  ### https://github.com/derailed/k9s/blob/be1ec87840325d13f4fb74a35b2e3e4d33048aa6/plugins/argocd.yaml
+  argocd:
+    shortCut: s
+    description: Sync ArgoCD Application
+    scopes:
+      - application
+    command: argocd
+    args:
+      - app
+      - sync
+      - $NAME
+      - --app-namespace
+      - $NAMESPACE
+    background: true
+    confirm: true
+
+  ### https://github.com/derailed/k9s/blob/be1ec87840325d13f4fb74a35b2e3e4d33048aa6/plugins/debug-container.yaml
+  # --- Create debug container for selected pod in current namespace
+  # See https://kubernetes.io/docs/tasks/debug/debug-application/debug-running-pod/#ephemeral-container
+  debug:
+    shortCut: Shift-D
+    description: Add debug container
+    dangerous: true
+    scopes:
+      - containers
+    command: bash
+    background: false
+    confirm: true
+    args:
+      - -c
+      - >-
+        kubectl debug -it --context $CONTEXT -n=$NAMESPACE
+        $POD --target=$NAME
+        --image=nicolaka/netshoot:v0.12 --share-processes
+        -- bash
+
+  ### https://github.com/derailed/k9s/blob/be1ec87840325d13f4fb74a35b2e3e4d33048aa6/plugins/dive.yaml
+  dive:
+    shortCut: d
+    confirm: false
+    description: "Dive image"
+    scopes:
+      - containers
+    command: dive
+    background: false
+    args:
+      - $COL-IMAGE
+
+  ### https://github.com/derailed/k9s/blob/be1ec87840325d13f4fb74a35b2e3e4d33048aa6/plugins/remove-finalizers.yaml
+  # Removes all finalizers from the selected resource. Finalizers are namespaced keys that tell Kubernetes to wait
+  # until specific conditions are met before it fully deletes resources marked for deletion.
+  # Before deleting an object you need to ensure that all finalizers has been removed. Usually this would be done
+  # by the specific controller but under some circumstances it is possible to encounter a set of objects blocked
+  # for deletion.
+  # This plugins makes this task easier by providing a shortcut to directly removing them all.
+  # Be careful when using this plugin as it may leave dangling resources or instantly deleting resources that were
+  # blocked by the finalizers.
+  # Author: github.com/jalvarezit
+  remove_finalizers:
+    shortCut: Ctrl-F
+    confirm: true
+    dangerous: true
+    scopes:
+      - all
+    description: |
+      Removes all finalizers from selected resource. Be careful when using it,
+      it may leave dangling resources or delete them
+    command: kubectl
+    background: true
+    args:
+      - patch
+      - --context
+      - $CONTEXT
+      - --namespace
+      - $NAMESPACE
+      - $RESOURCE_NAME
+      - $NAME
+      - -p
+      - '{"metadata":{"finalizers":null}}'
+      - --type
+      - merge
+
+  ### https://github.com/derailed/k9s/blob/be1ec87840325d13f4fb74a35b2e3e4d33048aa6/plugins/watch-events.yaml
+  watch-events:
+    shortCut: Shift-E
+    confirm: false
+    description: Get Events
+    scopes:
+      - all
+    command: sh
+    background: false
+    args:
+      - -c
+      - >-
+        watch -n 5 kubectl get events --context $CONTEXT --namespace $NAMESPACE
+        --field-selector involvedObject.name=$NAME
