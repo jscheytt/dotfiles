@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
+
+vars:
+  GIT_HOOKS_SOURCE_DIR: .git-hooks
+  GIT_HOOKS_DESTINATION_DIR: .git/hooks
+
+tasks:
+  build:
+    desc: Install Git hooks.
+    sources:
+      - "{{.GIT_HOOKS_SOURCE_DIR}}/*"
+    generates:
+      - "{{.GIT_HOOKS_DESTINATION_DIR}}/*"
+    cmds:
+      - for: sources
+        cmd: >-
+          ln -fs "../../{{.ITEM}}"
+          {{joinPath .GIT_HOOKS_DESTINATION_DIR
+          (base .ITEM) | quote}}
+
+  clean:
+    desc: Remove Git hooks.
+    cmds:
+      - rm -rfv {{.GIT_HOOKS_DESTINATION_DIR}}/* || true

@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
+
+includes:
+  git-hooks: ./scripts/git-hooks.taskfile.yml
+  lint: ./scripts/lint.taskfile.yml
+  setup: ./scripts/setup.taskfile.yml
+
+vars:
+  BECOME_PASSWORD_FILE: become-password.secret
+  PIPENV_COMMAND: python3 -m pipenv
+  VAULT_PASSWORD_FILE: vault-password.txt
+
+tasks:
+  clean:
+    desc: Remove artifacts.
+    deps:
+      - git-hooks:clean
+    cmds:
+      - rm -v "{{.vault_password_file}}" "{{.become_password_file}}" || true
+
+  install:
+    desc: Install dependencies.
+    deps:
+      - git-hooks:build
+    cmds:
+      # Install Xcode for Homebrew.
+      - xcode-select --install || true
+      # Install Homebrew.
+      - >-
+        command -v brew > /dev/null || { /bin/bash -c "$(curl -fsSL
+        https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; }
+      # Install pyenv.
+      - command -v pyenv > /dev/null || { brew install readline xz pyenv; }
+      # Install target Python version.
+      - pyenv install "$(cat .python-version)" --skip-existing
+      # Install pipenv.
+      - pip3 install --break-system-packages --upgrade --user pipenv
+      # Install Python dependencies from Pipfile.
+      - "{{.PIPENV_COMMAND}} sync --dev"
+      # Install Ansible collections and modules.
+      - >-
+        {{.PIPENV_COMMAND}} run ansible-galaxy install
+        --role-file requirements.yml
+        --force
+
+  update:
+    desc: Update pipenv dependencies.
+    cmds:
+      - >-
+        {{.PIPENV_COMMAND}} update --dev
+
+  run:
+    desc: Run Ansible playbook.
+    deps:
+      - setup:become-password
+      - setup:vault-password
+    vars:
+      PLAYBOOK: main.yml
+      EXTRA_ANSIBLE_ARGS: -vv
+    cmds:
+      - >-
+        {{.PIPENV_COMMAND}} run ansible-playbook {{.PLAYBOOK}}
+        --extra-vars="ansible_python_interpreter=$(which python)"
+        --inventory inventory
+        --vault-password-file {{.VAULT_PASSWORD_FILE}}
+        {{.EXTRA_ANSIBLE_ARGS}}
