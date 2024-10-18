@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
+
+# Print output grouped when running tasks in parallel.
+output: group
+
+tasks:
+  all:
+    desc: Run all linters.
+    deps:
+      - ansible
+      - yaml
+
+  ansible:
+    desc: Lint Ansible files.
+    cmds:
+      - |-
+        ANSIBLE_VAULT_PASSWORD_FILE={{.VAULT_PASSWORD_FILE}} \
+        {{.PIPENV_COMMAND}} run ansible-lint \
+        --show-relpath
+
+  yaml:
+    desc: Lint YAML files.
+    cmds:
+      - yamllint -c files/dotfiles/.config/yamllint/config .

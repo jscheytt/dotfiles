@@ -9,3 +9,6 @@ vault-password.txt
 Brewfile.lock.json
 
 megalinter-reports/
+
+# Taskfile checksums
+.task/

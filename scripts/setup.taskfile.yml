@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
+
+tasks:
+  vault-password:
+    desc: Generate random vault password.
+    cmds:
+      - |-
+        LC_ALL=C tr -dc A-Za-z0-9 </dev/urandom \
+        | head -c 32 \
+        > {{.VAULT_PASSWORD_FILE}}
+    # Ensure file is only created once.
+    status:
+      - test -f "{{.VAULT_PASSWORD_FILE}}"
+
+  become-password:
+    desc: Create Ansible become file.
+    sources:
+      - "{{.VAULT_PASSWORD_FILE}}"
+    generates:
+      - "{{.BECOME_PASSWORD_FILE}}"
+    deps:
+      - vault-password
+    cmds:
+      - |-
+        read -sp 'Enter your admin password (so Ansible can execute sudo commands): ' admin_password
+        echo "ansible_sudo_pass: ${admin_password}" \
+          | {{.PIPENV_COMMAND}} run ansible-vault encrypt \
+          --vault-password-file {{.VAULT_PASSWORD_FILE}} \
+          --output {{.BECOME_PASSWORD_FILE}}
