@@ -17,7 +17,7 @@ tasks:
     deps:
       - git-hooks:clean
     cmds:
-      - rm -v "{{.vault_password_file}}" "{{.become_password_file}}" || true
+      - rm -v "{{.VAULT_PASSWORD_FILE}}" "{{.BECOME_PASSWORD_FILE}}" || true
 
   install:
     desc: Install dependencies.

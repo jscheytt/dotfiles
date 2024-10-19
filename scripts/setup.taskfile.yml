@@ -21,6 +21,7 @@ tasks:
       - "{{.BECOME_PASSWORD_FILE}}"
     deps:
       - vault-password
+    interactive: true
     cmds:
       - |-
         read -sp 'Enter your admin password (so Ansible can execute sudo commands): ' admin_password
