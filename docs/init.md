@@ -27,9 +27,10 @@
 1. Run these commands:
     ```sh
     # Install dependencies.
-    make install
+    brew install go-task
+    task install
     # Run the main playbook.
-    make build
+    task run
     # Check brew health.
     brew doctor
     ```
