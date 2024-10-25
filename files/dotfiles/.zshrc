@@ -47,10 +47,13 @@ export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # Python conf
+# pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 _evalcache pyenv init --path
 # eval "$(pyenv init -)"
+# pipx
+export PATH="$PATH:/Users/josiascheytt/.local/bin"
 
 # Preferred editor for local and remote sessions
 export EDITOR='nvim'
