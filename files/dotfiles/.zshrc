@@ -17,7 +17,6 @@ plugins=(
   common-aliases
   evalcache
   git
-  forgit
   macos
   kind
 )
