@@ -18,7 +18,6 @@ plugins=(
   evalcache
   git
   macos
-  kind
 )
 
 source $ZSH/oh-my-zsh.sh

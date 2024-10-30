@@ -22,6 +22,15 @@ alias tfa='terraform apply'
 alias tfaa='terraform apply -auto-approve'
 alias tfgraph='terraform graph -draw-cycles | dot -Tsvg > graph.svg'
 
+# kind (ohmyzsh plugin somehow does not work)
+alias kicc="kind create cluster"
+alias kiccn="kind create cluster --name"
+alias kigc="kind get clusters"
+alias kidc="kind delete cluster"
+alias kidcn="kind delete cluster --name"
+alias kidca="kind delete clusters -A"
+alias kigk="kind get kubeconfig"
+
 # Global
 alias -g k='kubectl'
 alias -g W='| wc -l'
