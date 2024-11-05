@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5781aee00f0b906e816e699d3138fa1b3af1616552bcb2cc5c72bb131d1c803f"
+            "sha256": "834b64a858ff152cb4633d8f9b312aaf9d2a28cc3c72a01c300683a567af400e"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -18,20 +18,20 @@
     "default": {
         "ansible": {
             "hashes": [
-                "sha256:1d10bddba58f1edd0fe0b8e0387e0fafc519535066bb3c919c33b6ea3ec32a0f",
-                "sha256:ba2045031a7d60c203b6e5fe1f8eaddd53ae076f7ada910e636494384135face"
+                "sha256:a8bde9c3ee8ee7c4a085e125777ba39bf837c6e74a0733e1f786389b125e6db2",
+                "sha256:b873b6ca13bde5b6bf9f0ae3b9dba91e135a9612c699d5f6a1e07d7ca2b00458"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.10'",
-            "version": "==10.5.0"
+            "version": "==10.6.0"
         },
         "ansible-core": {
             "hashes": [
-                "sha256:10f165b475cf2bc8d886e532cadb32c52ee6a533649793101d3166bca9bd3ea3",
-                "sha256:ae7f51fd13dc9d57c9bcd43ef23f9c255ca8f18f4b5c0011a4f9b724d92c5a8e"
+                "sha256:3e53970b7cebfe2adb39b711c1e2f8bbfcbedac828da51dc0357a19070638e95",
+                "sha256:dab09cd49fe7e17003e13188ce1ab52a0a6e5b88bc4bf29ff101cfdcb2862395"
             ],
             "markers": "python_version >= '3.10'",
-            "version": "==2.17.5"
+            "version": "==2.17.6"
         },
         "cffi": {
             "hashes": [
@@ -308,11 +308,11 @@
         },
         "ansible-core": {
             "hashes": [
-                "sha256:10f165b475cf2bc8d886e532cadb32c52ee6a533649793101d3166bca9bd3ea3",
-                "sha256:ae7f51fd13dc9d57c9bcd43ef23f9c255ca8f18f4b5c0011a4f9b724d92c5a8e"
+                "sha256:3e53970b7cebfe2adb39b711c1e2f8bbfcbedac828da51dc0357a19070638e95",
+                "sha256:dab09cd49fe7e17003e13188ce1ab52a0a6e5b88bc4bf29ff101cfdcb2862395"
             ],
             "markers": "python_version >= '3.10'",
-            "version": "==2.17.5"
+            "version": "==2.17.6"
         },
         "ansible-lint": {
             "hashes": [
