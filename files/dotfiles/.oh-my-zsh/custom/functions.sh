@@ -145,17 +145,6 @@ function kds() {
 	kubectl debug -it --image="$image" "$(kubectl get po -l="$labels" -o=name | head -n1)"
 }
 
-# kubectl rollout wait
-function krowt() {
-	local deployment_name="$1"
-	local timeout="${2:-20m}"
-	if kubectl rollout status deploy "$deployment_name" -w --timeout="$timeout"; then
-		say-english "Deployment rollout has finished"
-	else
-		say-english "Waiting for Deployment rollout has timed out"
-	fi
-}
-
 # kubectl-wait-say
 # Wait for kubectl resource to become healthy.
 # Announce finished reconciliation or timeout.
@@ -166,10 +155,10 @@ function kws() {
 	local timeout="${4:-20m}"
   case "$resource_type" in
     job)
-      command="kubectl wait $resource_type/$resource_name --for=condition=complete --timeout=$timeout"
+      command="kubectl --namespace=$namespace wait $resource_type/$resource_name --for=condition=complete --timeout=$timeout"
       ;;
     *)
-      command="kubectl rollout status $resource_type $resource_name --wait --timeout=$timeout"
+      command="kubectl --namespace=$namespace rollout status $resource_type $resource_name --wait --timeout=$timeout"
       ;;
   esac
   if sh -c "set -x; $command"; then
