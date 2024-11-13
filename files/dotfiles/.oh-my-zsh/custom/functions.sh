@@ -202,7 +202,7 @@ function rename_replace_in_files() {
 # Use English voice and reduce volume
 # Needs "Lee" macOS voice - I think you have to download this manually
 function say-english() {
-	say -v Lee "[[volm 0.3]] $1"
+	say -v Zarvox "[[volm 0.3]] $1"
 }
 
 # Find all cloned repos with a configured remote (so not just inited), then run fetch all.
