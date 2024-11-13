@@ -99,6 +99,11 @@ function free-port() {
 	sudo lsof -nP -i4TCP:"$port" | grep LISTEN | awk '{print $2}' | xargs kill -9
 }
 
+function flush-dns() {
+  sudo dscacheutil -flushcache
+  sudo killall -HUP mDNSResponder
+}
+
 # Execute a Git command on all Git repositories
 # $1: Path with Git repositories in subdirectories
 # Rest of parameters: Git command (e.g. "status")
