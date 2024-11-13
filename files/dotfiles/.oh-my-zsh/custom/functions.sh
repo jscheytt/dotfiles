@@ -156,6 +156,29 @@ function krowt() {
 	fi
 }
 
+# kubectl-wait-say
+# Wait for kubectl resource to become healthy.
+# Announce finished reconciliation or timeout.
+function kws() {
+	local resource_type="$1"
+	local resource_name="$2"
+	local namespace="$3"
+	local timeout="${4:-20m}"
+  case "$resource_type" in
+    job)
+      command="kubectl wait $resource_type/$resource_name --for=condition=complete --timeout=$timeout"
+      ;;
+    *)
+      command="kubectl rollout status $resource_type $resource_name --wait --timeout=$timeout"
+      ;;
+  esac
+  if sh -c "set -x; $command"; then
+    say-english "Rollout of ${resource_type} ${resource_name} has finished."
+  else
+    say-english "Waiting for rollout of ${resource_type} ${resource_name} has timed out."
+  fi
+}
+
 # Find App Store app by substring and uninstall
 function mas-uninstall-lucky() {
 	local app_name="${1:?'Parameter #1 is app name'}"
