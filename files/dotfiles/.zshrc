@@ -16,6 +16,7 @@ plugins=(
   common-aliases
   evalcache
   git
+  gitignore
   macos
 )
 
