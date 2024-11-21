@@ -158,7 +158,7 @@ function kws() {
       command="kubectl --namespace=$namespace wait $resource_type/$resource_name --for=condition=complete --timeout=$timeout"
       ;;
     *)
-      command="kubectl --namespace=$namespace rollout status $resource_type $resource_name --wait --timeout=$timeout"
+      command="kubectl --namespace=$namespace rollout status $resource_type $resource_name --watch=true --timeout=$timeout"
       ;;
   esac
   if sh -c "set -x; $command"; then
