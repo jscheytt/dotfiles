@@ -154,6 +154,9 @@ function kws() {
 	local namespace="$3"
 	local timeout="${4:-20m}"
   case "$resource_type" in
+    po|pod)
+      command="kubectl --namespace=$namespace wait $resource_type/$resource_name --for=condition=ready --timeout=$timeout"
+      ;;
     job)
       command="kubectl --namespace=$namespace wait $resource_type/$resource_name --for=condition=complete --timeout=$timeout"
       ;;
