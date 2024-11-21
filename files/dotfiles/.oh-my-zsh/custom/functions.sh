@@ -157,8 +157,12 @@ function kws() {
     job)
       command="kubectl --namespace=$namespace wait $resource_type/$resource_name --for=condition=complete --timeout=$timeout"
       ;;
-    *)
+    deploy|deployment|ds|daemonset|sts|statefulset)
       command="kubectl --namespace=$namespace rollout status $resource_type $resource_name --watch=true --timeout=$timeout"
+      ;;
+    *)
+      echo "How do I wait for this resource type?"
+      exit 1
       ;;
   esac
   if sh -c "set -x; $command"; then
