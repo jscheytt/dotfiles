@@ -14,6 +14,7 @@ alias mkdocs='docker run --rm -it -v ${PWD}:/docs -p 8000:8000 squidfunk/mkdocs-
 alias myip='curl -s https://api.ipify.org | xargs'
 alias nd='nvim -d'
 alias nv='nvim'
+alias s='switch'
 alias ssh-config='${=EDITOR} ~/.ssh/config'
 alias ssh='/usr/bin/ssh'
 alias tf='terraform'
