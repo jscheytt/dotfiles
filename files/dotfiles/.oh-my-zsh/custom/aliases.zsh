@@ -1,5 +1,6 @@
 alias aliases='${=EDITOR} $ZSH_CUSTOM/aliases.zsh'
 alias cat='bat'
+alias cos='colima start --cpu 8 --memory 32'
 alias bym='bundle install && yarn install && rails db:migrate && rails data:migrate'
 alias date-iso='date -u +"%FT%TZ"'
 alias date-alphanum='date -u +"%Y%m%dT%H%M%SZ"'
