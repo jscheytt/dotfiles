@@ -224,6 +224,12 @@ function say-english() {
 	say -v Zarvox "[[volm 0.3]] $1"
 }
 
+# Use kubeswitch to *switch* context but also set the context *globally*.
+# See also https://github.com/danielfoehrKn/kubeswitch/issues/67
+function sg() {
+  yq --inplace ".current-context = \"$(switch current-context)\"" "${HOME}/.kube/config"
+}
+
 # Find all cloned repos with a configured remote (so not just inited), then run fetch all.
 function update_repos_with_remote() {
 	echo "INFO: Updating local Git repos ..."
