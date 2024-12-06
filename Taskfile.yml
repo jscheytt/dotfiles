@@ -76,7 +76,6 @@ tasks:
       PYTHON_VERSION:
         sh: cat .python-version
     cmds:
-      - sed -i '' -E 's/^python_version = .*/python_version = "{{.PYTHON_VERSION}}"/' Pipfile
+      - sed -i '' -E 's/^(python_version = ).*/\1"{{.PYTHON_VERSION}}"/' Pipfile
       - >-
-        yq --inplace --output-format=json
-        '._meta.requires.python_version = "{{.PYTHON_VERSION}}"' Pipfile.lock
+        sed -i '' -E 's/("python_version": ").*(")/\1{{.PYTHON_VERSION}}\2/' Pipfile.lock
