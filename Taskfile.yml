@@ -10,6 +10,7 @@ vars:
   BECOME_PASSWORD_FILE: become-password.secret
   PIPENV_COMMAND: python3 -m pipenv
   VAULT_PASSWORD_FILE: vault-password.txt
+  SYNC_PYTHON_VERSIONS_SHOULD_COMMIT: "true"
 
 tasks:
   clean:
@@ -79,3 +80,8 @@ tasks:
       - sed -i '' -E 's/^(python_version = ).*/\1"{{.PYTHON_VERSION}}"/' Pipfile
       - >-
         sed -i '' -E 's/("python_version": ").*(")/\1{{.PYTHON_VERSION}}\2/' Pipfile.lock
+      - |-
+        if [ "{{.SYNC_PYTHON_VERSIONS_SHOULD_COMMIT}}" = "true" ]; then
+          git add Pipfile*
+          git commit -m "chore: sync python version to Pipfiles" || true
+        fi
