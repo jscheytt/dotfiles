@@ -14,9 +14,9 @@ tasks:
   ansible:
     desc: Lint Ansible files.
     cmds:
-      - |-
-        ANSIBLE_VAULT_PASSWORD_FILE={{.VAULT_PASSWORD_FILE}} \
-        {{.PIPENV_COMMAND}} run ansible-lint \
+      - >-
+        ANSIBLE_VAULT_PASSWORD_FILE={{.VAULT_PASSWORD_FILE}}
+        {{.PIPENV_COMMAND}} run ansible-lint
         --show-relpath
 
   yaml:
