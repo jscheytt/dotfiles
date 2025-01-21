@@ -17,8 +17,14 @@ tasks:
     desc: Remove artifacts.
     deps:
       - git-hooks:clean
+      - clean.pipenv
     cmds:
       - rm -v "{{.VAULT_PASSWORD_FILE}}" "{{.BECOME_PASSWORD_FILE}}" || true
+
+  clean:pipenv:
+    desc: Remove pipenv virtualenv.
+    cmds:
+      - "{{.PIPENV_COMMAND}} --rm"
 
   install:
     desc: Install dependencies.
