@@ -300,11 +300,11 @@
     "develop": {
         "ansible-compat": {
             "hashes": [
-                "sha256:d8befd5c632c5ea0486f0537dea0fd0bb3340aabcc079025a373689150890b57",
-                "sha256:e6d696b0ffe098af2fae7c5b2085fe8fd92c9ed8cb938fe77c8c87af0f2da056"
+                "sha256:76147025c82c92433feb8317d3fa513026f557dc1b64abd0b2565ffa09a57725",
+                "sha256:b4e4609bb9b91588758be4d26ff25ff46d7ce83e6b8f2cc58cf77d736ec1f1ab"
             ],
             "markers": "python_version >= '3.10'",
-            "version": "==25.1.0"
+            "version": "==25.1.1"
         },
         "ansible-core": {
             "hashes": [
