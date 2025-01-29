@@ -13,6 +13,13 @@ vars:
   SYNC_PYTHON_VERSIONS_SHOULD_COMMIT: "true"
 
 tasks:
+  help:
+    desc: List all tasks
+    aliases:
+      - default
+    cmds:
+      - task --list-all
+
   clean:
     desc: Remove artifacts.
     deps:
