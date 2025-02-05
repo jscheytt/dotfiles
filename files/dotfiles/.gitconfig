@@ -5,6 +5,7 @@
   path = ~/.gitconfig-work
 [core]
   attributesfile = ~/.gitattributes 
+  excludesfile = ~/.gitignore_global
 [push]
 	default = simple
 	autoSetupRemote = true
