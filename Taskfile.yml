@@ -60,11 +60,18 @@ tasks:
 
   update:
     desc: Update pipenv dependencies.
-    deps:
-      - sync-python-versions
     cmds:
+      # Run these dependencies sequentially.
+      - task: sync-python-versions
+        vars:
+          SYNC_PYTHON_VERSIONS_SHOULD_COMMIT: false
+      - task: install
       - >-
         {{.PIPENV_COMMAND}} update --dev
+      # Commit sync-python-versions changes only on the last run.
+      - task: sync-python-versions
+        vars:
+          SYNC_PYTHON_VERSIONS_SHOULD_COMMIT: true
 
   run:
     desc: Run Ansible playbook.
