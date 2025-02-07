@@ -12,3 +12,6 @@ megalinter-reports/
 
 # Taskfile checksums
 .task/
+
+# Ansible collections
+.ansible/
