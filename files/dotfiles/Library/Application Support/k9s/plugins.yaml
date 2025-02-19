@@ -95,3 +95,15 @@ plugins:
     args:
       - -c
       - "kubectl events --context $CONTEXT --namespace $NAMESPACE --for $RESOURCE_NAME.$RESOURCE_GROUP/$NAME --watch"
+
+  node-shell:
+    shortCut: Shift-S
+    description: Run Node Shell
+    scopes:
+      - nodes
+    command: bash
+    background: false
+    confirm: false
+    args:
+      - -c
+      - kubectl node-shell $NAME
