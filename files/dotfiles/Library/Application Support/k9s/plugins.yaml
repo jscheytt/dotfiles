@@ -80,6 +80,23 @@ plugins:
       - --type
       - merge
 
+  ### https://github.com/derailed/k9s/blob/af8aa5fc41b3db202941a264a3011f490bede97b/plugins/rm-ns.yaml
+  # remove finalizers from a stuck namespace
+  rm-ns:
+    shortCut: n
+    confirm: true
+    dangerous: true
+    description: Remove NS Finalizers
+    scopes:
+      - namespace
+    command: sh
+    background: false
+    args:
+      - -c
+      - >-
+        kubectl get namespace $NAME -o json | jq '.spec.finalizers=[]'
+        | kubectl replace --raw /api/v1/namespaces/$NAME/finalize -f - > /dev/null
+
   ### https://github.com/derailed/k9s/blob/af8aa5fc41b3db202941a264a3011f490bede97b/plugins/watch-events.yaml
   # watch events on selected resources
   # requires linux "watch" command
