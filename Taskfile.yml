@@ -24,7 +24,7 @@ tasks:
     desc: Remove artifacts.
     deps:
       - git-hooks:clean
-      - clean.pipenv
+      - clean:pipenv
     cmds:
       - rm -v "{{.VAULT_PASSWORD_FILE}}" "{{.BECOME_PASSWORD_FILE}}" || true
 
