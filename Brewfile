@@ -58,7 +58,6 @@ brew "kind"
 brew "kubernetes-cli"
 brew "krew"
 brew "kubeconform"
-brew "kubescape"
 brew "kustomize"
 brew "libpq", link: true
 brew "make"
