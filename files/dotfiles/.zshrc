@@ -56,6 +56,9 @@ _evalcache pyenv init --path
 # pipx
 export PATH="$PATH:/Users/josiascheytt/.local/bin"
 
+# Rust
+export PATH="$PATH:/opt/homebrew/opt/rustup/bin:$HOME/.cargo/bin"
+
 # Preferred editor for local and remote sessions
 export EDITOR='nvim'
 export VISUAL='nvim'
