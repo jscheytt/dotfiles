@@ -2,6 +2,7 @@
 autocmd BufWritePost *.css,*.jsx,*.html,*.htm ALEFix
 let g:ale_linters = {
 \  'css': ['prettier'],
+\  'd2': ['d2'],
 \  'dockerfile': ['hadolint'],
 \  'go': ['go', 'golint', 'errcheck'],
 \  'javascript': ['eslint'],
@@ -18,6 +19,7 @@ let g:ale_linters = {
 \}
 let g:ale_fixers = {
 \  'css': ['prettier'],
+\  'd2': ['d2'],
 \  'html': ['prettier'],
 \  'javascript': ['eslint'],
 \  'json': ['jq'],
