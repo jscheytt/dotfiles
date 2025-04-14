@@ -32,9 +32,6 @@
 	show = delta
 [interactive]
 	diffFilter = delta --color-only --features=interactive
-[merge "mergiraf"]
-  name = mergiraf
-  driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L
 [alias]
   ; What is the default branch of this repo?
   ; The first command asks the remote if the default branch was changed.
