@@ -25,7 +25,7 @@ let g:ale_fixers = {
 \  'json': ['jq'],
 \  'lua': ['stylua'],
 \  'make': ['checkmake'],
-\  'python': ['yapf'],
+\  'python': ['black'],
 \  'ruby': ['rubocop'],
 \  'rust': ['rustfmt'],
 \  'scss' : ['prettier'],
