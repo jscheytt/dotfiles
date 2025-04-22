@@ -8,9 +8,10 @@ includes:
 
 vars:
   BECOME_PASSWORD_FILE: become-password.secret
+  EXTRA_ANSIBLE_ARGS: -vv
   PIPENV_COMMAND: python3 -m pipenv
-  VAULT_PASSWORD_FILE: vault-password.txt
   SYNC_PYTHON_VERSIONS_SHOULD_COMMIT: "true"
+  VAULT_PASSWORD_FILE: vault-password.txt
 
 tasks:
   help:
@@ -80,7 +81,6 @@ tasks:
       - setup:vault-password
     vars:
       PLAYBOOK: main.yml
-      EXTRA_ANSIBLE_ARGS: -vv
     cmds:
       - >-
         {{.PIPENV_COMMAND}} run ansible-playbook {{.PLAYBOOK}}
