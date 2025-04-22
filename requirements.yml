@@ -4,7 +4,7 @@ collections:
   - name: geerlingguy.mac
     version: 4.1.0
 roles:
-  - name: gantsign.oh-my-zsh
-    version: 2.7.0
   - name: elliotweiser.osx-command-line-tools
     version: 2.3.0
+  - name: gantsign.oh-my-zsh
+    version: 2.7.0
