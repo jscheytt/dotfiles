@@ -1,4 +1,4 @@
-# My [Dotfiles](https://wiki.archlinux.org/index.php/Dotfiles)
+# My [Dotfiles](https://wiki.archlinux.org/title/Dotfiles)
 
 [![lint](https://github.com/jscheytt/dotfiles/actions/workflows/lint.yml/badge.svg)](https://github.com/jscheytt/dotfiles/actions/workflows/lint.yml)
 
