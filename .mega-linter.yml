@@ -20,6 +20,7 @@ DISABLE_LINTERS:
   - REPOSITORY_CHECKOV
   # Seems abandoned: https://github.com/tenable/terrascan/issues/1724
   - TERRAFORM_TERRASCAN
+BASH_SHFMT_ARGUMENTS: -i 2
 KUBERNETES_KUBESCAPE_ARGUMENTS: --severity-threshold high
 PYTHON_BANDIT_ARGUMENTS: --severity-level medium
 PYTHON_FLAKE8_ARGUMENTS: --max-line-length=120
