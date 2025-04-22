@@ -7,7 +7,7 @@ IFS=$'\n\t'
 ### It has a hard timeout of 2mins, so it's a very stripped down version of the
 ### normal installation.
 
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 
 # Ignore desired Python version
 rm -f "${SCRIPT_DIR}"/.python-version
