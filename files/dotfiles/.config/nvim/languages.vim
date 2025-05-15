@@ -1,7 +1,7 @@
 " ALE
 autocmd BufWritePost *.css,*.jsx,*.html,*.htm ALEFix
 let g:ale_linters = {
-\  'css': ['prettier'],
+\  'css': ['stylelint'],
 \  'd2': ['d2'],
 \  'dockerfile': ['hadolint'],
 \  'go': ['go', 'golint', 'errcheck'],
@@ -10,7 +10,7 @@ let g:ale_linters = {
 \  'make': ['checkmake'],
 \  'markdown': [''],
 \  'python': ['ruff'],
-\  'scss' : ['prettier'],
+\  'scss' : ['stylelint'],
 \  'sh' : ['shellcheck'],
 \  'tex' : ['chktex'],
 \  'typescript': ['standard'],
@@ -19,7 +19,7 @@ let g:ale_linters = {
 \  'zsh' : ['shellcheck'],
 \}
 let g:ale_fixers = {
-\  'css': ['prettier'],
+\  'css': ['stylelint'],
 \  'd2': ['d2'],
 \  'html': ['prettier'],
 \  'javascript': ['standard'],
@@ -29,7 +29,7 @@ let g:ale_fixers = {
 \  'python': ['isort', 'black'],
 \  'ruby': ['rubocop'],
 \  'rust': ['rustfmt'],
-\  'scss' : ['prettier'],
+\  'scss' : ['stylelint'],
 \  'sh': ['shfmt'],
 \  'terraform' : ['terraform'],
 \  'typescript': ['standard'],
