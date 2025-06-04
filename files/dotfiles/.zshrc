@@ -39,6 +39,10 @@ export GOPATH="$HOME"/go
 # Add Go binaries to path.
 export PATH="/usr/local/sbin:$GOPATH/bin:$PATH"
 
+# Java: sdkman
+export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
+[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+
 # Make v4
 export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
 
