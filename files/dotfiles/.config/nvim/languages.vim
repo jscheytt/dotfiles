@@ -6,6 +6,7 @@ let g:ale_linters = {
 \  'dockerfile': ['hadolint'],
 \  'go': ['go', 'golint', 'errcheck'],
 \  'javascript': ['eslint'],
+\  'kotlin': ['ktlint'],
 \  'lua': ['stylua'],
 \  'make': ['checkmake'],
 \  'markdown': [''],
