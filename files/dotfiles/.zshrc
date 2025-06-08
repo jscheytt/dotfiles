@@ -89,6 +89,12 @@ _evalcache zoxide init zsh
 _evalcache fnm env --use-on-cd
 # eval "$(fnm env --use-on-cd)"
 
+# Testcontainers
+# See https://java.testcontainers.org/supported_docker_environment/#colima
+export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
+export TESTCONTAINERS_HOST_OVERRIDE=$(colima ls -j | jq -r '.address')
+export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
+
 # Set starting directory of new terminals (not new tabs)
 export START=~/Documents
 if [[ $PWD == $HOME ]]; then
