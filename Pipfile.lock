@@ -847,11 +847,11 @@
         },
         "ruamel.yaml": {
             "hashes": [
-                "sha256:b0d5ac0a2b0b4e39d87aed00ddff26e795de6750b064da364a8d009b97ce5f26",
-                "sha256:cf9628cfdfe9d88b78429cd093aa766e9a4c69242f9f3c86ac1d9e56437e5572"
+                "sha256:710ff198bb53da66718c7db27eec4fbcc9aa6ca7204e4c1df2f282b6fe5eb6b2",
+                "sha256:7227b76aaec364df15936730efbf7d72b30c0b79b1d578bbb8e3dcb2d81f52b7"
             ],
-            "markers": "python_version >= '3.7'",
-            "version": "==0.18.13"
+            "markers": "python_version >= '3.8'",
+            "version": "==0.18.14"
         },
         "ruamel.yaml.clib": {
             "hashes": [
