@@ -218,6 +218,12 @@ function rename_replace_in_files() {
   replace_in_files "$source_filepath" "$target_filepath" "$file_extensions"
 }
 
+# Use kured to reboot a Kubernetes Node.
+function restart_node() {
+  local node_name="$1"
+  kubectl node-shell "$node_name" -- touch /var/run/reboot-required
+}
+
 # Use English voice and reduce volume
 # Needs "Lee" macOS voice - I think you have to download this manually
 function say-english() {
