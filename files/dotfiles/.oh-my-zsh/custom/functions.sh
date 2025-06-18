@@ -138,6 +138,13 @@ function kdebug() {
   kubectl wait --for=delete pod/"tmp-$variant"
 }
 
+# Kubectl Delete Cluster
+function kdc() {
+  local name="$1"
+  KUBECONFIG=$HOME/.kube/config kubectl config delete-context "$name"
+  KUBECONFIG=$HOME/.kube/config kubectl config delete-cluster "$name"
+}
+
 # Kubectl Debug for containers without a Shell
 function kds() {
   local labels="$1"
