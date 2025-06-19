@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "64e7e01abc117d14e76788f69f5006b6b2060a3537176dc9dbef08445ed746b8"
+            "sha256": "7ca49a0f1c81d508a76e1588c9f6a86ded3d7a9b67f9610a6abf1564a3dc9492"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -326,12 +326,12 @@
         },
         "ansible-lint": {
             "hashes": [
-                "sha256:7040afaa315ff3e035980d67653fda36d9a274e8c633ac3056908e5cdc10772e",
-                "sha256:bf19fd0f377ac4e4f4682d8abc4479a844ce08e09589215c9da4be0f77c0f8e5"
+                "sha256:69fe294a3cc30d8819b5a30625a7e25225f48558cadb83ad3d4dec597c1b8c2c",
+                "sha256:6a1dd2b7a9f3f202c9e92a6c80296ff33ca863348c3acf978f80fb0d4536dce4"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.10'",
-            "version": "==25.6.0"
+            "version": "==25.6.1"
         },
         "attrs": {
             "hashes": [
