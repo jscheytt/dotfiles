@@ -54,6 +54,10 @@ autocmd! BufNewFile,BufReadPost *Dockerfile* set filetype=Dockerfile
 " Go
 map <Leader>xg :GoRun<CR>
 
+" Java
+" Disable markdown processing in Java files to avoid locked variable errors
+let g:java_ignore_markdown = 1
+
 " Jenkinsfile
 autocmd BufNewFile,BufRead *Jenkinsfile* setf groovy
 
