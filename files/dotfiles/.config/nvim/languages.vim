@@ -24,6 +24,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \  'css': ['stylelint'],
 \  'd2': ['d2'],
+\  'go': ['gofmt'],
 \  'html': ['prettier'],
 \  'javascript': ['eslint'],
 \  'json': ['jq'],
