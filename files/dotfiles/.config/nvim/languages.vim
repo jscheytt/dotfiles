@@ -19,6 +19,7 @@ let g:ale_linters = {
 \  'typescriptreact': ['eslint'],
 \  'xml': ['xmllint'],
 \  'yaml': ['yamllint'],
+\  'yaml.ansible': ['ansible-lint'],
 \  'zsh': ['shellcheck'],
 \}
 let g:ale_fixers = {
@@ -126,5 +127,4 @@ let g:xml_syntax_folding=1
 autocmd FileType xml,xslt,html setlocal foldmethod=syntax
 
 " YAML
-autocmd! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab

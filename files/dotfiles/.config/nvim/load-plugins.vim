@@ -98,6 +98,9 @@ Plug 'embear/vim-localvimrc'
 " ALE already covers many languages
 Plug 'dense-analysis/ale'
 
+" Ansible
+Plug 'pearofducks/ansible-vim'
+
 " Asciidoc
 Plug 'habamax/vim-asciidoctor'
 
