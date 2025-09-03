@@ -243,13 +243,6 @@ function sg() {
   yq --inplace ".current-context = \"$(switch current-context)\"" "${HOME}/.kube/config"
 }
 
-# ssh known-hosts ignore
-# Delete fingerprints of a previously seen SSH host.
-function skhi() {
-  local host="$1"
-  sed -i'' -E "/${host}/d" "${HOME}/.ssh/known_hosts"
-}
-
 # Find all cloned repos with a configured remote (so not just inited), then run fetch all.
 function update_repos_with_remote() {
   echo "INFO: Updating local Git repos ..."
