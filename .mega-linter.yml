@@ -1,8 +1,6 @@
 DISABLE:
   # Spell checking is too unreliable
   - SPELL
-  # Markdown linting does not help us currently.
-  - MARKDOWN
 DISABLE_LINTERS:
   # We prefer jq automatic formatting for JSON & YAML
   - JSON_PRETTIER
