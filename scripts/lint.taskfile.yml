@@ -16,7 +16,7 @@ tasks:
     cmds:
       - >-
         ANSIBLE_VAULT_PASSWORD_FILE={{.VAULT_PASSWORD_FILE}}
-        {{.PIPENV_COMMAND}} run ansible-lint
+        uv run ansible-lint
         --show-relpath
 
   yaml:

@@ -9,8 +9,6 @@ includes:
 vars:
   BECOME_PASSWORD_FILE: become-password.secret
   EXTRA_ANSIBLE_ARGS: -vv
-  PIPENV_COMMAND: python3 -m pipenv
-  SYNC_PYTHON_VERSIONS_SHOULD_COMMIT: "true"
   VAULT_PASSWORD_FILE: vault-password.txt
 
 tasks:
@@ -25,14 +23,15 @@ tasks:
     desc: Remove artifacts.
     deps:
       - git-hooks:clean
-      - clean:pipenv
+      - clean:python
     cmds:
       - rm -v "{{.VAULT_PASSWORD_FILE}}" "{{.BECOME_PASSWORD_FILE}}" || true
 
-  clean:pipenv:
-    desc: Remove pipenv virtualenv.
+  clean:python:
+    desc: Remove Python stuff.
     cmds:
-      - "{{.PIPENV_COMMAND}} --rm"
+      - uv cache clean
+      - uv sync --reinstall
 
   install:
     desc: Install dependencies.
@@ -45,63 +44,27 @@ tasks:
       - >-
         command -v brew > /dev/null || { /bin/bash -c "$(curl -fsSL
         https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; }
-      # Install pyenv.
-      - command -v pyenv > /dev/null || { brew install readline xz pyenv; }
+      # Install uv.
+      - command -v uv > /dev/null || { brew install uv; }
       # Install target Python version.
-      - pyenv install "$(cat .python-version)" --skip-existing
-      # Install pipenv.
-      - pip3 install --break-system-packages --upgrade --user pipenv
+      - uv python install
       # Install Python dependencies from Pipfile.
-      - "{{.PIPENV_COMMAND}} sync --dev"
+      - uv sync
       # Install Ansible collections and modules.
-      - >-
-        {{.PIPENV_COMMAND}} run ansible-galaxy install
-        --role-file requirements.yml
-        --force
-
-  update:
-    desc: Update pipenv dependencies.
-    cmds:
-      # Run these dependencies sequentially.
-      - task: sync-python-versions
-        vars:
-          SYNC_PYTHON_VERSIONS_SHOULD_COMMIT: false
-      - task: install
-      - >-
-        {{.PIPENV_COMMAND}} update --dev
-      # Commit sync-python-versions changes only on the last run.
-      - task: sync-python-versions
-        vars:
-          SYNC_PYTHON_VERSIONS_SHOULD_COMMIT: true
+      - uv run ansible-galaxy install --role-file requirements.yml
 
   run:
     desc: Run Ansible playbook.
     deps:
       - setup:become-password
       - setup:vault-password
+      - install
     vars:
       PLAYBOOK: main.yml
     cmds:
       - >-
-        {{.PIPENV_COMMAND}} run ansible-playbook {{.PLAYBOOK}}
+        uv run ansible-playbook {{.PLAYBOOK}}
         --extra-vars="ansible_python_interpreter=$(which python)"
         --inventory inventory
         --vault-password-file {{.VAULT_PASSWORD_FILE}}
         {{.EXTRA_ANSIBLE_ARGS}}
-
-  # Renovate only updates the Python version in .python-version, not the
-  # version constraints in the Pipfiles.
-  sync-python-versions:
-    desc: Synchronize all places where the Python version is set.
-    vars:
-      PYTHON_VERSION:
-        sh: cat .python-version
-    cmds:
-      - sed -i '' -E 's/^(python_version = ).*/\1"{{.PYTHON_VERSION}}"/' Pipfile
-      - >-
-        sed -i '' -E 's/("python_version": ").*(")/\1{{.PYTHON_VERSION}}\2/' Pipfile.lock
-      - |-
-        if [ "{{.SYNC_PYTHON_VERSIONS_SHOULD_COMMIT}}" = "true" ]; then
-          git add Pipfile*
-          git commit -m "chore: sync python version to Pipfiles" || true
-        fi

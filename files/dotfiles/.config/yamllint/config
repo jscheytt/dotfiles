@@ -1,4 +1,7 @@
 extends: relaxed
+ignore:
+  - .venv/
+  - .ansible/
 rules:
   line-length:
     max: 120
