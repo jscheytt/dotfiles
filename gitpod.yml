@@ -1,7 +1,0 @@
-#!/usr/bin/env ansible-playbook
-- name: Gitpod Playbook
-  hosts: all
-  tasks:
-    - name: Dotfiles
-      ansible.builtin.import_tasks: tasks/dotfiles.yml
-      tags: ["dotfiles"]
