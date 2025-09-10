@@ -9,7 +9,7 @@ let g:ale_linters = {
 \  'kotlin': ['ktlint'],
 \  'lua': ['stylua'],
 \  'make': ['checkmake'],
-\  'markdown': [''],
+\  'markdown': ['markdownlint'],
 \  'python': ['ruff'],
 \  'scss': ['stylelint'],
 \  'sh': ['shellcheck'],

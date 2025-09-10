@@ -75,6 +75,7 @@ brew "kubeconform"
 brew "kustomize"
 brew "libpq", link: true
 brew "make"
+brew "markdownlint-cli"
 brew "mas"
 brew "maven"
 brew "mdbook"
