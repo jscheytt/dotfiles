@@ -20,6 +20,7 @@ This repo can do the following for me (and also for you 😊):
 You can always run `task` to see all available commands.
 
 Examples:
+
 * Run only the installation of dependencies: `task install`
 * Run the main playbook: `task run`
 * Start from a clean slate: `task clean run`
