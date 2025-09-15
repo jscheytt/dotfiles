@@ -18,6 +18,7 @@
   defaultBranch = main
 [pull]
 	rebase = true
+  updateRefs = true
 [fetch]
 	prune = true
 [filter "lfs"]
