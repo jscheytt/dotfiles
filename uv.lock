@@ -1,6 +1,10 @@
 version = 1
 revision = 3
 requires-python = ">=3.13.7"
+resolution-markers = [
+    "python_full_version >= '3.14'",
+    "python_full_version < '3.14'",
+]
 
 [[package]]
 name = "ansible-compat"
@@ -38,29 +42,63 @@ wheels = [
 name = "ansible-lint"
 version = "25.9.0"
 source = { registry = "https://pypi.org/simple" }
+resolution-markers = [
+    "python_full_version >= '3.14'",
+]
 dependencies = [
-    { name = "ansible-compat" },
-    { name = "ansible-core" },
-    { name = "black" },
-    { name = "cffi" },
-    { name = "cryptography" },
-    { name = "distro" },
-    { name = "filelock" },
-    { name = "importlib-metadata" },
-    { name = "jsonschema" },
-    { name = "packaging" },
-    { name = "pathspec" },
-    { name = "pyyaml" },
-    { name = "referencing" },
-    { name = "ruamel-yaml" },
-    { name = "ruamel-yaml-clib", marker = "python_full_version < '3.14'" },
-    { name = "subprocess-tee" },
-    { name = "wcmatch" },
-    { name = "yamllint" },
+    { name = "ansible-compat", marker = "python_full_version >= '3.14'" },
+    { name = "ansible-core", marker = "python_full_version >= '3.14'" },
+    { name = "black", marker = "python_full_version >= '3.14'" },
+    { name = "cffi", marker = "python_full_version >= '3.14'" },
+    { name = "cryptography", marker = "python_full_version >= '3.14'" },
+    { name = "distro", marker = "python_full_version >= '3.14'" },
+    { name = "filelock", marker = "python_full_version >= '3.14'" },
+    { name = "importlib-metadata", marker = "python_full_version >= '3.14'" },
+    { name = "jsonschema", marker = "python_full_version >= '3.14'" },
+    { name = "packaging", marker = "python_full_version >= '3.14'" },
+    { name = "pathspec", marker = "python_full_version >= '3.14'" },
+    { name = "pyyaml", marker = "python_full_version >= '3.14'" },
+    { name = "referencing", marker = "python_full_version >= '3.14'" },
+    { name = "ruamel-yaml", marker = "python_full_version >= '3.14'" },
+    { name = "subprocess-tee", marker = "python_full_version >= '3.14'" },
+    { name = "wcmatch", marker = "python_full_version >= '3.14'" },
+    { name = "yamllint", marker = "python_full_version >= '3.14'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/06/9e/8a86c0b05a05c3a2c8690eb5fcd4b3c248c821a45f595fa0e7565ac1e048/ansible_lint-25.9.0.tar.gz", hash = "sha256:b8fe138a1257c6e58a755febd726b3186820f6dcb23a5bb062538c939a7277bb", size = 699967, upload-time = "2025-09-16T10:38:40.971Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/98/ca/9b6136060c7f45c6f7af0e8806ef29a90655edee584fd495bba457cb70ac/ansible_lint-25.9.0-py3-none-any.whl", hash = "sha256:2d5a8a2b01c46966591a17769a129142181515aac19c27742ecb8c94e84bf692", size = 322342, upload-time = "2025-09-16T10:38:39.049Z" },
+]
+
+[[package]]
+name = "ansible-lint"
+version = "25.9.1"
+source = { registry = "https://pypi.org/simple" }
+resolution-markers = [
+    "python_full_version < '3.14'",
+]
+dependencies = [
+    { name = "ansible-compat", marker = "python_full_version < '3.14'" },
+    { name = "ansible-core", marker = "python_full_version < '3.14'" },
+    { name = "black", marker = "python_full_version < '3.14'" },
+    { name = "cffi", marker = "python_full_version < '3.14'" },
+    { name = "cryptography", marker = "python_full_version < '3.14'" },
+    { name = "distro", marker = "python_full_version < '3.14'" },
+    { name = "filelock", marker = "python_full_version < '3.14'" },
+    { name = "importlib-metadata", marker = "python_full_version < '3.14'" },
+    { name = "jsonschema", marker = "python_full_version < '3.14'" },
+    { name = "packaging", marker = "python_full_version < '3.14'" },
+    { name = "pathspec", marker = "python_full_version < '3.14'" },
+    { name = "pyyaml", marker = "python_full_version < '3.14'" },
+    { name = "referencing", marker = "python_full_version < '3.14'" },
+    { name = "ruamel-yaml", marker = "python_full_version < '3.14'" },
+    { name = "ruamel-yaml-clib", marker = "python_full_version < '3.14'" },
+    { name = "subprocess-tee", marker = "python_full_version < '3.14'" },
+    { name = "wcmatch", marker = "python_full_version < '3.14'" },
+    { name = "yamllint", marker = "python_full_version < '3.14'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/fc/9c/6191cb22ffee46412d7901d44a7b46884dfb6717ffc47aefa8db6a2bec95/ansible_lint-25.9.1.tar.gz", hash = "sha256:d06ba52a069b756bf79208053a05fe9cafd53f16d69bac27aefc6a8d9cad3bb8", size = 703784, upload-time = "2025-10-01T11:57:57.959Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/36/77/f8af7f9e45bd9a4e792d595ed9f93a2e94bdb8ce63640d6d90883462ff34/ansible_lint-25.9.1-py3-none-any.whl", hash = "sha256:ca5b69a7a618014ba8cc0867b7227664741fe90beda9c44ea5953d0c35c1af9a", size = 322425, upload-time = "2025-10-01T11:57:56.145Z" },
 ]
 
 [[package]]
@@ -243,7 +281,8 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
-    { name = "ansible-lint" },
+    { name = "ansible-lint", version = "25.9.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.14'" },
+    { name = "ansible-lint", version = "25.9.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.14'" },
 ]
 
 [package.metadata]
