@@ -266,6 +266,7 @@ function upgrade() {
   mas upgrade
   brew bundle dump \
     --casks \
+    --describe \
     --file "$HOME/Documents/personal/dotfiles/Brewfile" \
     --force \
     --formulae \
