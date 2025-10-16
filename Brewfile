@@ -173,8 +173,6 @@ brew "oras"
 brew "pipx"
 # Package compiler and linker metadata toolkit
 brew "pkgconf"
-# Python version management
-brew "pyenv"
 # Generic machine emulator and virtualizer
 brew "qemu"
 # Persistent key-value database, with built-in net interface

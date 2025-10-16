@@ -1,13 +1,5 @@
 # Install python package for python-based NeoVim plugins.
-- name: Python packages
-  ansible.builtin.pip:
-    name:
-      - pynvim
-
-# Set global Python version to ensure that the `pynvim` module is present everywhere.
-# NOTE: We may consider optimizing this only if the number of local Python projects starts growing.
-- name: Set global Python version
+- name: Set up NeoVim Python packages
   ansible.builtin.command:
-    cmd: pyenv global 3
-  register: pyenv_output
-  changed_when: pyenv_output.rc != 0
+    cmd: uv tool install --upgrade pynvim
+  changed_when: false
