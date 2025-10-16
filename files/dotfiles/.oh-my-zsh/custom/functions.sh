@@ -264,7 +264,13 @@ function upgrade() {
   # Homebrew
   HOMEBREW_NO_ENV_HINTS=1 brew upgrade
   mas upgrade
-  brew bundle dump --force --file "$HOME/Documents/personal/dotfiles/Brewfile"
+  brew bundle dump \
+    --casks \
+    --file "$HOME/Documents/personal/dotfiles/Brewfile" \
+    --force \
+    --formulae \
+    --mas \
+    --taps
   # Krew plugins
   kubectl krew upgrade
   # Neovim plugins
