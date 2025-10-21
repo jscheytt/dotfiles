@@ -227,6 +227,8 @@ brew "wget"
 brew "yamllint"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
+# Suite of barcodes-reading tools
+brew "zbar"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # UNIX shell (command interpreter)
