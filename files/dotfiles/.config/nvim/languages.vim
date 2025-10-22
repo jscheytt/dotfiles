@@ -64,6 +64,7 @@ let g:java_ignore_markdown = 1
 autocmd BufNewFile,BufRead *Jenkinsfile* setf groovy
 
 " JSON
+autocmd BufNewFile,BufRead *.ndjson setf json
 autocmd FileType json setlocal foldmethod=syntax
 
 " Makefile
