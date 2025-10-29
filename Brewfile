@@ -280,6 +280,8 @@ cask "joplin"
 cask "mactex-no-gui"
 # Provides updates to various Microsoft products
 cask "microsoft-auto-update"
+# Email client
+cask "microsoft-outlook"
 # Meet, chat, call, and collaborate in just one place
 cask "microsoft-teams"
 # Open-source music notation software
