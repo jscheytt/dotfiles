@@ -33,6 +33,8 @@ brew "cilium-cli"
 brew "cloc"
 # Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima"
+# Create and run Linux containers using lightweight virtual machines
+brew "container"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Container Signing
@@ -257,8 +259,6 @@ cask "amethyst"
 cask "brave-browser"
 # E-books management software
 cask "calibre"
-# Create and run Linux containers using lightweight virtual machines
-cask "container"
 # Voice and text chat software
 cask "discord"
 # Online diagram software
