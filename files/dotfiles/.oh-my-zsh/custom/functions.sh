@@ -249,7 +249,8 @@ function update_repos_with_remote() {
   git config --global --unset-all maintenance.repo || true
   gfind "$HOME/Documents" -name HEAD \
     -not -path "$HOME/Documents/archive/*" \
-    -not -path "$HOME/Documents/experiments/*" \
+    -not -path "$HOME/Documents/personal/experiments/*" \
+    -not -path "*/.gitlab-ci-local/*" \
     -execdir sh -c \
     'test -d refs/remotes -a -d objects && find refs/remotes -mindepth 1 -maxdepth 1 | read' \; \
     -printf %h\\n |
