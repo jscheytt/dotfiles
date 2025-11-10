@@ -8,7 +8,7 @@ resolution-markers = [
 
 [[package]]
 name = "ansible-compat"
-version = "25.8.2"
+version = "25.11.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ansible-core" },
@@ -17,9 +17,9 @@ dependencies = [
     { name = "pyyaml" },
     { name = "subprocess-tee" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/e3/06/5e66f1f0d482b21b0dc03c9b9e47cab58dd4efc770f41029bb244e86b608/ansible_compat-25.8.2.tar.gz", hash = "sha256:c5ae1ff70938f1e009cfc7df66c9faad223a3ccd0ad6b57400de53b2459a6164", size = 190581, upload-time = "2025-10-06T12:41:17.415Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/de/95/2f361bedf7513b2ab558599a4cc9d5dd84d9d85b49c1dd994d0f5603f952/ansible_compat-25.11.0.tar.gz", hash = "sha256:b9e6655d8f4942c427a39fa1df6697830d987fe5d311bc7be2b2f81c1edd48f5", size = 193024, upload-time = "2025-11-10T13:26:31.15Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ed/2e/e4c739e396914301698356ff058f904a5b9c9557e188c5f72b701f6ec66a/ansible_compat-25.8.2-py3-none-any.whl", hash = "sha256:c35fd18f3a8320123f881ad6a23c4125e323e7e559ae09b6279568690a583b8f", size = 27717, upload-time = "2025-10-06T12:41:14.857Z" },
+    { url = "https://files.pythonhosted.org/packages/02/ea/d4b16e3c5c5923ee4c757f9e1f3fd8ef49a43b318d20018f7e2021d3f9fa/ansible_compat-25.11.0-py3-none-any.whl", hash = "sha256:e6f013b8a7d1fd87a9624b9dc125e4e76a61eb90680800cb4119d97d8ce63ae7", size = 27731, upload-time = "2025-11-10T13:26:29.748Z" },
 ]
 
 [[package]]
@@ -40,7 +40,7 @@ wheels = [
 
 [[package]]
 name = "ansible-lint"
-version = "25.9.2"
+version = "25.11.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ansible-compat" },
@@ -62,9 +62,9 @@ dependencies = [
     { name = "wcmatch" },
     { name = "yamllint" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/17/dd/6c1dd87464488a8d848d3e9dc5b833f0328ce9b4b7fcb6511a702d4cf0cd/ansible_lint-25.9.2.tar.gz", hash = "sha256:0eea8a5d17dd328bef12e7c9b6eb8714ba03fb1af62d9c700bf46e4858d1a6a4", size = 707230, upload-time = "2025-10-08T12:26:32.864Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ea/5a/ca084c650abd30f10d58c8727f9f64ed7e36f9c26f064559d22473cb9a33/ansible_lint-25.11.0.tar.gz", hash = "sha256:79e35246c8bdaacdbe37aa30a6ea471177482ac58fbcf1868f765bdafca3427e", size = 717176, upload-time = "2025-11-10T13:32:09.724Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ea/5b/baa39ad553aa62acf06d2daf97eb8e8d8df7c6d95278c8d5b2d7a3554a1d/ansible_lint-25.9.2-py3-none-any.whl", hash = "sha256:3a4b273b549973c62279de75374138be39b555191227b7c92944428f9d81018d", size = 322398, upload-time = "2025-10-08T12:26:30.568Z" },
+    { url = "https://files.pythonhosted.org/packages/f6/7e/9cf470b253cdf00e9530012973df7ef615e4efb80ea1efda7fbe81f11b3b/ansible_lint-25.11.0-py3-none-any.whl", hash = "sha256:4a0f83e292fa70e9922ad2c02e10708013b7e77a93364d729abc2cbf165c75c4", size = 322647, upload-time = "2025-11-10T13:32:08.189Z" },
 ]
 
 [[package]]
