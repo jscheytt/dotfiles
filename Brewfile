@@ -270,6 +270,8 @@ cask "dropbox"
 cask "font-hack-nerd-font"
 # Set of tools to manage resources and applications hosted on Google Cloud
 cask "gcloud-cli"
+# Web browser
+cask "google-chrome"
 # UI for Kubernetes
 cask "headlamp"
 # App to manage access to corporate apps, data, and resources
