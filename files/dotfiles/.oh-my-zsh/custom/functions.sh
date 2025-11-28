@@ -196,6 +196,7 @@ function nvo() {
   \cat <<EOF | nvim -s -
 :NERDTreeFromBookmark scratch.md
 Go
+:ALEToggleBuffer
 EOF
 }
 
