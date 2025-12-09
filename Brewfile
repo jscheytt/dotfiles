@@ -179,6 +179,8 @@ brew "pipx"
 brew "pkgconf"
 # Generic machine emulator and virtualizer
 brew "qemu"
+# Rsync for cloud storage
+brew "rclone"
 # Persistent key-value database, with built-in net interface
 brew "redis"
 # Extremely fast Python linter, written in Rust
