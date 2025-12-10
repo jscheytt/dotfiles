@@ -169,8 +169,6 @@ brew "mypy"
 brew "ncdu"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# Drop-in replacement for Terraform. Infrastructure as Code Tool
-brew "opentofu"
 # OCI Registry As Storage
 brew "oras"
 # Execute binaries from Python packages in isolated environments
@@ -207,6 +205,8 @@ brew "swaks"
 brew "talosctl"
 # User interface to the TELNET protocol
 brew "telnet"
+# OpenTofu / Terraform / Terragrunt / Terramate / Atmos version manager
+brew "tenv"
 # Tool to generate documentation from Terraform modules
 brew "terraform-docs"
 # CLI to print the summary of the terraform plan
@@ -245,8 +245,6 @@ brew "danielfoehrkn/switch/switch"
 brew "fluxcd/tap/flux"
 # Packer
 brew "hashicorp/tap/packer"
-# Terraform
-brew "hashicorp/tap/terraform"
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun"
 # Kubernetes Resource Recommender by Robusta
