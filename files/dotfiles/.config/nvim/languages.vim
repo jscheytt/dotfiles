@@ -126,6 +126,7 @@ map <leader>xb :!bash %<CR>
 " XML
 let g:xml_syntax_folding=1
 autocmd FileType xml,xslt,html setlocal foldmethod=syntax
+autocmd BufNewFile,BufReadPost *.{plist} set filetype=xml foldmethod=syntax
 
 " YAML
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
