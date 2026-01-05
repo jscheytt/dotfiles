@@ -280,6 +280,8 @@ cask "intune-company-portal"
 cask "jabra-direct"
 # Note taking and to-do application with synchronisation capabilities
 cask "joplin"
+# Optimise your webcam, headset, and Logi Dock for video meetings
+cask "logitune"
 # Full TeX Live distribution without GUI applications
 cask "mactex-no-gui"
 # Provides updates to various Microsoft products
