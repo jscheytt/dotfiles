@@ -40,7 +40,7 @@ wheels = [
 
 [[package]]
 name = "ansible-lint"
-version = "25.12.2"
+version = "26.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ansible-compat" },
@@ -61,9 +61,9 @@ dependencies = [
     { name = "wcmatch" },
     { name = "yamllint" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/0a/b1/cbbe86f424d76bb621461d131506e5778556ddf6f5eba0cf7c41db829208/ansible_lint-25.12.2.tar.gz", hash = "sha256:d4dbf2905c868d6f7b330941efc586f19a5e2b3b6826fd6a2edf0d5080329e46", size = 725323, upload-time = "2025-12-22T17:01:20.433Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/9e/1f/8999d6dd04352cbc73ca43c046aac4f0f75f2991b86f2fcafcee150203d6/ansible_lint-26.1.0.tar.gz", hash = "sha256:ca5c968d1bbcc0c9447ededd3a754ccc936df91b2647755ca92c44d2ba91b805", size = 730518, upload-time = "2026-01-08T14:23:07.992Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/32/ea/d5620576753c7424a41b9d97ea050297ec2d7cc1e4fa12e44c27289726a2/ansible_lint-25.12.2-py3-none-any.whl", hash = "sha256:cafcd991c9ddfd9a13e5b56e5a4f1d9997973e0c0d6a0f6eb2b148d39f42e2c3", size = 323017, upload-time = "2025-12-22T17:01:18.698Z" },
+    { url = "https://files.pythonhosted.org/packages/c8/21/9a7e8c5d0ea5a92c9abcb5011739c76449da6ccfcdb1c2355edc7debfa67/ansible_lint-26.1.0-py3-none-any.whl", hash = "sha256:1fbba73e59247c70d460fbc71097fc86d475f2acef2a3314b7a4d817310538d5", size = 324607, upload-time = "2026-01-08T14:23:06.032Z" },
 ]
 
 [[package]]
@@ -381,11 +381,11 @@ wheels = [
 
 [[package]]
 name = "pathspec"
-version = "1.0.2"
+version = "0.12.1"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/41/b9/6eb731b52f132181a9144bbe77ff82117f6b2d2fbfba49aaab2c014c4760/pathspec-1.0.2.tar.gz", hash = "sha256:fa32b1eb775ed9ba8d599b22c5f906dc098113989da2c00bf8b210078ca7fb92", size = 130502, upload-time = "2026-01-08T04:33:27.613Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ca/bc/f35b8446f4531a7cb215605d100cd88b7ac6f44ab3fc94870c120ab3adbf/pathspec-0.12.1.tar.gz", hash = "sha256:a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712", size = 51043, upload-time = "2023-12-10T22:30:45Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/78/6b/14fc9049d78435fd29e82846c777bd7ed9c470013dc8d0260fff3ff1c11e/pathspec-1.0.2-py3-none-any.whl", hash = "sha256:62f8558917908d237d399b9b338ef455a814801a4688bc41074b25feefd93472", size = 54844, upload-time = "2026-01-08T04:33:26.4Z" },
+    { url = "https://files.pythonhosted.org/packages/cc/20/ff623b09d963f88bfde16306a54e12ee5ea43e9b597108672ff3a408aad6/pathspec-0.12.1-py3-none-any.whl", hash = "sha256:a0d503e138a4c123b27490a4f7beda6a01c6f288df0e4a8b79c7eb0dc7b4cc08", size = 31191, upload-time = "2023-12-10T22:30:43.14Z" },
 ]
 
 [[package]]
