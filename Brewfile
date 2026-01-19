@@ -69,7 +69,7 @@ brew "eza"
 brew "f2"
 # Identify or delete duplicate files
 brew "fdupes"
-# Play, record, convert, and stream audio and video
+# Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
 # Collection of GNU find, xargs, and locate
 brew "findutils"
@@ -117,7 +117,7 @@ brew "helmfile"
 brew "hexyl"
 # Configurable static site generator
 brew "hugo"
-# Tools and libraries to manipulate images in many formats
+# Tools and libraries to manipulate images in select formats
 brew "imagemagick"
 # CLI for Infisical
 brew "infisical"
