@@ -185,6 +185,8 @@ brew "redis"
 brew "ruff"
 # Rust toolchain installer
 brew "rustup"
+# Parallel S3 and local filesystem execution tool
+brew "s5cmd"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Autoformat shell script source code
