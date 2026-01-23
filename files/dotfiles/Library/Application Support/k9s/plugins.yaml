@@ -114,7 +114,7 @@ plugins:
       - "kubectl events --context $CONTEXT --namespace $NAMESPACE --for $RESOURCE_NAME.$RESOURCE_GROUP/$NAME --watch"
 
   node-shell:
-    shortCut: Shift-S
+    shortCut: Shift-H
     description: Run Node Shell
     scopes:
       - nodes
