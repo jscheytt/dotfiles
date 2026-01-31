@@ -259,6 +259,8 @@ brew "stefanprodan/tap/timoni"
 cask "adobe-acrobat-reader"
 # Automatic tiling window manager similar to xmonad
 cask "amethyst"
+# Official eID-Client of the Federal Government of Germany
+cask "ausweisapp"
 # Web browser focusing on privacy
 cask "brave-browser"
 # E-books management software
