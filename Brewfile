@@ -169,6 +169,8 @@ brew "mypy"
 brew "ncdu"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# OpenBSD freely-licensed SSH connectivity tools
+brew "openssh"
 # OCI Registry As Storage
 brew "oras"
 # Execute binaries from Python packages in isolated environments
