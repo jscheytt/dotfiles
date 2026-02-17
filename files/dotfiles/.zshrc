@@ -1,3 +1,8 @@
+# Activate profiling.
+if [[ -n "$ZSH_DEBUGRC" ]]; then
+  zmodload zsh/zprof
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
@@ -105,3 +110,8 @@ fi
 # Fix errors with colima
 # See https://github.com/wagoodman/dive/issues/397#issuecomment-1231063268
 export DOCKER_HOST=unix://$HOME/.colima/docker.sock
+
+# Show profiling stats.
+if [[ -n "$ZSH_DEBUGRC" ]]; then
+  zprof
+fi

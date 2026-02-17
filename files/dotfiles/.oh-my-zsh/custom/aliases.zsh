@@ -23,6 +23,7 @@ alias tfp='terraform plan'
 alias tfa='terraform apply'
 alias tfaa='terraform apply -auto-approve'
 alias tfgraph='terraform graph -draw-cycles | dot -Tsvg > graph.svg'
+alias zshprof='time ZSH_DEBUGRC=1 zsh -i -c exit'
 
 # kind (ohmyzsh plugin somehow does not work)
 alias kicc="kind create cluster"
