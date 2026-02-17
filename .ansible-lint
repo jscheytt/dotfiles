@@ -1,2 +1,4 @@
+# vim: set filetype=yaml:
+
 skip_list:
   - git-latest

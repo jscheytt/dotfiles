@@ -1,3 +1,5 @@
+# vim: set filetype=yaml:
+
 extends: relaxed
 ignore:
   - .venv/
