@@ -55,7 +55,8 @@ export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # Kubeswitch
-source <(switcher init zsh)
+_evalcache switcher init zsh
+# source <(switcher init zsh)
 
 # Python conf
 # pyenv
