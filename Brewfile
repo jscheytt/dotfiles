@@ -271,6 +271,8 @@ cask "ausweisapp"
 cask "brave-browser"
 # E-books management software
 cask "calibre"
+# Managed desktop virtualization solution
+cask "citrix-workspace"
 # Voice and text chat software
 cask "discord"
 # Online diagram software
