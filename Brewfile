@@ -306,6 +306,8 @@ cask "microsoft-teams"
 cask "musescore"
 # Desktop sync client for Nextcloud software products
 cask "nextcloud"
+# Official Nextcloud Talk Desktop client
+cask "nextcloud-talk"
 # Instant messaging application focusing on security
 cask "signal"
 # PDF reader and note-taking application
