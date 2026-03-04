@@ -314,6 +314,8 @@ cask "signal"
 cask "skim"
 # Quicklook extension for source files
 cask "syntax-highlight"
+# Customizable email client
+cask "thunderbird"
 # Development environment
 cask "vagrant"
 # Virtualiser for arm64 hardware
