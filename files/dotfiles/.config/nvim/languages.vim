@@ -37,6 +37,7 @@ let g:ale_fixers = {
 \  'rust': ['rustfmt'],
 \  'scss': ['stylelint'],
 \  'sh': ['shfmt'],
+\  'terraform': ['terraform'],
 \  'typescript': ['eslint'],
 \  'typescriptreact': ['eslint'],
 \  'xml': ['xmllint'],
