@@ -277,8 +277,6 @@ cask "citrix-workspace"
 cask "discord"
 # Online diagram software
 cask "drawio"
-# Client for the Dropbox cloud storage service
-cask "dropbox"
 cask "font-hack-nerd-font"
 # Set of tools to manage resources and applications hosted on Google Cloud
 cask "gcloud-cli"
@@ -288,12 +286,8 @@ cask "google-chrome"
 cask "headlamp"
 # App to manage access to corporate apps, data, and resources
 cask "intune-company-portal"
-# Optimise and personalise your Jabra headset
-cask "jabra-direct"
 # Note taking and to-do application with synchronisation capabilities
 cask "joplin"
-# Optimise your webcam, headset, and Logi Dock for video meetings
-cask "logitune"
 # Full TeX Live distribution without GUI applications
 cask "mactex-no-gui"
 # Provides updates to various Microsoft products
