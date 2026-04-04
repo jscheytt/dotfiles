@@ -273,6 +273,8 @@ cask "brave-browser"
 cask "calibre"
 # Managed desktop virtualization solution
 cask "citrix-workspace"
+# Anthropic's official Claude AI desktop app
+cask "claude"
 # Voice and text chat software
 cask "discord"
 # Online diagram software
