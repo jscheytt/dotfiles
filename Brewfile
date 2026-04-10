@@ -280,6 +280,8 @@ cask "discord"
 # Online diagram software
 cask "drawio"
 cask "font-hack-nerd-font"
+# Fujitsu ScanSnap Scanner software
+cask "fujitsu-scansnap-home"
 # Set of tools to manage resources and applications hosted on Google Cloud
 cask "gcloud-cli"
 # Web browser
