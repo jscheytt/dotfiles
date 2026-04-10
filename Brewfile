@@ -284,8 +284,6 @@ cask "font-hack-nerd-font"
 cask "gcloud-cli"
 # Web browser
 cask "google-chrome"
-# UI for Kubernetes
-cask "headlamp"
 # App to manage access to corporate apps, data, and resources
 cask "intune-company-portal"
 # Note taking and to-do application with synchronisation capabilities
