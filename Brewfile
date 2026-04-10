@@ -63,6 +63,8 @@ brew "docker-compose"
 brew "docker-credential-helper"
 # Convert text between DOS, UNIX, and Mac formats
 brew "dos2unix"
+# Perl lib for reading and writing EXIF metadata
+brew "exiftool"
 # Modern, maintained replacement for ls
 brew "eza"
 # Command-line batch renaming tool
@@ -275,6 +277,8 @@ cask "calibre"
 cask "citrix-workspace"
 # Anthropic's official Claude AI desktop app
 cask "claude"
+# Digital photo manager
+cask "digikam"
 # Voice and text chat software
 cask "discord"
 # Online diagram software
