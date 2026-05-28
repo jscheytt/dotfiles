@@ -179,8 +179,6 @@ brew "oras"
 brew "pipx"
 # Package compiler and linker metadata toolkit
 brew "pkgconf"
-# Generic machine emulator and virtualizer
-brew "qemu"
 # Rsync for cloud storage
 brew "rclone"
 # Persistent key-value database, with built-in net interface
