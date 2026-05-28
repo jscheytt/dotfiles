@@ -5,6 +5,7 @@ tap "oven-sh/bun"
 tap "robusta-dev/krr"
 tap "sdkman/tap"
 tap "stefanprodan/tap"
+tap "terraform-linters/tap"
 # Simple, modern, secure file encryption
 brew "age"
 # Library for command-line editing
@@ -215,8 +216,6 @@ brew "tenv"
 brew "terraform-docs"
 # CLI to print the summary of the terraform plan
 brew "tf-summarize"
-# Linter for Terraform files
-brew "tflint"
 # Code-search similar to ack
 brew "the_silver_searcher"
 # Text interface for Git repositories
@@ -310,6 +309,8 @@ cask "signal"
 cask "skim"
 # Quicklook extension for source files
 cask "syntax-highlight"
+# Pluggable Terraform linter
+cask "terraform-linters/tap/tflint"
 # Customizable email client
 cask "thunderbird"
 # Development environment
