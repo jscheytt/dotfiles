@@ -274,6 +274,8 @@ cask "calibre"
 cask "citrix-workspace"
 # Anthropic's official Claude AI desktop app
 cask "claude"
+# Terminal-based AI coding assistant
+cask "claude-code"
 # Voice and text chat software
 cask "discord"
 # Online diagram software
