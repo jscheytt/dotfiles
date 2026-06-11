@@ -287,6 +287,8 @@ cask "fujitsu-scansnap-home"
 cask "gcloud-cli"
 # Web browser
 cask "google-chrome"
+# Incident management platform
+cask "incident-io"
 # App to manage access to corporate apps, data, and resources
 cask "intune-company-portal"
 # Note taking and to-do application with synchronisation capabilities
