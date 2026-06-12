@@ -262,8 +262,8 @@ function update_repos_with_remote() {
 
 function upgrade() {
   # Homebrew
-  HOMEBREW_NO_ENV_HINTS=1 brew update
-  HOMEBREW_NO_ENV_HINTS=1 brew upgrade
+  brew update
+  brew upgrade --yes
   mas upgrade
   brew bundle dump \
     --casks \
