@@ -1,11 +1,11 @@
 tap "danielfoehrkn/switch"
-tap "fluxcd/tap"
-tap "hashicorp/tap"
-tap "oven-sh/bun"
+tap "fluxcd/tap", trusted: true
+tap "hashicorp/tap", trusted: true
+tap "oven-sh/bun", trusted: true
 tap "robusta-dev/krr"
 tap "sdkman/tap"
-tap "stefanprodan/tap"
-tap "terraform-linters/tap"
+tap "stefanprodan/tap", trusted: true
+tap "terraform-linters/tap", trusted: true
 # Simple, modern, secure file encryption
 brew "age"
 # Library for command-line editing
@@ -247,19 +247,19 @@ brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
 # The kubectx for operators.
-brew "danielfoehrkn/switch/switch"
+brew "danielfoehrkn/switch/switch", trusted: true
 # Flux CLI
-brew "fluxcd/tap/flux"
+brew "fluxcd/tap/flux", trusted: true
 # Packer
-brew "hashicorp/tap/packer"
+brew "hashicorp/tap/packer", trusted: true
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
-brew "oven-sh/bun/bun"
+brew "oven-sh/bun/bun", trusted: true
 # Kubernetes Resource Recommender by Robusta
-brew "robusta-dev/krr/krr"
+brew "robusta-dev/krr/krr", trusted: true
 # SDKMAN! the Software Development Kit Manager
-brew "sdkman/tap/sdkman-cli"
+brew "sdkman/tap/sdkman-cli", trusted: true
 # Timoni CLI
-brew "stefanprodan/tap/timoni"
+brew "stefanprodan/tap/timoni", trusted: true
 # View, print, and comment on PDF documents
 cask "adobe-acrobat-reader"
 # Automatic tiling window manager similar to xmonad
