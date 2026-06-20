@@ -18,6 +18,8 @@ DISABLE_LINTERS:
   - REPOSITORY_CHECKOV
   # Seems abandoned: https://github.com/tenable/terrascan/issues/1724
   - TERRAFORM_TERRASCAN
+ACTION_ZIZMOR_UNSECURED_ENV_VARIABLES:
+  - GITHUB_TOKEN
 BASH_SHFMT_ARGUMENTS: -i 2
 KUBERNETES_KUBESCAPE_ARGUMENTS: --severity-threshold high
 PYTHON_BANDIT_ARGUMENTS: --severity-level medium
