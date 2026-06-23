@@ -1,4 +1,4 @@
-tap "danielfoehrkn/switch"
+tap "danielfoehrkn/switch", trusted: { formulae: ["switcher"] }
 tap "fluxcd/tap", trusted: true
 tap "hashicorp/tap", trusted: true
 tap "oven-sh/bun", trusted: true
