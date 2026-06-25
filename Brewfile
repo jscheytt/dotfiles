@@ -333,3 +333,10 @@ mas "Keynote", id: 361285480
 mas "Numbers", id: 361304891
 mas "Pages", id: 361309726
 mas "Things", id: 904280696
+uv "pynvim"
+krew "cond"
+krew "explore"
+krew "krew"
+krew "node-shell"
+krew "oidc-login"
+krew "preq"

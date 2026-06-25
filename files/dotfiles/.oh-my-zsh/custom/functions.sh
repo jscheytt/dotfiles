@@ -267,12 +267,13 @@ function upgrade() {
   mas upgrade
   brew bundle dump \
     --casks \
-    --describe \
     --file "$HOME/Documents/personal/dotfiles/Brewfile" \
     --force \
     --formulae \
+    --krew \
     --mas \
-    --taps
+    --taps \
+    --uv
   # Krew plugins
   kubectl krew upgrade
   # Neovim plugins
