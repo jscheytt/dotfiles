@@ -8,7 +8,7 @@ resolution-markers = [
 
 [[package]]
 name = "ansible-compat"
-version = "26.3.0"
+version = "26.6.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ansible-core" },
@@ -17,9 +17,9 @@ dependencies = [
     { name = "pyyaml" },
     { name = "subprocess-tee" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/04/42/53ba59f8116e716ec0af8dc47ef65b15f5e3bc28131e8e6cbe87e50203f5/ansible_compat-26.3.0.tar.gz", hash = "sha256:15f0ea5ff6fcc5587b6b11a4a436fdeefd0fd4a46afe92d4e483c28370082ae0", size = 216754, upload-time = "2026-03-31T15:47:58.193Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/60/85/ff345c374486e6375f51e1e3629e2ebc28003229165b67cfcc93f24f5323/ansible_compat-26.6.0.tar.gz", hash = "sha256:ad00d3cff84a961165a7dd90f175fd9a4584e2e602e9d8af2062ce7c479dd350", size = 233940, upload-time = "2026-06-30T11:52:01.126Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/60/a1/3cf5e81f192a2ae4086f80d37d80e257c7552cd7f319b0160c78251bbfea/ansible_compat-26.3.0-py3-none-any.whl", hash = "sha256:4fb48f324383033cf24df5ccb63bca4da766cb4ebbd4bc9dbad91b108f512a73", size = 27723, upload-time = "2026-03-31T15:47:56.534Z" },
+    { url = "https://files.pythonhosted.org/packages/f5/be/0945639296ee8ecb282dc495a7e1bed06de476a65fa30cf2c715e4b28e42/ansible_compat-26.6.0-py3-none-any.whl", hash = "sha256:739c4d10c791000c4b353f5e725e9ebafb6384dbeb00b94c7c8ac3ee2c172337", size = 29176, upload-time = "2026-06-30T11:51:59.379Z" },
 ]
 
 [[package]]
@@ -40,7 +40,7 @@ wheels = [
 
 [[package]]
 name = "ansible-lint"
-version = "26.4.0"
+version = "26.6.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ansible-compat" },
@@ -61,9 +61,9 @@ dependencies = [
     { name = "wcmatch" },
     { name = "yamllint" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/e4/39/54f7cc264f7f02c635af786c4a57da4ab993865140f90e031cdec39dd514/ansible_lint-26.4.0.tar.gz", hash = "sha256:29e0438f8af685a4fec96f9ea3404a3beb50d2911bc8df43f283256954ceea5b", size = 736853, upload-time = "2026-04-01T14:41:02.138Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/4c/e5/547e64cf118392fb4d02c179eb0cd86b06145bf7c8e18ab49cc6de5e9886/ansible_lint-26.6.0.tar.gz", hash = "sha256:790d08ff6ee56525244677411c90a17b374245d3913bc6a462b5d913ece6d615", size = 767696, upload-time = "2026-06-30T11:57:56.824Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/a5/97/803cde1dba6c5cc24f1401b37df8404a2793bd26dc3f11c0a9722109b859/ansible_lint-26.4.0-py3-none-any.whl", hash = "sha256:f33c4823544a5a8e5e36614866e111d1a929eeffee5e84481ede10d524a9d6d6", size = 330939, upload-time = "2026-04-01T14:41:00.083Z" },
+    { url = "https://files.pythonhosted.org/packages/d1/66/465f210bd0ac409143d5258516bd9db5376ac86ac61707e3e4ef65b27fc4/ansible_lint-26.6.0-py3-none-any.whl", hash = "sha256:162939615eae3b59f38bd829542642b586ccee17eefb0df8718ea4b092eee222", size = 341055, upload-time = "2026-06-30T11:57:55.144Z" },
 ]
 
 [[package]]
@@ -375,11 +375,11 @@ wheels = [
 
 [[package]]
 name = "pathspec"
-version = "1.0.4"
+version = "1.1.1"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/fa/36/e27608899f9b8d4dff0617b2d9ab17ca5608956ca44461ac14ac48b44015/pathspec-1.0.4.tar.gz", hash = "sha256:0210e2ae8a21a9137c0d470578cb0e595af87edaa6ebf12ff176f14a02e0e645", size = 131200, upload-time = "2026-01-27T03:59:46.938Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/5a/82/42f767fc1c1143d6fd36efb827202a2d997a375e160a71eb2888a925aac1/pathspec-1.1.1.tar.gz", hash = "sha256:17db5ecd524104a120e173814c90367a96a98d07c45b2e10c2f3919fff91bf5a", size = 135180, upload-time = "2026-04-27T01:46:08.907Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ef/3c/2c197d226f9ea224a9ab8d197933f9da0ae0aac5b6e0f884e2b8d9c8e9f7/pathspec-1.0.4-py3-none-any.whl", hash = "sha256:fb6ae2fd4e7c921a165808a552060e722767cfa526f99ca5156ed2ce45a5c723", size = 55206, upload-time = "2026-01-27T03:59:45.137Z" },
+    { url = "https://files.pythonhosted.org/packages/f1/d9/7fb5aa316bc299258e68c73ba3bddbc499654a07f151cba08f6153988714/pathspec-1.1.1-py3-none-any.whl", hash = "sha256:a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189", size = 57328, upload-time = "2026-04-27T01:46:07.06Z" },
 ]
 
 [[package]]
