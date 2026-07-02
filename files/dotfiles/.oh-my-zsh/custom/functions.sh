@@ -266,12 +266,14 @@ function upgrade() {
   brew upgrade --yes
   mas upgrade
   brew bundle dump \
+    --cargo \
     --casks \
     --file "$HOME/Documents/personal/dotfiles/Brewfile" \
     --force \
     --formulae \
     --krew \
     --mas \
+    --npm \
     --taps \
     --uv
   # Krew plugins
