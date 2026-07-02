@@ -321,8 +321,6 @@ cask "thunderbird"
 cask "vagrant"
 # Virtualiser for arm64 hardware
 cask "virtualbox"
-# Open-source code editor
-cask "visual-studio-code"
 # Rust-based terminal
 cask "warp"
 # Video communication and virtual meeting platform
