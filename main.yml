@@ -10,6 +10,10 @@
       tags:
         - homebrew
   tasks:
+    - name: MacOS Settings
+      ansible.builtin.import_tasks: tasks/macos.yml
+      tags:
+        - macos
     - name: Zsh
       ansible.builtin.import_tasks: tasks/oh-my-zsh.yml
       tags:
