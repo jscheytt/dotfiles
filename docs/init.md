@@ -38,3 +38,11 @@
 1. Configure Warp settings (above all: Change the Terminal font to "Hack Nerd Font Mono").
 1. Open NeoVim once to let it download and install all plugins.
     Open again to verify that the whole setup works as intended.
+1. Restore sensitive configs from OneDrive:
+    ```sh
+    task backup:restore
+    ```
+1. Restore Chrome bookmarks:
+    1. Open Chrome and go to the work profile.
+    1. Open the Bookmark Manager, click the three-dot menu, and choose **Import bookmarks**.
+    1. Select `chrome-bookmarks-work.json` from the OneDrive backup folder.
