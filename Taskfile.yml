@@ -2,6 +2,7 @@
 version: "3"
 
 includes:
+  backup: ./scripts/backup.taskfile.yml
   git-hooks: ./scripts/git-hooks.taskfile.yml
   lint: ./scripts/lint.taskfile.yml
   setup: ./scripts/setup.taskfile.yml
