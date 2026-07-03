@@ -25,6 +25,12 @@ function clear-cache() {
   rm -rf "$filepath"
 }
 
+# Run backups and updates.
+function daily() {
+  task --dir "$HOME/Documents/personal/dotfiles" backup:all
+  upgrade
+}
+
 # Inspect Docker image without pulling.
 function dii() {
   local name="$1"

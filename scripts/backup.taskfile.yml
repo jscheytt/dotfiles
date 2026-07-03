@@ -7,6 +7,12 @@ vars:
   RESTORE_DEST: "{{.HOME}}"
 
 tasks:
+  all:
+    desc: Back up all relevant data.
+    deps:
+      - sensitive
+      - bookmarks
+
   sensitive:
     desc: Back up sensitive configs to $BACKUP_DEST.
     cmds:
