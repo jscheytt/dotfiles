@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
+
+vars:
+  BACKUP_DEST: >-
+    {{.HOME}}/Library/CloudStorage/OneDrive-SchäferShopGmbH/dotfiles-backup
+  RESTORE_DEST: "{{.HOME}}"
+
+tasks:
+  sensitive:
+    desc: Back up sensitive configs to $BACKUP_DEST.
+    cmds:
+      - mkdir -p "{{.BACKUP_DEST}}/ssh"
+      - rsync -av "{{.RESTORE_DEST}}/.gitconfig-work" "{{.BACKUP_DEST}}/"
+      - rsync -av "{{.RESTORE_DEST}}/.ssh/private-config" "{{.BACKUP_DEST}}/ssh/"
+
+  restore:
+    desc: Restore sensitive configs from $BACKUP_DEST.
+    cmds:
+      - mkdir -p ~/.ssh
+      - rsync -av "{{.BACKUP_DEST}}/.gitconfig-work" "{{.RESTORE_DEST}}/"
+      - rsync -av "{{.BACKUP_DEST}}/ssh/private-config" "{{.RESTORE_DEST}}/.ssh/"
