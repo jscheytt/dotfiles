@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__incident_io__*",
+      "Skill(incident)"
+    ],
+    "defaultMode": "auto"
+  },
+  "model": "sonnet",
+  "enabledPlugins": {
+    "warp@claude-code-warp": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-code-warp": {
+      "source": {
+        "source": "github",
+        "repo": "warpdotdev/claude-code-warp"
+      }
+    }
+  },
+  "effortLevel": "xhigh",
+  "advisorModel": "opus",
+  "theme": "auto",
+  "skipAutoPermissionPrompt": true
+}
