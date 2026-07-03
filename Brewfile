@@ -220,10 +220,6 @@ brew "tf-summarize"
 brew "the_silver_searcher"
 # Text interface for Git repositories
 brew "tig"
-# Terminal multiplexer
-brew "tmux"
-# Tmux session manager. Built on libtmux
-brew "tmuxp"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Vulnerability scanner for container images, file systems, and Git repos
