@@ -14,6 +14,13 @@ tasks:
       - rsync -av "{{.RESTORE_DEST}}/.gitconfig-work" "{{.BACKUP_DEST}}/"
       - rsync -av "{{.RESTORE_DEST}}/.ssh/private-config" "{{.BACKUP_DEST}}/ssh/"
 
+  bookmarks:
+    desc: Back up Chrome work profile bookmarks to $BACKUP_DEST.
+    cmds:
+      - >-
+        cp "{{.RESTORE_DEST}}/Library/Application Support/Google/Chrome/Profile 1/Bookmarks"
+        "{{.BACKUP_DEST}}/chrome-bookmarks-work.json"
+
   restore:
     desc: Restore sensitive configs from $BACKUP_DEST.
     cmds:
