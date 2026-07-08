@@ -27,7 +27,11 @@ plugins=(
   macos
 )
 
+# Harden against any global-alias collisions on re-source (not just P):
+# Avoid expanding aliases during Oh My Zsh load while its libs are parsed.
+setopt no_aliases
 source $ZSH/oh-my-zsh.sh
+unsetopt no_aliases
 
 # User configuration
 source "${HOME}/.secrets.sh"
