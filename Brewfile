@@ -289,6 +289,8 @@ cask "incident-io"
 cask "intune-company-portal"
 # Note taking and to-do application with synchronisation capabilities
 cask "joplin"
+# Free cross-platform office suite, fresh version
+cask "libreoffice"
 # Full TeX Live distribution without GUI applications
 cask "mactex-no-gui"
 # Provides updates to various Microsoft products
