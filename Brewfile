@@ -176,6 +176,8 @@ brew "neovim"
 brew "openssh"
 # OCI Registry As Storage
 brew "oras"
+# Command-line tools for MySQL, MariaDB and system tasks
+brew "percona-toolkit"
 # Execute binaries from Python packages in isolated environments
 brew "pipx"
 # Package compiler and linker metadata toolkit
