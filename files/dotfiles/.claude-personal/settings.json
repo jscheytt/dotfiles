@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "extraKnownMarketplaces": {
+    "claude-code-warp": {
+      "source": {
+        "source": "github",
+        "repo": "warpdotdev/claude-code-warp"
+      }
+    }
+  },
+  "effortLevel": "xhigh",
+  "advisorModel": "opus",
+  "theme": "auto",
+  "skipAutoPermissionPrompt": true
+}

@@ -54,6 +54,8 @@ brew "detekt"
 brew "diff-so-fancy"
 # Diff that understands syntax
 brew "difftastic"
+# Load/unload environment variables based on $PWD
+brew "direnv"
 # Tool for exploring each layer in a docker image
 brew "dive"
 # Pack, ship and run any application as a lightweight container

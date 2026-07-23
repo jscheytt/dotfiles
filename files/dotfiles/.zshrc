@@ -45,6 +45,11 @@ export LC_ALL=en_US.UTF-8
 _evalcache /opt/homebrew/bin/brew shellenv
 # eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# direnv
+export DIRENV_LOG_FORMAT=
+_evalcache direnv hook zsh
+# eval "$(direnv hook zsh)"
+
 # Go
 export GOPATH="$HOME"/go
 # Add Go binaries to path.
