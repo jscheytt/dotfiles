@@ -65,11 +65,6 @@ _evalcache switcher init zsh
 # source <(switcher init zsh)
 
 # Python conf
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-_evalcache pyenv init --path
-# eval "$(pyenv init -)"
 # pipx
 export PATH="$PATH:/Users/josiascheytt/.local/bin"
 
