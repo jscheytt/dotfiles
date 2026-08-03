@@ -329,6 +329,7 @@ cask "virtualbox"
 cask "warp"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "Citrix Secure Access", id: 1338991513
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
 mas "Keynote", id: 361285480
