@@ -260,7 +260,7 @@ brew "oven-sh/bun/bun", trusted: true
 brew "robusta-dev/krr/krr", trusted: true
 # SDKMAN! the Software Development Kit Manager
 brew "sdkman/tap/sdkman-cli", trusted: true
-# Timoni CLI
+# Package manager for Kubernetes powered by CUE
 brew "stefanprodan/tap/timoni", trusted: true
 # View, print, and comment on PDF documents
 cask "adobe-acrobat-reader"
