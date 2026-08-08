@@ -5,8 +5,6 @@ DISABLE_LINTERS:
   # We prefer jq automatic formatting for JSON & YAML
   - JSON_PRETTIER
   - YAML_PRETTIER
-  # Checkmake is still too beta
-  - MAKEFILE_CHECKMAKE
   # Pylint needs imports to be installed prior to running which requires more CI effort.
   # Additionally, we have other Python linters active already.
   # https://github.com/pylint-dev/pylint/issues/3721#issuecomment-817939966
@@ -16,8 +14,6 @@ DISABLE_LINTERS:
   - PYTHON_PYRIGHT
   # Too much noise. Severity threshold can only be set via API key
   - REPOSITORY_CHECKOV
-  # Seems abandoned: https://github.com/tenable/terrascan/issues/1724
-  - TERRAFORM_TERRASCAN
 ACTION_ZIZMOR_ARGUMENTS: >-
   --min-severity high
 ACTION_ZIZMOR_UNSECURED_ENV_VARIABLES:
@@ -26,5 +22,4 @@ BASH_SHFMT_ARGUMENTS: -i 2
 KUBERNETES_KUBESCAPE_ARGUMENTS: --severity-threshold high
 PYTHON_BANDIT_ARGUMENTS: --severity-level medium
 PYTHON_FLAKE8_ARGUMENTS: --max-line-length=120
-REPOSITORY_KICS_ARGUMENTS: --fail-on high,critical
 REPOSITORY_TRIVY_ARGUMENTS: --severity HIGH,CRITICAL
