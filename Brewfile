@@ -98,6 +98,8 @@ brew "gitleaks"
 brew "glab"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
 # Task is a task runner/build tool that aims to be simpler and easier to use
