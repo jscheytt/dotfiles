@@ -1,6 +1,7 @@
 tap "danielfoehrkn/switch", trusted: { formulae: ["switcher"] }
 tap "fluxcd/tap", trusted: true
 tap "hashicorp/tap", trusted: true
+tap "nklmilojevic/sofka"
 tap "oven-sh/bun", trusted: true
 tap "robusta-dev/krr"
 tap "sdkman/tap"
@@ -256,6 +257,8 @@ brew "danielfoehrkn/switch/switch", trusted: true
 brew "fluxcd/tap/flux", trusted: true
 # Packer
 brew "hashicorp/tap/packer", trusted: true
+# Kubernetes TUI, reimagined in Rust
+brew "nklmilojevic/sofka/sofka", trusted: true
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun", trusted: true
 # Kubernetes Resource Recommender by Robusta
