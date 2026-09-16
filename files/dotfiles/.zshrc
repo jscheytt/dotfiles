@@ -89,7 +89,7 @@ export VISUAL='nvim'
 # fi
 
 # Kubernetes configuration
-export KUBECONFIG="$HOME/.kube/config:$(find $HOME/.kube -type f \( -name '*.yaml' -or -name '*.yml' \) | tr '\n' ':')"
+export KUBECONFIG="$HOME/.kube/config:$(find $HOME/.kube/config.d -maxdepth 1 -type f -name '*.yaml' | tr '\n' ':')"
 
 # Bat configuration
 export BAT_THEME="OneHalfLight"
