@@ -89,12 +89,7 @@ export VISUAL='nvim'
 # fi
 
 # Kubernetes configuration
-# Glob config.d directly instead of `find`-ing all of ~/.kube: kubeswitch dumps
-# thousands of unrelated files under .switch_tmp/http-cache, making a
-# recursive find take 1.5s+.
-kube_configs=($HOME/.kube/config.d/*.(yaml|yml)(N))
-export KUBECONFIG="$HOME/.kube/config${kube_configs:+:${(j.:.)kube_configs}}"
-unset kube_configs
+export KUBECONFIG="$HOME/.kube/config:$(find $HOME/.kube -type f \( -name '*.yaml' -or -name '*.yml' \) | tr '\n' ':')"
 
 # Bat configuration
 export BAT_THEME="OneHalfLight"
