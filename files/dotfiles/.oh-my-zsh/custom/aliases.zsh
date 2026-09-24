@@ -19,10 +19,10 @@ alias s='switch'
 alias ssh-config='${=EDITOR} ~/.ssh/config'
 alias ssh='/usr/bin/ssh'
 alias tf='terraform'
-alias tfp='terraform plan'
 alias tfa='terraform apply'
 alias tfaa='terraform apply -auto-approve'
 alias tfgraph='terraform graph -draw-cycles | dot -Tsvg > graph.svg'
+alias tfp='terraform plan'
 alias zshprof='time ZSH_DEBUGRC=1 zsh -i -c exit'
 
 # kind (ohmyzsh plugin somehow does not work)
