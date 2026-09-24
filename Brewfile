@@ -6,7 +6,6 @@ tap "oven-sh/bun", trusted: true
 tap "robusta-dev/krr"
 tap "sdkman/tap"
 tap "stefanprodan/tap", trusted: true
-tap "terraform-linters/tap", trusted: true
 # Simple, modern, secure file encryption
 brew "age"
 # Library for command-line editing
@@ -320,8 +319,6 @@ cask "signal"
 cask "skim"
 # Quicklook extension for source files
 cask "syntax-highlight"
-# Pluggable Terraform linter
-cask "terraform-linters/tap/tflint"
 # Customizable email client
 cask "thunderbird"
 # Development environment
