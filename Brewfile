@@ -168,8 +168,6 @@ brew "mdbook"
 brew "mergiraf"
 # Run a Kubernetes cluster locally
 brew "minikube"
-# Replacement for ls, cp and other commands for object storage
-brew "minio-mc"
 # 'traceroute' and 'ping' in a single tool
 brew "mtr"
 # Experimental optional static type checker for Python
