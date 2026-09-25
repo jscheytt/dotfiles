@@ -22,7 +22,6 @@ alias tf='terraform'
 alias tfa='terraform apply'
 alias tfaa='terraform apply -auto-approve'
 alias tfgraph='terraform graph -draw-cycles | dot -Tsvg > graph.svg'
-alias tflint='docker run --rm -v $(pwd):/data -t ghcr.io/terraform-linters/tflint'
 alias tfp='terraform plan'
 alias zshprof='time ZSH_DEBUGRC=1 zsh -i -c exit'
 
