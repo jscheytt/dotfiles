@@ -277,7 +277,7 @@ cask "calibre"
 # Managed desktop virtualization solution
 cask "citrix-workspace"
 # Terminal-based AI coding assistant
-cask "claude-code"
+cask "claude-code@latest"
 # Voice and text chat software
 cask "discord"
 # Online diagram software
