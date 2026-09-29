@@ -56,7 +56,7 @@ export GOPATH="$HOME"/go
 export PATH="/usr/local/sbin:$GOPATH/bin:$PATH"
 
 # Java: sdkman
-export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
+export SDKMAN_DIR="$HOMEBREW_PREFIX/opt/sdkman-cli/libexec"
 [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
 
 # Make v4
