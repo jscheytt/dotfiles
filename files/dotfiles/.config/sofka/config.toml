@@ -1,2 +1,41 @@
 [skin]
 name = "solarized-light"
+
+[aliases]
+dep = "deployments"
+aa = "applications"
+
+[views."cert-manager.io/v1/certificates"]
+sort = "EXPIRES:desc"
+
+[[views."cert-manager.io/v1/certificates".columns]]
+name = "READY"
+path = "Ready"
+type = "condition"
+
+[[views."cert-manager.io/v1/certificates".columns]]
+name = "EXPIRES"
+path = "/status/notAfter"
+type = "time"
+
+[[views."cert-manager.io/v1/certificates".columns]]
+name = "ISSUER"
+path = "/spec/issuerRef/name"
+
+[views."v1/pods"]
+replace = true
+columns = [
+  { name = "NAME", builtin = "NAME" },
+  { name = "READY", builtin = "READY" },
+  { name = "STATUS", builtin = "STATUS" },
+  { name = "AGE", builtin = "AGE" },
+  { name = "RESTARTS", builtin = "RESTARTS" },
+  { name = "MEM", metric = "memory" },
+  { name = "MEM/R", metric = "memory-request", wide = true },
+  { name = "%MEM/R", metric = "memory-request-utilization", wide = true },
+  { name = "%MEM/L", metric = "memory-limit-utilization" },
+  { name = "CPU", metric = "cpu" },
+  { name = "CPU/R", metric = "cpu-request", wide = true },
+  { name = "%CPU/R", metric = "cpu-request-utilization", wide = true },
+  { name = "%CPU/L", metric = "cpu-limit-utilization", wide = true },
+]
