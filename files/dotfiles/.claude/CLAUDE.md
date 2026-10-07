@@ -20,5 +20,4 @@ Applies whenever you create or update a repository's CLAUDE.md/AGENTS.md pair, w
   If the part after the dash is only a short qualifier rather than a full clause, use parentheses instead of a dash.
 * In lists, use a colon between a term and its description instead of a dash.
 * List items and code fences are otherwise unaffected by the one-sentence-per-line rule.
-* Before finishing, verify the file is fully clean against `markdownlint -c ~/.markdownlintrc <file>`.
-* Fix every finding markdownlint reports; the file must lint with zero output.
+* Before finishing, run `markdownlint -c ~/.markdownlintrc <file>` and fix every finding until it prints nothing.
