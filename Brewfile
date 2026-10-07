@@ -309,8 +309,6 @@ cask "musescore"
 cask "nextcloud"
 # Official Nextcloud Talk Desktop client
 cask "nextcloud-talk"
-# ScanSnap Scanner software
-cask "scansnap-home"
 # Instant messaging application focusing on security
 cask "signal"
 # PDF reader and note-taking application
