@@ -268,6 +268,8 @@ brew "stefanprodan/tap/timoni", trusted: true
 cask "adobe-acrobat-reader"
 # Automatic tiling window manager similar to xmonad
 cask "amethyst"
+# Memory training application
+cask "anki"
 # Official eID-Client of the Federal Government of Germany
 cask "ausweisapp"
 # Web browser focusing on privacy
