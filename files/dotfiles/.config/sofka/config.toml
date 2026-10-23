@@ -39,3 +39,34 @@ columns = [
   { name = "%CPU/R", metric = "cpu-request-utilization", wide = true },
   { name = "%CPU/L", metric = "cpu-limit-utilization", wide = true },
 ]
+
+[[plugins]]
+name = "node-shell"
+args = ["$CONTEXT", "$NAME"]
+command = 'kubectl node-shell --context "$1" "$2"'
+shell = true
+key = "H"
+mutating = true
+scopes = ["nodes"]
+
+[[plugins]]
+name = "remove-finalizers"
+args = [
+  "patch",
+  "--context",
+  "$CONTEXT",
+  "--namespace",
+  "$NAMESPACE",
+  "$RESOURCE.$GROUP",
+  "$NAME",
+  "-p",
+  '{"metadata":{"finalizers":null}}',
+  "--type",
+  "merge",
+]
+command = "kubectl"
+confirm = true
+dangerous = true
+key = "ctrl-g"
+mutating = true
+output = "popup"
