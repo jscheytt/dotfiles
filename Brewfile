@@ -250,7 +250,7 @@ brew "zoxide"
 brew "zsh"
 # The kubectx for operators.
 brew "danielfoehrkn/switch/switch", trusted: true
-# Flux CLI
+# CLI for GitOps continuous delivery
 brew "fluxcd/tap/flux", trusted: true
 # Packer
 brew "hashicorp/tap/packer", trusted: true
