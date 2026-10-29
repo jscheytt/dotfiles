@@ -21,3 +21,5 @@ Applies whenever you create or update a repository's CLAUDE.md/AGENTS.md pair, w
 * In lists, use a colon between a term and its description instead of a dash.
 * List items and code fences are otherwise unaffected by the one-sentence-per-line rule.
 * Before finishing, run `markdownlint -c ~/.markdownlintrc <file>` and fix every finding until it prints nothing.
+
+@RTK.md

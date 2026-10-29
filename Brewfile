@@ -4,6 +4,7 @@ tap "hashicorp/tap", trusted: true
 tap "nklmilojevic/sofka"
 tap "oven-sh/bun", trusted: true
 tap "robusta-dev/krr"
+tap "rtk-ai/tap"
 tap "sdkman/tap"
 tap "stefanprodan/tap", trusted: true
 # Simple, modern, secure file encryption
@@ -260,6 +261,8 @@ brew "nklmilojevic/sofka/sofka", trusted: true
 brew "oven-sh/bun/bun", trusted: true
 # Kubernetes Resource Recommender by Robusta
 brew "robusta-dev/krr/krr", trusted: true
+# Rust Token Killer - High-performance CLI proxy to minimize LLM token consumption
+brew "rtk-ai/tap/rtk", trusted: true
 # SDKMAN! the Software Development Kit Manager
 brew "sdkman/tap/sdkman-cli", trusted: true
 # Package manager for Kubernetes powered by CUE
