@@ -4,6 +4,8 @@ export PATH="/opt/homebrew/bin:$PATH"
 input=$(cat)
 q() { echo "$input" | jq -r "$1 // empty"; }
 c() { printf '\033[%sm%s\033[0m' "$1" "$2"; }
+# OSC 8 hyperlink (plain text when URL is empty): link URL TEXT.
+link() { [ -n "$1" ] && printf '\033]8;;%s\033\\%s\033]8;;\033\\' "$1" "$2" || printf '%s' "$2"; }
 
 # Usage percentage colored green/yellow/red by threshold, plus a dim detail.
 pct() {
@@ -39,7 +41,7 @@ cwd=$(q '.workspace.current_dir')
 branch=$(git --no-optional-locks -C "$cwd" branch --show-current 2>/dev/null)
 if [ -n "$branch" ]; then
   jira=$(echo "$branch" | grep -oE '[A-Z][A-Z0-9]+-[0-9]+' | head -n1)
-  [ -n "$jira" ] && add "$(c 35 "$jira")"
+  [ -n "$jira" ] && add "$(link "https://team-schaefer-shop.atlassian.net/browse/$jira" "$(c 35 "$jira")")"
 
   # MR lookup cached 5 min per repo+branch; refresh runs in background.
   key=$(printf '%s|%s' "$cwd" "$branch" | cksum | cut -d' ' -f1)
@@ -49,13 +51,15 @@ if [ -n "$branch" ]; then
     (
       cd "$cwd" 2>/dev/null || exit 0
       r=$(timeout 20 glab mr list --source-branch "$branch" -F json 2>/dev/null |
-        jq -r 'if length == 0 then "" elif length == 1 then "!\(.[0].iid)" else "\(length) MRs" end' 2>/dev/null)
+        jq -r --arg b "$branch" 'if length == 0 then ""
+          elif length == 1 then "!\(.[0].iid)\t\(.[0].web_url)"
+          else "\(length) MRs\t\(.[0].web_url | sub("/-/merge_requests/.*"; ""))/-/merge_requests?source_branch=\($b | @uri)" end' 2>/dev/null)
       printf '%s' "$r" >"$cache.tmp" && mv "$cache.tmp" "$cache"
     ) >/dev/null 2>&1 &
     disown 2>/dev/null
   fi
-  mr=$(cat "$cache" 2>/dev/null)
-  [ -n "$mr" ] && add "$(c 34 "$mr")"
+  IFS=$'\t' read -r mr mr_url <"$cache" 2>/dev/null
+  [ -n "$mr" ] && add "$(link "$mr_url" "$(c 34 "$mr")")"
 fi
 
 res=""
