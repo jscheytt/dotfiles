@@ -102,6 +102,9 @@ _evalcache zoxide init zsh
 _evalcache fnm env --use-on-cd
 # eval "$(fnm env --use-on-cd)"
 
+# Caveman CLI lives in its own npm prefix so it survives Node.js version switches
+export PATH="$HOME/.caveman/cli/bin:$PATH"
+
 # Set starting directory of new terminals (not new tabs)
 export START=~/Documents
 if [[ $PWD == $HOME ]]; then
