@@ -65,7 +65,7 @@ tasks:
     vars:
       PLAYBOOK: main.yml
       ANSIBLE_PYTHON_INTERPRETER:
-        sh: which python3
+        sh: uv python find
     # Force buffering to stdout.
     # Somehow, PYTHONUNBUFFERED did not help.
     interactive: true
