@@ -26,12 +26,12 @@ Linting (also run by CI via MegaLinter and by the pre-commit hook on staged YAML
 
 Running Ansible directly (task `run` wraps this):
 The playbook is invoked with `uv run ansible-playbook`, so always prefix Ansible commands with `uv run`.
-Target a single concern with `--tags` (available tags: `homebrew`, `macos`, `oh-my-zsh`, `dotfiles`, `neovim`), e.g. `task run -- --tags neovim`.
+Target a single concern with `--tags` (available tags: `homebrew`, `macos`, `oh-my-zsh`, `dotfiles`, `neovim`, `caveman`), e.g. `task run -- --tags neovim`.
 
 ## Architecture
 
 - `main.yml` is the single playbook targeting `localhost` (see `inventory`, which uses `ansible_connection=local`). It applies the `geerlingguy.mac.homebrew` role, then imports task files from `tasks/` — each gated behind a tag.
-- `tasks/` holds the imported task files: `macos.yml`, `oh-my-zsh.yml`, `dotfiles.yml`, `neovim.yml`.
+- `tasks/` holds the imported task files: `macos.yml`, `oh-my-zsh.yml`, `dotfiles.yml`, `neovim.yml`, `caveman.yml`.
 - `tasks/dotfiles.yml` is the core mechanism: it recursively finds every file under `files/dotfiles/`, recreates the directory tree under `$HOME`, and **symlinks** each file into place. So editing a dotfile means editing the tracked file in `files/dotfiles/` (the `$HOME` copy is just a symlink back into this repo).
 - `files/dotfiles/` mirrors the layout of `$HOME` (e.g. `.zshrc`, `.gitconfig`, `.config/nvim/`, `.ssh/`). Add a new dotfile by placing it here at its `$HOME`-relative path.
 - Dependency sources: `Brewfile` (Homebrew, consumed by the homebrew role via `homebrew_brewfile_dir`), `pyproject.toml` + `uv.lock` (Python, via uv), and `requirements.yml` (Ansible collections and roles installed into `.ansible/`).

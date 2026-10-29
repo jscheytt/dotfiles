@@ -25,3 +25,7 @@
       ansible.builtin.import_tasks: tasks/neovim.yml
       tags:
         - neovim
+    - name: Caveman
+      ansible.builtin.import_tasks: tasks/caveman.yml
+      tags:
+        - caveman

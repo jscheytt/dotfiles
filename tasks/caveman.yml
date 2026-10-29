@@ -1,0 +1,10 @@
+# Install the Caveman CLI into its own npm prefix instead of the fnm-managed Node.js version,
+# so its absolute paths in the Claude Code hooks survive Node.js upgrades and switches.
+# Requires `export PATH="$HOME/.caveman/cli/bin:$PATH"` in .zshrc.
+- name: Install Caveman CLI
+  community.general.npm:
+    name: "@caveman-ai/cli"
+    global: true
+    state: latest
+  environment:
+    NPM_CONFIG_PREFIX: "{{ ansible_env.HOME }}/.caveman/cli"
