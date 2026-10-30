@@ -2,6 +2,8 @@ DISABLE:
   # Spell checking is too unreliable
   - SPELL
 DISABLE_LINTERS:
+  # Runs in the Ansible workflow, which uses the pinned versions and skips installed collections.
+  - ANSIBLE_ANSIBLE_LINT
   # We prefer jq automatic formatting for JSON & YAML
   - JSON_PRETTIER
   - YAML_PRETTIER
