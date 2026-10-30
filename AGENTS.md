@@ -51,4 +51,4 @@ Never commit these files or decrypted secret contents.
 - Shell indentation is 2 spaces (`.editorconfig`, and `shfmt -i 2` in MegaLinter); YAML uses 2 spaces by convention. Files end with a newline (LF) (`.editorconfig`).
 - `ansible-lint` is configured via `.ansible-lint` (the `git-latest` rule is skipped, so pinning git repos to `HEAD`/branches in tasks is allowed).
 - Dependencies are pinned and kept current by Renovate (`renovate.json`); most non-feature commits are lock-file maintenance.
-- CI runs `ansible-lint` and a playbook syntax check with the pinned Python (`.github/workflows/ansible.yml`), plus MegaLinter (`.github/workflows/lint.yml`), configured by `.mega-linter.yml`. Lua linting uses `selene`/`luacheck` (`selene.toml`, `.luacheckrc`) for NeoVim config.
+- CI runs `ansible-lint` and a playbook syntax check with the pinned Python (`.github/workflows/ansible.yml`), plus MegaLinter (`.github/workflows/lint.yml`), configured by `.mega-linter.yml`. The MegaLinter flavor has no Lua linters, so NeoVim's Lua config is only formatted with `stylua`.
