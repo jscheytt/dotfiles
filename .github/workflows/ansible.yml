@@ -1,0 +1,42 @@
+# Run Ansible with the pinned Python, which MegaLinter's own runtime cannot catch.
+# "Ansible" must be a required status check on main to block Renovate automerges.
+name: Ansible
+
+on:
+  push:
+
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  ansible:
+    name: Ansible
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9 # v7
+
+      - name: Install dependencies
+        run: |
+          uv sync --locked
+          uv run ansible-galaxy install --role-file requirements.yml
+
+      - name: Check playbook syntax
+        run: uv run ansible-playbook main.yml --inventory inventory --syntax-check
+
+      - name: Run ansible-lint
+        run: uv run ansible-lint --show-relpath
