@@ -1,16 +1,11 @@
 # CLAUDE.md
 
-## Authoring CLAUDE.md / AGENTS.md files
+## Authoring AGENTS.md files
 
-Applies whenever you create or update a repository's CLAUDE.md/AGENTS.md pair, whether via /init or manually.
+Applies whenever you create or update a repository's project instructions, whether via /init or manually.
 
-* Make CLAUDE.md exactly this three-line stub, verbatim, nothing else:
-  ```text
-  # CLAUDE.md
-
-  @AGENTS.md
-  ```
-* Put all real content in AGENTS.md instead.
+* Put all project instructions in AGENTS.md.
+* Don't create a CLAUDE.md: Claude Code reads AGENTS.md natively, and a CLAUDE.md in the repo would take precedence over it.
 * Respect an already-established different convention in a repo instead of forcing this one.
 * Title AGENTS.md with a top-level heading matching its own filename: `# AGENTS.md`.
 * Place a GitLab `[TOC]` macro directly below the H1, with a blank line above and below it.
