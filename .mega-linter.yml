@@ -16,6 +16,11 @@ DISABLE_LINTERS:
   - PYTHON_PYRIGHT
   # Too much noise. Severity threshold can only be set via API key
   - REPOSITORY_CHECKOV
+  # Slowest linter by far and overlaps with Trivy.
+  - REPOSITORY_GRYPE
+  # We do not need SBOMs.
+  - REPOSITORY_SYFT
+  - REPOSITORY_TRIVY_SBOM
 ACTION_ZIZMOR_ARGUMENTS: >-
   --min-severity high
 ACTION_ZIZMOR_UNSECURED_ENV_VARIABLES:
