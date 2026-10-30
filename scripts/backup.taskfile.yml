@@ -16,9 +16,14 @@ tasks:
   sensitive:
     desc: Back up sensitive configs to $BACKUP_DEST.
     cmds:
-      - mkdir -p "{{.BACKUP_DEST}}/ssh"
+      - mkdir -p "{{.BACKUP_DEST}}/ssh" "{{.BACKUP_DEST}}/claude"
       - rsync -av "{{.RESTORE_DEST}}/.gitconfig-work" "{{.BACKUP_DEST}}/"
       - rsync -av "{{.RESTORE_DEST}}/.ssh/private-config" "{{.BACKUP_DEST}}/ssh/"
+      - >-
+        rsync -av
+        "{{.RESTORE_DEST}}/.claude/settings.json"
+        "{{.RESTORE_DEST}}/.claude/CLAUDE.private.md"
+        "{{.BACKUP_DEST}}/claude/"
 
   bookmarks:
     desc: Back up Chrome work profile bookmarks to $BACKUP_DEST.
@@ -30,6 +35,11 @@ tasks:
   restore:
     desc: Restore sensitive configs from $BACKUP_DEST.
     cmds:
-      - mkdir -p ~/.ssh
+      - mkdir -p ~/.ssh ~/.claude
       - rsync -av "{{.BACKUP_DEST}}/.gitconfig-work" "{{.RESTORE_DEST}}/"
       - rsync -av "{{.BACKUP_DEST}}/ssh/private-config" "{{.RESTORE_DEST}}/.ssh/"
+      - >-
+        rsync -av
+        "{{.BACKUP_DEST}}/claude/settings.json"
+        "{{.BACKUP_DEST}}/claude/CLAUDE.private.md"
+        "{{.RESTORE_DEST}}/.claude/"
