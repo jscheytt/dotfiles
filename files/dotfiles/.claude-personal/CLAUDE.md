@@ -22,4 +22,11 @@ Applies whenever you create or update a repository's CLAUDE.md/AGENTS.md pair, w
 * List items and code fences are otherwise unaffected by the one-sentence-per-line rule.
 * Before finishing, run `markdownlint -c ~/.markdownlintrc <file>` and fix every finding until it prints nothing.
 
-@RTK.md
+## Working preferences (all repos)
+
+* Refactor commits: if an implementation forces a real refactor, put it in its own commit before the feature commit.
+* Empirical checks: verify infra assumptions by running things (`tofu plan`, provider schemas, a throwaway repro in a scratch dir) instead of only reasoning about them.
+* Skill corrections: when a correction to skill output reveals a structural gap in the skill's template, also patch the SKILL.md in the same turn.
+  Don't turn one-off editorial choices into rules.
+
+@~/.claude-personal/RTK.md
