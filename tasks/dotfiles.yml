@@ -31,3 +31,19 @@
     state: link
     force: true
   with_items: "{{ dotfiles.files }}"
+
+# The file-by-file symlinks above cannot share one tracked directory between two profiles.
+# Link per skill because ~/.claude-personal/skills/synced is managed by Claude Code.
+- name: Ensure personal Claude skills directory exists
+  ansible.builtin.file:
+    path: ~/.claude-personal/skills
+    state: directory
+    mode: u=rwx,go=rx
+
+- name: Share Claude skills with personal profile
+  ansible.builtin.file:
+    src: "{{ dotfiles_path }}.claude/skills/{{ item }}"
+    dest: "~/.claude-personal/skills/{{ item }}"
+    state: link
+  with_items:
+    - plan-canvas
