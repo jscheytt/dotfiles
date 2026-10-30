@@ -22,4 +22,16 @@ Applies whenever you create or update a repository's CLAUDE.md/AGENTS.md pair, w
 * List items and code fences are otherwise unaffected by the one-sentence-per-line rule.
 * Before finishing, run `markdownlint -c ~/.markdownlintrc <file>` and fix every finding until it prints nothing.
 
+## Working preferences (all repos)
+
+* Jira footers: every commit on a ticket branch gets `Resolves: <ISSUE-ID>` (closes the ticket) or `Refs: <ISSUE-ID>` (related only).
+  GitLab's Jira integration links each commit individually, so repeat it on every commit.
+* Refactor commits: if an implementation forces a real refactor, put it in its own commit before the feature commit.
+* OpenTofu applies: I apply Tofu changes myself (MR pipeline or locally).
+  You prepare, run `tofu plan` and open MRs.
+* Empirical checks: verify infra assumptions by running things (`tofu plan`, provider schemas, a throwaway repro in a scratch dir) instead of only reasoning about them.
+* Skill corrections: when a correction to skill output reveals a structural gap in the skill's template, also patch the SKILL.md in the same turn.
+  Don't turn one-off editorial choices into rules.
+
 @RTK.md
+@CLAUDE.private.md
