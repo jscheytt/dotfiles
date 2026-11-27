@@ -43,6 +43,8 @@ brew "coreutils"
 brew "cosign"
 # PDF Command-line Tools
 brew "cpdf"
+# Command-line csv viewer
+brew "csvlens"
 # Validate and define text-based and dynamic configuration
 brew "cue"
 # Get a file from an HTTP, HTTPS or FTP server
